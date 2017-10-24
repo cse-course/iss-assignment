@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IISModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SYS.DBA_PROFILES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DBA_PROFILES">
+          <Key>
+            <PropertyRef Name="PROFILE" />
+            <PropertyRef Name="RESOURCE_NAME" />
+          </Key>
+          <Property Name="PROFILE" Type="varchar2" MaxLength="128" Nullable="false" />
+          <Property Name="RESOURCE_NAME" Type="varchar2" MaxLength="32" Nullable="false" />
+          <Property Name="RESOURCE_TYPE" Type="varchar2" MaxLength="8" />
+          <Property Name="LIMIT" Type="varchar2" MaxLength="128" />
+          <Property Name="COMMON" Type="varchar2" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SYS.DBA_ROLE_PRIVS' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DBA_ROLE_PRIVS">
+          <Property Name="GRANTEE" Type="varchar2" MaxLength="128" />
+          <Property Name="GRANTED_ROLE" Type="varchar2" MaxLength="128" />
+          <Property Name="ADMIN_OPTION" Type="varchar2" MaxLength="3" />
+          <Property Name="DELEGATE_OPTION" Type="varchar2" MaxLength="3" />
+          <Property Name="DEFAULT_ROLE" Type="varchar2" MaxLength="3" />
+          <Property Name="COMMON" Type="varchar2" MaxLength="3" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SYS.DBA_SYS_PRIVS' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DBA_SYS_PRIVS">
+          <Property Name="GRANTEE" Type="varchar2" MaxLength="128" />
+          <Property Name="PRIVILEGE" Type="varchar2" MaxLength="40" />
+          <Property Name="ADMIN_OPTION" Type="varchar2" MaxLength="3" />
+          <Property Name="COMMON" Type="varchar2" MaxLength="3" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SYS.DBA_USERS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DBA_USERS">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+            <PropertyRef Name="USER_ID" />
+            <PropertyRef Name="ACCOUNT_STATUS" />
+            <PropertyRef Name="DEFAULT_TABLESPACE" />
+            <PropertyRef Name="TEMPORARY_TABLESPACE" />
+            <PropertyRef Name="CREATED" />
+            <PropertyRef Name="PROFILE" />
+          </Key>
+          <Property Name="USERNAME" Type="varchar2" MaxLength="128" Nullable="false" />
+          <Property Name="USER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="4000" />
+          <Property Name="ACCOUNT_STATUS" Type="varchar2" MaxLength="32" Nullable="false" />
+          <Property Name="LOCK_DATE" Type="date" />
+          <Property Name="EXPIRY_DATE" Type="date" />
+          <Property Name="DEFAULT_TABLESPACE" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="TEMPORARY_TABLESPACE" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="CREATED" Type="date" Nullable="false" />
+          <Property Name="PROFILE" Type="varchar2" MaxLength="128" Nullable="false" />
+          <Property Name="INITIAL_RSRC_CONSUMER_GROUP" Type="varchar2" MaxLength="128" />
+          <Property Name="EXTERNAL_NAME" Type="varchar2" MaxLength="4000" />
+          <Property Name="PASSWORD_VERSIONS" Type="varchar2" MaxLength="12" />
+          <Property Name="EDITIONS_ENABLED" Type="varchar2" MaxLength="1" />
+          <Property Name="AUTHENTICATION_TYPE" Type="varchar2" MaxLength="8" />
+          <Property Name="PROXY_ONLY_CONNECT" Type="varchar2" MaxLength="1" />
+          <Property Name="COMMON" Type="varchar2" MaxLength="3" />
+          <Property Name="LAST_LOGIN" Type="timestamp with time zone" Precision="6" />
+          <Property Name="ORACLE_MAINTAINED" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SYS.ROLE_SYS_PRIVS' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ROLE_SYS_PRIVS">
+          <Property Name="ROLE" Type="varchar2" MaxLength="128" />
+          <Property Name="PRIVILEGE" Type="varchar2" MaxLength="40" />
+          <Property Name="ADMIN_OPTION" Type="varchar2" MaxLength="3" />
+          <Property Name="COMMON" Type="varchar2" MaxLength="3" />
+        </EntityType>-->
+        <EntityContainer Name="IISModelStoreContainer">
+          <EntitySet Name="DBA_PROFILES" EntityType="Self.DBA_PROFILES" store:Type="Views" store:Schema="SYS">
+            <DefiningQuery>SELECT 
+"DBA_PROFILES"."PROFILE" AS "PROFILE", 
+"DBA_PROFILES"."RESOURCE_NAME" AS "RESOURCE_NAME", 
+"DBA_PROFILES"."RESOURCE_TYPE" AS "RESOURCE_TYPE", 
+"DBA_PROFILES"."LIMIT" AS "LIMIT", 
+"DBA_PROFILES"."COMMON" AS "COMMON"
+FROM "SYS"."DBA_PROFILES" "DBA_PROFILES"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DBA_USERS" EntityType="Self.DBA_USERS" store:Type="Views" store:Schema="SYS">
+            <DefiningQuery>SELECT 
+"DBA_USERS"."USERNAME" AS "USERNAME", 
+"DBA_USERS"."USER_ID" AS "USER_ID", 
+"DBA_USERS"."PASSWORD" AS "PASSWORD", 
+"DBA_USERS"."ACCOUNT_STATUS" AS "ACCOUNT_STATUS", 
+"DBA_USERS"."LOCK_DATE" AS "LOCK_DATE", 
+"DBA_USERS"."EXPIRY_DATE" AS "EXPIRY_DATE", 
+"DBA_USERS"."DEFAULT_TABLESPACE" AS "DEFAULT_TABLESPACE", 
+"DBA_USERS"."TEMPORARY_TABLESPACE" AS "TEMPORARY_TABLESPACE", 
+"DBA_USERS"."CREATED" AS "CREATED", 
+"DBA_USERS"."PROFILE" AS "PROFILE", 
+"DBA_USERS"."INITIAL_RSRC_CONSUMER_GROUP" AS "INITIAL_RSRC_CONSUMER_GROUP", 
+"DBA_USERS"."EXTERNAL_NAME" AS "EXTERNAL_NAME", 
+"DBA_USERS"."PASSWORD_VERSIONS" AS "PASSWORD_VERSIONS", 
+"DBA_USERS"."EDITIONS_ENABLED" AS "EDITIONS_ENABLED", 
+"DBA_USERS"."AUTHENTICATION_TYPE" AS "AUTHENTICATION_TYPE", 
+"DBA_USERS"."PROXY_ONLY_CONNECT" AS "PROXY_ONLY_CONNECT", 
+"DBA_USERS"."COMMON" AS "COMMON", 
+"DBA_USERS"."LAST_LOGIN" AS "LAST_LOGIN", 
+"DBA_USERS"."ORACLE_MAINTAINED" AS "ORACLE_MAINTAINED"
+FROM "SYS"."DBA_USERS" "DBA_USERS"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DBA_PROFILES">
+          <Key>
+            <PropertyRef Name="PROFILE" />
+            <PropertyRef Name="RESOURCE_NAME" />
+          </Key>
+          <Property Name="PROFILE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESOURCE_NAME" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESOURCE_TYPE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LIMIT" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="COMMON" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DBA_USERS">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+            <PropertyRef Name="USER_ID" />
+            <PropertyRef Name="ACCOUNT_STATUS" />
+            <PropertyRef Name="DEFAULT_TABLESPACE" />
+            <PropertyRef Name="TEMPORARY_TABLESPACE" />
+            <PropertyRef Name="CREATED" />
+            <PropertyRef Name="PROFILE" />
+          </Key>
+          <Property Name="USERNAME" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USER_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ACCOUNT_STATUS" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOCK_DATE" Type="DateTime" />
+          <Property Name="EXPIRY_DATE" Type="DateTime" />
+          <Property Name="DEFAULT_TABLESPACE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TEMPORARY_TABLESPACE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Nullable="false" />
+          <Property Name="PROFILE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INITIAL_RSRC_CONSUMER_GROUP" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="EXTERNAL_NAME" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD_VERSIONS" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="EDITIONS_ENABLED" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AUTHENTICATION_TYPE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="PROXY_ONLY_CONNECT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="COMMON" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_LOGIN" Type="DateTimeOffset" Precision="9" />
+          <Property Name="ORACLE_MAINTAINED" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="IISEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DBA_PROFILES" EntityType="Self.DBA_PROFILES" />
+          <EntitySet Name="DBA_USERS" EntityType="Self.DBA_USERS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IISModelStoreContainer" CdmEntityContainer="IISEntities">
+          <EntitySetMapping Name="DBA_PROFILES">
+            <EntityTypeMapping TypeName="IISModel.DBA_PROFILES">
+              <MappingFragment StoreEntitySet="DBA_PROFILES">
+                <ScalarProperty Name="PROFILE" ColumnName="PROFILE" />
+                <ScalarProperty Name="RESOURCE_NAME" ColumnName="RESOURCE_NAME" />
+                <ScalarProperty Name="RESOURCE_TYPE" ColumnName="RESOURCE_TYPE" />
+                <ScalarProperty Name="LIMIT" ColumnName="LIMIT" />
+                <ScalarProperty Name="COMMON" ColumnName="COMMON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DBA_USERS">
+            <EntityTypeMapping TypeName="IISModel.DBA_USERS">
+              <MappingFragment StoreEntitySet="DBA_USERS">
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="ACCOUNT_STATUS" ColumnName="ACCOUNT_STATUS" />
+                <ScalarProperty Name="LOCK_DATE" ColumnName="LOCK_DATE" />
+                <ScalarProperty Name="EXPIRY_DATE" ColumnName="EXPIRY_DATE" />
+                <ScalarProperty Name="DEFAULT_TABLESPACE" ColumnName="DEFAULT_TABLESPACE" />
+                <ScalarProperty Name="TEMPORARY_TABLESPACE" ColumnName="TEMPORARY_TABLESPACE" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="PROFILE" ColumnName="PROFILE" />
+                <ScalarProperty Name="INITIAL_RSRC_CONSUMER_GROUP" ColumnName="INITIAL_RSRC_CONSUMER_GROUP" />
+                <ScalarProperty Name="EXTERNAL_NAME" ColumnName="EXTERNAL_NAME" />
+                <ScalarProperty Name="PASSWORD_VERSIONS" ColumnName="PASSWORD_VERSIONS" />
+                <ScalarProperty Name="EDITIONS_ENABLED" ColumnName="EDITIONS_ENABLED" />
+                <ScalarProperty Name="AUTHENTICATION_TYPE" ColumnName="AUTHENTICATION_TYPE" />
+                <ScalarProperty Name="PROXY_ONLY_CONNECT" ColumnName="PROXY_ONLY_CONNECT" />
+                <ScalarProperty Name="COMMON" ColumnName="COMMON" />
+                <ScalarProperty Name="LAST_LOGIN" ColumnName="LAST_LOGIN" />
+                <ScalarProperty Name="ORACLE_MAINTAINED" ColumnName="ORACLE_MAINTAINED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
