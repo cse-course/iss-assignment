@@ -12,44 +12,44 @@ namespace DAL
          where TEntity : class
          where TKey : struct
     {
-        protected readonly DbContext Context;
-        public Repository(DbContext Context)
+        protected readonly DbContext context;
+        public Repository(DbContext context)
         {
-            this.Context = Context;
+            this.context = context;
         }
         public void Add(TEntity Entity)
         {
-            Context.Set<TEntity>().Add(Entity);
+            context.Set<TEntity>().Add(Entity);
         }
 
         public void AddRange(IEnumerable<TEntity> Entities)
         {
-            Context.Set<TEntity>().AddRange(Entities);
+            context.Set<TEntity>().AddRange(Entities);
         }
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> Predicate)
         {
-            return Context.Set<TEntity>().Where(Predicate);
+            return context.Set<TEntity>().Where(Predicate);
         }
 
         public TEntity Get(TKey Key)
         {
-            return Context.Set<TEntity>().Find(Key);
+            return context.Set<TEntity>().Find(Key);
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            return Context.Set<TEntity>().ToList();
+            return context.Set<TEntity>().ToList();
         }
 
         public void Remove(TEntity Entity)
         {
-            Context.Set<TEntity>().Remove(Entity);
+            context.Set<TEntity>().Remove(Entity);
         }
 
         public void RemoveRange(IEnumerable<TEntity> Entities)
         {
-            Context.Set<TEntity>().RemoveRange(Entities);
+            context.Set<TEntity>().RemoveRange(Entities);
         }
     }
 }

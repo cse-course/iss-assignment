@@ -10,18 +10,18 @@ namespace DAL
 {
     public abstract class ClassicRepository
     {
-        protected readonly DbContext Context;
+        protected readonly DbContext context;
 
         public ClassicRepository(DbContext context)
         {
-            Context = context;
+            this.context = context;
         }
 
         protected DataSet GetDataSet(string sql, CommandType commandType, Dictionary<string, Object> parameters)
         {
             var result = new DataSet();
 
-            var cmd = this.Context.Database.Connection.CreateCommand();
+            var cmd = this.context.Database.Connection.CreateCommand();
             cmd.CommandType = commandType;
             cmd.CommandText = sql;
 
@@ -35,7 +35,7 @@ namespace DAL
 
             try
             {
-                this.Context.Database.Connection.Open();
+                this.context.Database.Connection.Open();
                 var reader = cmd.ExecuteReader();
 
                 do
@@ -48,7 +48,7 @@ namespace DAL
             }
             finally
             {
-                this.Context.Database.Connection.Close();
+                this.context.Database.Connection.Close();
             }
             return result;
         }

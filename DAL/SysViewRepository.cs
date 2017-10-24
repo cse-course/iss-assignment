@@ -28,11 +28,11 @@ namespace DAL
         public DataSet RolePrivilegeUser()
         {
             string sql = @"
-                        SELECT 
-                            ROLE, PRIVILEGE, GRANTEE 
-                        FROM SYS.ROLE_SYS_PRIVS S 
-                        LEFT OUTER JOIN SYS.DBA_ROLE_PRIVS R ON S.ROLE = R.GRANTED_ROLE
-                        ";
+                    SELECT 
+                        ROLE, PRIVILEGE, GRANTEE 
+                    FROM SYS.ROLE_SYS_PRIVS S 
+                    LEFT OUTER JOIN SYS.DBA_ROLE_PRIVS R ON S.ROLE = R.GRANTED_ROLE
+                    ";
             return this.GetDataSet(sql);
         }
 

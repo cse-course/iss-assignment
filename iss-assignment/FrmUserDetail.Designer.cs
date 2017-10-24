@@ -34,10 +34,14 @@
             // 
             // DgvUserDetail
             // 
+            this.DgvUserDetail.AllowUserToAddRows = false;
+            this.DgvUserDetail.AllowUserToDeleteRows = false;
+            this.DgvUserDetail.AllowUserToOrderColumns = true;
             this.DgvUserDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUserDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvUserDetail.Location = new System.Drawing.Point(0, 0);
             this.DgvUserDetail.Name = "DgvUserDetail";
+            this.DgvUserDetail.ReadOnly = true;
             this.DgvUserDetail.RowTemplate.Height = 24;
             this.DgvUserDetail.Size = new System.Drawing.Size(710, 457);
             this.DgvUserDetail.TabIndex = 0;
