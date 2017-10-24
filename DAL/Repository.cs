@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class Repository<TEntity, TKey> : IRepository<TEntity, TKey>
+    public abstract class Repository<TEntity, TKey> : IRepository<TEntity, TKey>
          where TEntity : class
          where TKey : struct
     {
