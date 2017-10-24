@@ -18,6 +18,7 @@ namespace iss_assignment
         private readonly DbContext context;
 
         private readonly SysViewBLL sysViewBLL;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -28,7 +29,39 @@ namespace iss_assignment
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void UserPrifilegeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             FrmUserPrivilege user = new FrmUserPrivilege(this.sysViewBLL)
+            {
+                MdiParent = this
+            };
+            user.Show();
+        }
+
+        private void UserDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUserDetail user = new FrmUserDetail(this.sysViewBLL)
+            {
+                MdiParent = this
+            };
+            user.Show();
+        }
+
+        private void ProfileResourceUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmProfileResourceUser user = new FrmProfileResourceUser(this.sysViewBLL)
+            {
+                MdiParent = this
+            };
+            user.Show();
+        }
+
+        private void RolePrivilegeUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRolePrivilegeUser user = new FrmRolePrivilegeUser(this.sysViewBLL)
             {
                 MdiParent = this
             };

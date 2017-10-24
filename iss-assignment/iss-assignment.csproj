@@ -66,6 +66,24 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProfileResourceUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProfileResourceUser.Designer.cs">
+      <DependentUpon>FrmProfileResourceUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRolePrivilegeUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRolePrivilegeUser.Designer.cs">
+      <DependentUpon>FrmRolePrivilegeUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUserDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserDetail.Designer.cs">
+      <DependentUpon>FrmUserDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUserPrivilege.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +94,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProfileResourceUser.resx">
+      <DependentUpon>FrmProfileResourceUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRolePrivilegeUser.resx">
+      <DependentUpon>FrmRolePrivilegeUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserDetail.resx">
+      <DependentUpon>FrmUserDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserPrivilege.resx">
       <DependentUpon>FrmUserPrivilege.cs</DependentUpon>
