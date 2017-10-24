@@ -16,13 +16,23 @@ namespace DAL
 
         public DataSet ProfileResourceUser()
         {
-            string sql = "SELECT PROFILE, RESOURCE_NAME, USERNAME FROM SYS.DBA_PROFILES P LEFT OUTER JOIN SYS.DBA_USERS U USING (PROFILE)";
+            string sql = @"
+                    SELECT 
+                        PROFILE, RESOURCE_NAME, USERNAME 
+                    FROM SYS.DBA_PROFILES P 
+                    LEFT OUTER JOIN SYS.DBA_USERS U USING (PROFILE)
+                    ";
             return this.GetDataSet(sql);
         }
 
         public DataSet RolePrivilegeUser()
         {
-            string sql = "SELECT ROLE, PRIVILEGE, GRANTEE FROM SYS.ROLE_SYS_PRIVS S LEFT OUTER JOIN SYS.DBA_ROLE_PRIVS R ON S.ROLE = R.GRANTED_ROLE";
+            string sql = @"
+                        SELECT 
+                            ROLE, PRIVILEGE, GRANTEE 
+                        FROM SYS.ROLE_SYS_PRIVS S 
+                        LEFT OUTER JOIN SYS.DBA_ROLE_PRIVS R ON S.ROLE = R.GRANTED_ROLE
+                        ";
             return this.GetDataSet(sql);
         }
 

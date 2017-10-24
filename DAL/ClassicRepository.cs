@@ -60,7 +60,7 @@ namespace DAL
 
         protected DataSet GetDataSet(string sql)
         {
-            return this.GetDataSet(sql, CommandType.Text, new Dictionary<String, Object>());
+            return this.GetDataSet(sql, CommandType.Text);
         }
     }
 }
