@@ -29,6 +29,14 @@ namespace iss_assignment
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            //full screen
+            this.WindowState = FormWindowState.Maximized;
+
+            FrmUserLogin login = new FrmUserLogin
+            {
+                MdiParent = this
+            };
+            login.Show();
 
         }
 
