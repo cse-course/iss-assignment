@@ -21,5 +21,9 @@ namespace BLL
         {
             return user.GetAll();
         }
+        public IEnumerable<USER_MANAGEMENT> GetUserInfo()
+        {
+            return this.user.Find(u => u.USERNAME.Equals("dev"));
+        }
     }
 }

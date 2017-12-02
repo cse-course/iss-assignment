@@ -29,7 +29,7 @@ namespace DAL
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> Predicate)
         {
-            return context.Set<TEntity>().Where(Predicate);
+            return context.Set<TEntity>().Where(Predicate).ToList();
         }
 
         public TEntity Get(TKey Key)
