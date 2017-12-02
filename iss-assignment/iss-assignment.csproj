@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="User\FrmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FrmAddUser.Designer.cs">
+      <DependentUpon>FrmAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,10 +96,10 @@
     <Compile Include="FrmUserDetail.Designer.cs">
       <DependentUpon>FrmUserDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUserInfo.cs">
+    <Compile Include="User\frmUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUserInfo.Designer.cs">
+    <Compile Include="User\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUserLogin.cs">
@@ -102,10 +108,10 @@
     <Compile Include="FrmUserLogin.Designer.cs">
       <DependentUpon>FrmUserLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUserManagerment.cs">
+    <Compile Include="User\FrmUserManagerment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUserManagerment.Designer.cs">
+    <Compile Include="User\FrmUserManagerment.Designer.cs">
       <DependentUpon>FrmUserManagerment.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUserPrivilege.cs">
@@ -116,6 +122,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="User\FrmAddUser.resx">
+      <DependentUpon>FrmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,13 +140,13 @@
     <EmbeddedResource Include="FrmUserDetail.resx">
       <DependentUpon>FrmUserDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUserInfo.resx">
+    <EmbeddedResource Include="User\frmUserInfo.resx">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserLogin.resx">
       <DependentUpon>FrmUserLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUserManagerment.resx">
+    <EmbeddedResource Include="User\FrmUserManagerment.resx">
       <DependentUpon>FrmUserManagerment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserPrivilege.resx">
@@ -176,5 +185,6 @@
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

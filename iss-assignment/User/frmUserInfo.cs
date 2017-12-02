@@ -81,7 +81,7 @@ namespace iss_assignment
             user.EMAIL = txtEmail.Text;
             user.FULL_NAME = txtFullname.Text;
             user.PHONE = txtPhone.Text;
-            this.view.Save(user);
+            this.view.Update(user);
             ClearText();
             LoadData();
             LoadViewMode();

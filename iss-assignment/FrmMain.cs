@@ -21,6 +21,8 @@ namespace iss_assignment
 
         private readonly UserManagementBLL userManagementBLL;
 
+        private readonly UserManagementClassicBLL userManagementClassicBLL;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace iss_assignment
             this.sysViewBLL = new SysViewBLL(this.context);
 
             this.userManagementBLL = new UserManagementBLL(this.context);
+            this.userManagementClassicBLL = new UserManagementClassicBLL(this.context);
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -97,6 +100,15 @@ namespace iss_assignment
             };
             user.Show();
 
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddUser user = new FrmAddUser(this.userManagementBLL, this.userManagementClassicBLL)
+            {
+                MdiParent = this
+            };
+            user.Show();
         }
     }
 }

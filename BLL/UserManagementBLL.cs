@@ -25,9 +25,17 @@ namespace BLL
         {
             return this.repository.Find(u => u.USERNAME.Equals(Username));
         }
-        public void Save(USER_MANAGEMENT user)
+        public void Update(USER_MANAGEMENT user)
         {
             this.repository.Update(user);
+        }
+        public void Add(USER_MANAGEMENT user)
+        {
+            this.repository.Add(user);
+        }
+        public void Remove(USER_MANAGEMENT user)
+        {
+            this.repository.Remove(user);
         }
     }
 }

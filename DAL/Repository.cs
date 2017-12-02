@@ -20,6 +20,7 @@ namespace DAL
         public void Add(TEntity Entity)
         {
             context.Set<TEntity>().Add(Entity);
+            context.SaveChanges();
         }
 
         public void AddRange(IEnumerable<TEntity> Entities)
@@ -45,11 +46,13 @@ namespace DAL
         public void Remove(TEntity Entity)
         {
             context.Set<TEntity>().Remove(Entity);
+            context.SaveChanges();
         }
 
         public void RemoveRange(IEnumerable<TEntity> Entities)
         {
             context.Set<TEntity>().RemoveRange(Entities);
+            context.SaveChanges();
         }
 
         public void Update(TEntity Entity)
