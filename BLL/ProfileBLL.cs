@@ -11,6 +11,7 @@ namespace BLL
     {
         public Profile Add(Profile profile)
         {
+            
             throw new NotImplementedException();
         }
 
