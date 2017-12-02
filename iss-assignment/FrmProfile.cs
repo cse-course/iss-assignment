@@ -13,10 +13,11 @@ namespace iss_assignment
 {
     public partial class FrmProfile : Form
     {
-        private readonly ProfileBLL profileBBL;
-        public FrmProfile(ProfileBLL profileBBL)
+        private readonly ProfileBLL profileBLL;
+
+        public FrmProfile(ProfileBLL profileBLL)
         {
-            this.profileBBL = profileBBL;
+            this.profileBLL = profileBLL;
             InitializeComponent();
         }
 
