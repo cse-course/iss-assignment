@@ -88,5 +88,15 @@ namespace iss_assignment
             };
             user.Show();
         }
+
+        private void oneUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo user = new frmUserInfo(this.userManagementBLL)
+            {
+                MdiParent = this
+            };
+            user.Show();
+
+        }
     }
 }

@@ -36,6 +36,7 @@
             this.rolePrivilegeUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oneUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,7 +95,8 @@
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showAllToolStripMenuItem});
+            this.showAllToolStripMenuItem,
+            this.oneUserToolStripMenuItem});
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.userToolStripMenuItem.Text = "User";
@@ -106,6 +108,13 @@
             this.showAllToolStripMenuItem.Text = "Show All";
             this.showAllToolStripMenuItem.Click += new System.EventHandler(this.showAllToolStripMenuItem_Click);
             // 
+            // oneUserToolStripMenuItem
+            // 
+            this.oneUserToolStripMenuItem.Name = "oneUserToolStripMenuItem";
+            this.oneUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oneUserToolStripMenuItem.Text = "One User";
+            this.oneUserToolStripMenuItem.Click += new System.EventHandler(this.oneUserToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,7 +123,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmMain";
             this.Text = "IIS Assignment";
             this.Load += new System.EventHandler(this.FrmMain_Load);
@@ -135,6 +144,7 @@
         private System.Windows.Forms.ToolStripMenuItem rolePrivilegeUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oneUserToolStripMenuItem;
     }
 }
 

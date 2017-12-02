@@ -22,8 +22,7 @@ namespace iss_assignment
 
         private void FrmUserManagerment_Load(object sender, EventArgs e)
         {
-            //this.DgvUserManagerment.DataSource = this.view.GetAll();
-            this.DgvUserManagerment.DataSource = this.view.GetUserInfo();
+            this.DgvUserManagerment.DataSource = this.view.GetAll();
         }
     }
 }

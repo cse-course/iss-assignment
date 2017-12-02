@@ -51,5 +51,11 @@ namespace DAL
         {
             context.Set<TEntity>().RemoveRange(Entities);
         }
+
+        public void Update(TEntity Entity)
+        {
+            context.Entry(Entity).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+        }
     }
 }

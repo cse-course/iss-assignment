@@ -11,19 +11,23 @@ namespace BLL
 {
     public class UserManagementBLL
     {
-        private UserManagementRepository user;
+        private UserManagementRepository repository;
 
         public UserManagementBLL(DbContext context)
         {
-            this.user = new UserManagementRepository(context);
+            this.repository = new UserManagementRepository(context);
         }
         public IEnumerable<USER_MANAGEMENT> GetAll()
         {
-            return user.GetAll();
+            return repository.GetAll();
         }
-        public IEnumerable<USER_MANAGEMENT> GetUserInfo()
+        public IEnumerable<USER_MANAGEMENT> GetUserInfo(String Username)
         {
-            return this.user.Find(u => u.USERNAME.Equals("dev"));
+            return this.repository.Find(u => u.USERNAME.Equals(Username));
+        }
+        public void Save(USER_MANAGEMENT user)
+        {
+            this.repository.Update(user);
         }
     }
 }
