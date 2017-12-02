@@ -12,5 +12,6 @@ namespace DAL
         public UserManagementRepository(DbContext context) : base(context)
         {
         }
+  
     }
 }

@@ -27,7 +27,6 @@ namespace iss_assignment
 
             this.context = new IISEntities();
             this.sysViewBLL = new SysViewBLL(this.context);
-
             this.userManagementBLL = new UserManagermentBLL(this.context);
         }
 
