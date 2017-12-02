@@ -90,6 +90,12 @@
     <Compile Include="FrmUserLogin.Designer.cs">
       <DependentUpon>FrmUserLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUserManagerment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserManagerment.Designer.cs">
+      <DependentUpon>FrmUserManagerment.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUserPrivilege.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserLogin.resx">
       <DependentUpon>FrmUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserManagerment.resx">
+      <DependentUpon>FrmUserManagerment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserPrivilege.resx">
       <DependentUpon>FrmUserPrivilege.cs</DependentUpon>

@@ -25,5 +25,10 @@ namespace iss_assignment
             DataSet data = this.view.RolePrivilegeUser();
             this.DgvRolePrivilegeUser.DataSource = data.Tables[0];
         }
+
+        private void DgvRolePrivilegeUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

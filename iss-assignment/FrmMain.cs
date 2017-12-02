@@ -19,12 +19,16 @@ namespace iss_assignment
 
         private readonly SysViewBLL sysViewBLL;
 
+        private readonly UserManagermentBLL userManagementBLL;
+
         public FrmMain()
         {
             InitializeComponent();
 
             this.context = new IISEntities();
             this.sysViewBLL = new SysViewBLL(this.context);
+
+            this.userManagementBLL = new UserManagermentBLL(this.context);
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -70,6 +74,15 @@ namespace iss_assignment
         private void RolePrivilegeUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmRolePrivilegeUser user = new FrmRolePrivilegeUser(this.sysViewBLL)
+            {
+                MdiParent = this
+            };
+            user.Show();
+        }
+
+        private void showAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUserManagerment user = new FrmUserManagerment(this.userManagementBLL)
             {
                 MdiParent = this
             };
