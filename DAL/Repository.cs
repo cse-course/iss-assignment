@@ -10,7 +10,7 @@ namespace DAL
 {
     public abstract class Repository<TEntity, TKey> : IRepository<TEntity, TKey>
          where TEntity : class
-         where TKey : struct
+         where TKey : class
     {
         protected readonly DbContext context;
         public Repository(DbContext context)
