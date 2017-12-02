@@ -12,12 +12,14 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class DBA_PROFILES
+    public partial class USER_MANAGEMENT
     {
-        public string PROFILE { get; set; }
-        public string RESOURCE_NAME { get; set; }
-        public string RESOURCE_TYPE { get; set; }
-        public string LIMIT { get; set; }
-        public string COMMON { get; set; }
+        public string USERNAME { get; set; }
+        public string EMAIL { get; set; }
+        public string PASSWORD { get; set; }
+        public string FULL_NAME { get; set; }
+        public string PHONE { get; set; }
+        public string ADDRESS { get; set; }
+        public Nullable<System.DateTime> CREATE_TIME { get; set; }
     }
 }

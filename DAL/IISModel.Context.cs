@@ -25,7 +25,6 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<DBA_PROFILES> DBA_PROFILES { get; set; }
-        public virtual DbSet<DBA_USERS> DBA_USERS { get; set; }
+        public virtual DbSet<USER_MANAGEMENT> USER_MANAGEMENT { get; set; }
     }
 }
