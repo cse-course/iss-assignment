@@ -19,7 +19,7 @@ namespace iss_assignment
 
         private readonly SysViewBLL sysViewBLL;
 
-        private readonly UserManagermentBLL userManagementBLL;
+        private readonly UserManagementBLL userManagementBLL;
 
         public FrmMain()
         {
@@ -28,7 +28,7 @@ namespace iss_assignment
             this.context = new IISEntities();
             this.sysViewBLL = new SysViewBLL(this.context);
 
-            this.userManagementBLL = new UserManagermentBLL(this.context);
+            this.userManagementBLL = new UserManagementBLL(this.context);
         }
 
         private void FrmMain_Load(object sender, EventArgs e)

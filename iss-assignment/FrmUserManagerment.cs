@@ -13,8 +13,8 @@ namespace iss_assignment
 {
     public partial class FrmUserManagerment : Form
     {
-        private readonly UserManagermentBLL view;
-        public FrmUserManagerment(UserManagermentBLL view)
+        private readonly UserManagementBLL view;
+        public FrmUserManagerment(UserManagementBLL view)
         {
             this.view = view;
             InitializeComponent();

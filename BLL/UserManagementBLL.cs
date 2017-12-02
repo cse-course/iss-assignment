@@ -9,11 +9,11 @@ using System.Data;
 
 namespace BLL
 {
-    public class UserManagermentBLL
+    public class UserManagementBLL
     {
         private UserManagementRepository user;
 
-        public UserManagermentBLL(DbContext context)
+        public UserManagementBLL(DbContext context)
         {
             this.user = new UserManagementRepository(context);
         }
