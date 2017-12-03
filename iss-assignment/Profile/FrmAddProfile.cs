@@ -36,6 +36,12 @@ namespace iss_assignment
             this.SetValue(ProfileValue.DEFAULT);
         }
 
+        private void SetUnlimited()
+        {
+            this.SetValue(ProfileValue.UNLIMITED);
+            this.TxtPasswordVerifyFunction.Text = ProfileValue.NULL;
+        }
+
         private void SetValue(String value)
         {
 
@@ -91,6 +97,11 @@ namespace iss_assignment
                 .Build();
 
             this.profileBLL.Add(profile);
+        }
+
+        private void BtnUnlimited_Click(object sender, EventArgs e)
+        {
+            this.SetUnlimited();
         }
     }
 }

@@ -185,5 +185,6 @@ namespace Model
     {
         public static string DEFAULT = "DEFAULT";
         public static string UNLIMITED = "UNLIMITED";
+        public static string NULL = "NULL";
     }
 }
