@@ -41,10 +41,9 @@ namespace BLL
             this.repository.Update(profile.QueryUpdate);
             return profile;
         }
-
         public List<Profile> View()
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         public Profile View(string profile)
@@ -78,6 +77,5 @@ namespace BLL
             return result;
         }
 
-       
     }
 }

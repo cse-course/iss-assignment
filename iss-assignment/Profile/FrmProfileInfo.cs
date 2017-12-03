@@ -93,10 +93,12 @@ namespace iss_assignment
             if (this.profile != null)
             {
                 this.profileBLL.Update(profile);
+                MessageBox.Show(String.Join(" ", "Update profile", profile.Name, "sucessfull!"));
             }
             else
             {
                 this.profileBLL.Add(profile);
+                MessageBox.Show(String.Join(" ", "Add profile", profile.Name, "sucessfull!"));
             }
         }
 

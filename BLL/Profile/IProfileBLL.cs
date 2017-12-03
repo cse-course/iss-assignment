@@ -14,9 +14,9 @@ namespace BLL
 
         Profile Update(Profile profile);
 
-        Boolean Remove(Profile proile);
+        Boolean Remove(Profile profile);
 
-        Boolean RemoveCascade(Profile proile);
+        Boolean RemoveCascade(Profile profile);
 
         List<Profile> View();
 
