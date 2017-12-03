@@ -1,6 +1,6 @@
 ﻿namespace iss_assignment
 {
-    partial class FrmAddProfile
+    partial class FrmProfileInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -68,6 +68,7 @@
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnDefault = new System.Windows.Forms.Button();
             this.BtnUnlimited = new System.Windows.Forms.Button();
+            this.BtnClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -408,33 +409,43 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(360, 681);
+            this.BtnSave.Location = new System.Drawing.Point(399, 681);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(122, 43);
-            this.BtnSave.TabIndex = 20;
+            this.BtnSave.Size = new System.Drawing.Size(113, 43);
+            this.BtnSave.TabIndex = 21;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnDefault
             // 
-            this.BtnDefault.Location = new System.Drawing.Point(44, 681);
+            this.BtnDefault.Location = new System.Drawing.Point(143, 681);
             this.BtnDefault.Name = "BtnDefault";
-            this.BtnDefault.Size = new System.Drawing.Size(122, 43);
-            this.BtnDefault.TabIndex = 18;
+            this.BtnDefault.Size = new System.Drawing.Size(113, 43);
+            this.BtnDefault.TabIndex = 19;
             this.BtnDefault.Text = "Default";
             this.BtnDefault.UseVisualStyleBackColor = true;
             this.BtnDefault.Click += new System.EventHandler(this.BtnDefault_Click);
             // 
             // BtnUnlimited
             // 
-            this.BtnUnlimited.Location = new System.Drawing.Point(200, 681);
+            this.BtnUnlimited.Location = new System.Drawing.Point(271, 681);
             this.BtnUnlimited.Name = "BtnUnlimited";
-            this.BtnUnlimited.Size = new System.Drawing.Size(122, 43);
-            this.BtnUnlimited.TabIndex = 19;
+            this.BtnUnlimited.Size = new System.Drawing.Size(113, 43);
+            this.BtnUnlimited.TabIndex = 20;
             this.BtnUnlimited.Text = "Unlimited";
             this.BtnUnlimited.UseVisualStyleBackColor = true;
             this.BtnUnlimited.Click += new System.EventHandler(this.BtnUnlimited_Click);
+            // 
+            // BtnClear
+            // 
+            this.BtnClear.Location = new System.Drawing.Point(12, 681);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(113, 43);
+            this.BtnClear.TabIndex = 18;
+            this.BtnClear.Text = "Clear";
+            this.BtnClear.UseVisualStyleBackColor = true;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // FrmAddProfile
             // 
@@ -442,6 +453,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 755);
             this.Controls.Add(this.BtnUnlimited);
+            this.Controls.Add(this.BtnClear);
             this.Controls.Add(this.BtnDefault);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.groupBox3);
@@ -503,5 +515,6 @@
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Button BtnDefault;
         private System.Windows.Forms.Button BtnUnlimited;
+        private System.Windows.Forms.Button BtnClear;
     }
 }

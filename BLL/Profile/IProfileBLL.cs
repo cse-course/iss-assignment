@@ -16,9 +16,11 @@ namespace BLL
 
         Boolean Remove(Profile proile);
 
-        DataSet View();
+        List<Profile> View();
 
-        DataSet View(String profile);
+        Profile View(String profile);
+
+        List<String> ListProfile();
 
     }
 }

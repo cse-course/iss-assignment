@@ -25,6 +25,7 @@ namespace BLL
             return profile;
         }
 
+     
         public bool Remove(Profile profile)
         {
             return this.repository.Remove(profile.QueryRemove);
@@ -36,14 +37,41 @@ namespace BLL
             return profile;
         }
 
-        public DataSet View()
+        public List<Profile> View()
         {
-            return this.repository.View();
+            return null;
         }
 
-        public DataSet View(string profile)
-        {
-            return this.repository.View(profile);
+        public Profile View(string profile)
+        { 
+            
+
+            DataSet dataSet = this.repository.View(profile);
+            DataTable table = dataSet.Tables[0];
+            Dictionary<String, String> data = new Dictionary<string, string>();
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                //table.Rows[i][0] RESOURCE_NAME
+                //table.Rows[i][1] LIMIT
+                data.Add(table.Rows[i][0].ToString(), table.Rows[i][1].ToString());
+            }
+            Profile result = ProfileMapper.Map(data);
+            result.Name = profile;
+
+            return result;
         }
+
+        public List<String> ListProfile()
+        {
+            List<String> result = new List<string>();
+            DataSet dataSet = this.repository.ListProfile();
+            DataTable table = dataSet.Tables[0] ;
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                result.Add(table.Rows[i][0].ToString());
+            }
+            return result;
+        }
+
     }
 }

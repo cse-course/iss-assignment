@@ -24,6 +24,7 @@ namespace DAL
             }
         }
 
+
         public bool Remove(String profile)
         {
             try
@@ -54,7 +55,7 @@ namespace DAL
         {
             string sql = @"
                     SELECT 
-                        PROFILE, RESOURCE_NAME 
+                        PROFILE, RESOURCE_NAME, LIMIT 
                     FROM SYS.DBA_PROFILES 
                     ";
             return this.GetDataSet(sql);
@@ -64,7 +65,7 @@ namespace DAL
         {
             string sql = @"
                     SELECT 
-                        PROFILE, RESOURCE_NAME 
+                        RESOURCE_NAME , LIMIT
                     FROM SYS.DBA_PROFILES 
                     WHERE PROFILE = :profile
                     ";
@@ -73,6 +74,17 @@ namespace DAL
                 { "profile", profile }
             };
             return this.GetDataSet(sql, CommandType.Text, dictionary);
+        }
+
+
+        public DataSet ListProfile()
+        {
+            string sql = @"
+                    SELECT 
+                        DISTINCT PROFILE
+                    FROM SYS.DBA_PROFILES 
+                    ";
+            return this.GetDataSet(sql);
         }
     }
 }

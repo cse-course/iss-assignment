@@ -11,6 +11,7 @@ namespace DAL
 
         DataSet View();
         DataSet View(String profile);
+        DataSet ListProfile();
 
     }
 }

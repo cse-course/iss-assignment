@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DgvProfile = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvProfile)).BeginInit();
+            this.LvwProfile = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // DgvProfile
+            // LvwProfile
             // 
-            this.DgvProfile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvProfile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvProfile.Location = new System.Drawing.Point(0, 0);
-            this.DgvProfile.Name = "DgvProfile";
-            this.DgvProfile.RowTemplate.Height = 24;
-            this.DgvProfile.Size = new System.Drawing.Size(1003, 450);
-            this.DgvProfile.TabIndex = 0;
+            this.LvwProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvwProfile.FullRowSelect = true;
+            this.LvwProfile.GridLines = true;
+            this.LvwProfile.Location = new System.Drawing.Point(0, 0);
+            this.LvwProfile.Name = "LvwProfile";
+            this.LvwProfile.Size = new System.Drawing.Size(343, 450);
+            this.LvwProfile.TabIndex = 0;
+            this.LvwProfile.UseCompatibleStateImageBehavior = false;
+            this.LvwProfile.View = System.Windows.Forms.View.Details;
+            this.LvwProfile.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvwProfile_MouseDoubleClick);
             // 
             // FrmProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1003, 450);
-            this.Controls.Add(this.DgvProfile);
+            this.ClientSize = new System.Drawing.Size(343, 450);
+            this.Controls.Add(this.LvwProfile);
             this.Name = "FrmProfile";
             this.Text = "FrmProfile";
             this.Load += new System.EventHandler(this.FrmProfile_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DgvProfile)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView DgvProfile;
+        private System.Windows.Forms.ListView LvwProfile;
     }
 }

@@ -187,4 +187,97 @@ namespace Model
         public static string UNLIMITED = "UNLIMITED";
         public static string NULL = "NULL";
     }
+
+    public class ProfileMapper
+    {
+        public static Profile Map(Dictionary<String, String> data)
+        {
+            Profile profile = new Profile();
+            #region resource_parameters
+
+            if (data.ContainsKey(ProfileType.SESSIONS_PER_USER))
+            {
+                profile.SessionsPerUser = data[ProfileType.SESSIONS_PER_USER];
+            }
+
+            if (data.ContainsKey(ProfileType.CPU_PER_SESSION))
+            {
+                profile.CPUPerSession = data[ProfileType.CPU_PER_SESSION];
+            }
+
+            if (data.ContainsKey(ProfileType.CPU_PER_CALL))
+            {
+                profile.CPUPerCall = data[ProfileType.CPU_PER_CALL];
+            }
+
+            if (data.ContainsKey(ProfileType.CONNECT_TIME))
+            {
+                profile.ConnectTime = data[ProfileType.CONNECT_TIME];
+            }
+            if (data.ContainsKey(ProfileType.IDLE_TIME))
+            {
+                profile.IdleTime = data[ProfileType.IDLE_TIME];
+            }
+            if (data.ContainsKey(ProfileType.LOGICAL_READS_PER_SESSION))
+            {
+                profile.LogicalReadsPerSession = data[ProfileType.LOGICAL_READS_PER_SESSION];
+            }
+            if (data.ContainsKey(ProfileType.LOGICAL_READS_PER_CALL))
+            {
+                profile.LogicalReadsPerCall = data[ProfileType.LOGICAL_READS_PER_CALL];
+            }
+            if (data.ContainsKey(ProfileType.PRIVATE_SGA))
+            {
+                profile.PrivateSGA = data[ProfileType.PRIVATE_SGA];
+            }
+            if (data.ContainsKey(ProfileType.COMPOSITE_LIMIT))
+            {
+                profile.CompositeLimit = data[ProfileType.COMPOSITE_LIMIT];
+            }
+
+
+            #endregion resource_parameters
+
+            #region password_parameters 
+            if (data.ContainsKey(ProfileType.FAILED_LOGIN_ATTEMPTS))
+            {
+                profile.FailedLoginAttemps = data[ProfileType.FAILED_LOGIN_ATTEMPTS];
+            }
+
+            if (data.ContainsKey(ProfileType.PASSWORD_LIFE_TIME))
+            {
+                profile.PasswordLifeTime = data[ProfileType.PASSWORD_LIFE_TIME];
+            }
+
+            if (data.ContainsKey(ProfileType.PASSWORD_REUSE_TIME))
+            {
+                profile.PasswordReuseTime = data[ProfileType.PASSWORD_REUSE_TIME];
+            }
+
+            if (data.ContainsKey(ProfileType.PASSWORD_REUSE_MAX))
+            {
+                profile.PasswordReuseMax = data[ProfileType.PASSWORD_REUSE_MAX];
+            }
+
+            if (data.ContainsKey(ProfileType.PASSWORD_LOCK_TIME))
+            {
+                profile.PasswordLockTime = data[ProfileType.PASSWORD_LOCK_TIME];
+            }
+
+            if (data.ContainsKey(ProfileType.PASSWORD_GRACE_TIME))
+            {
+                profile.PasswordGraceTime = data[ProfileType.PASSWORD_GRACE_TIME];
+            }
+
+            if (data.ContainsKey(ProfileType.PASSWORD_VERIFY_FUNCTION))
+            {
+                profile.PasswordVerifyFunction = data[ProfileType.PASSWORD_VERIFY_FUNCTION];
+            }
+            #endregion password_parameters
+
+
+
+            return profile;
+        }
+    }
 }

@@ -119,7 +119,7 @@ namespace iss_assignment
 
         private void AddProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAddProfile profile = new FrmAddProfile(this.profileBLL)
+            FrmProfileInfo profile = new FrmProfileInfo(this.profileBLL)
             {
                 MdiParent = this
             };

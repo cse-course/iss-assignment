@@ -60,11 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Profile\FrmAddProfile.cs">
+    <Compile Include="Profile\FrmProfileInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile\FrmAddProfile.Designer.cs">
-      <DependentUpon>FrmAddProfile.cs</DependentUpon>
+    <Compile Include="Profile\FrmProfileInfo.Designer.cs">
+      <DependentUpon>FrmProfileInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="User\FrmAddUser.cs">
       <SubType>Form</SubType>
@@ -128,8 +128,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Profile\FrmAddProfile.resx">
-      <DependentUpon>FrmAddProfile.cs</DependentUpon>
+    <EmbeddedResource Include="Profile\FrmProfileInfo.resx">
+      <DependentUpon>FrmProfileInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
