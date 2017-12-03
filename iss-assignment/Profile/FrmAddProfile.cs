@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace iss_assignment.Profile
+namespace iss_assignment
 {
     public partial class FrmAddProfile : Form
     {
@@ -23,7 +23,7 @@ namespace iss_assignment.Profile
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-
+            this.SaveProfile();
         }
 
         private void BtnDefault_Click(object sender, EventArgs e)
@@ -70,7 +70,27 @@ namespace iss_assignment.Profile
 
         private void SaveProfile()
         {
+            ProfileBuilder builder = new ProfileBuilder(this.TxtName.Text);
+            Profile profile = builder
+                .SessionsPerUser(this.TxtSessionsPerUser.Text)
+                .CPUPerSession(this.TxtCPUPerSession.Text)
+                .CPUPerCall(this.TxtCPUPerCall.Text)
+                .ConnectTime(this.TxtConnectTime.Text)
+                .IdleTime(this.TxtIdleTime.Text)
+                .LogicalReadsPerSession(this.TxtLogicalReadsPerSession.Text)
+                .LogicalReadsPerCall(this.TxtLogicalReadsPerCall.Text)
+                .PrivateSGA(this.TxtPrivateSGA.Text)
+                .CompositeLimit(this.TxtCompositeLimit.Text)
+                .FailedLoginAttemps(this.TxtFailedLoginAttemps.Text)
+                .PasswordLifeTime(this.TxtPasswordLifeTime.Text)
+                .PasswordReuseTime(this.TxtPasswordReuseTime.Text)
+                .PasswordReuseMax(this.TxtPasswordReuseMax.Text)
+                .PasswordLockTime(this.TxtPasswordLockTime.Text)
+                .PasswordGraceTime(this.TxtPasswordGraceTime.Text)
+                .PasswordVerifyFunction(this.TxtPasswordVerifyFunction.Text)
+                .Build();
 
+            this.profileBLL.Add(profile);
         }
     }
 }
