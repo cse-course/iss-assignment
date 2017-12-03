@@ -16,6 +16,8 @@ namespace BLL
 
         Boolean Remove(Profile proile);
 
+        Boolean RemoveCascade(Profile proile);
+
         List<Profile> View();
 
         Profile View(String profile);

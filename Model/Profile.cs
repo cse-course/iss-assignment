@@ -34,6 +34,8 @@ namespace Model
         public String QueryAdd { get; set; }
         public String QueryUpdate { get; set; }
         public String QueryRemove { get; set; }
+        public String QueryRemoveCascade { get; set; }
+
 
         public String Name { get; set; }
     }
@@ -46,6 +48,10 @@ namespace Model
         {
             this.profile.Name = name;
             this.profile.QueryAdd = String.Join(" ", "CREATE PROFILE", name, "LIMIT");
+            this.profile.QueryUpdate = String.Join(" ", "ALTER PROFILE", name, "LIMIT");
+            this.profile.QueryRemove = String.Join(" ", "DROP PROFILE", name);
+            this.profile.QueryRemoveCascade = String.Join(" ", "DROP PROFILE", name, "CASCADE");
+
         }
 
         public Profile Build()
@@ -58,54 +64,68 @@ namespace Model
         {
             this.profile.SessionsPerUser = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.SESSIONS_PER_USER, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.SESSIONS_PER_USER, value);
+
             return this;
         }
         public ProfileBuilder CPUPerSession(String value)
         {
             this.profile.CPUPerSession = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.CPU_PER_SESSION, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.CPU_PER_SESSION, value);
+
             return this;
         }
         public ProfileBuilder CPUPerCall(String value)
         {
             this.profile.CPUPerCall = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.CPU_PER_CALL, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.CPU_PER_CALL, value);
+
             return this;
         }
         public ProfileBuilder ConnectTime(String value)
         {
             this.profile.ConnectTime = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.CONNECT_TIME, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.CONNECT_TIME, value);
+
             return this;
         }
         public ProfileBuilder IdleTime(String value)
         {
             this.profile.IdleTime = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.IDLE_TIME, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.IDLE_TIME, value);
+
             return this;
         }
         public ProfileBuilder LogicalReadsPerSession(String value)
         {
             this.profile.LogicalReadsPerSession = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.LOGICAL_READS_PER_SESSION, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.LOGICAL_READS_PER_SESSION, value);
             return this;
         }
         public ProfileBuilder LogicalReadsPerCall(String value)
         {
             this.profile.LogicalReadsPerCall = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.LOGICAL_READS_PER_CALL, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.LOGICAL_READS_PER_CALL, value);
             return this;
         }
         public ProfileBuilder PrivateSGA(String value)
         {
             this.profile.PrivateSGA = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PRIVATE_SGA, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.PRIVATE_SGA, value);
             return this;
         }
         public ProfileBuilder CompositeLimit(String value)
         {
             this.profile.CompositeLimit = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.COMPOSITE_LIMIT, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.COMPOSITE_LIMIT, value);
             return this;
         }
         #endregion resource_parameters
@@ -115,42 +135,49 @@ namespace Model
         {
             this.profile.FailedLoginAttemps = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.FAILED_LOGIN_ATTEMPTS, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.FAILED_LOGIN_ATTEMPTS, value);
             return this;
         }
         public ProfileBuilder PasswordLifeTime(String value)
         {
             this.profile.PasswordLifeTime = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_LIFE_TIME, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.PASSWORD_LIFE_TIME, value);
             return this;
         }
         public ProfileBuilder PasswordReuseTime(String value)
         {
             this.profile.PasswordReuseTime = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_REUSE_TIME, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.PASSWORD_REUSE_TIME, value);
             return this;
         }
         public ProfileBuilder PasswordReuseMax(String value)
         {
             this.profile.PasswordReuseMax = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_REUSE_MAX, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.PASSWORD_REUSE_MAX, value);
             return this;
         }
         public ProfileBuilder PasswordLockTime(String value)
         {
             this.profile.PasswordLockTime = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_LOCK_TIME, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.PASSWORD_LOCK_TIME, value);
             return this;
         }
         public ProfileBuilder PasswordGraceTime(String value)
         {
             this.profile.PasswordGraceTime = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_GRACE_TIME, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.PASSWORD_GRACE_TIME, value);
             return this;
         }
         public ProfileBuilder PasswordVerifyFunction(String value)
         {
             this.profile.PasswordVerifyFunction = value;
             this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_VERIFY_FUNCTION, value);
+            this.profile.QueryUpdate = String.Join(" ", this.profile.QueryUpdate, ProfileType.PASSWORD_VERIFY_FUNCTION, value);
             return this;
         }
         #endregion password_parameters 

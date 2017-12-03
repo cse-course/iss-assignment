@@ -89,8 +89,15 @@ namespace iss_assignment
                 .PasswordGraceTime(this.TxtPasswordGraceTime.Text)
                 .PasswordVerifyFunction(this.TxtPasswordVerifyFunction.Text)
                 .Build();
-
-            this.profileBLL.Add(profile);
+            //Case: Update
+            if (this.profile != null)
+            {
+                this.profileBLL.Update(profile);
+            }
+            else
+            {
+                this.profileBLL.Add(profile);
+            }
         }
 
         private void BtnUnlimited_Click(object sender, EventArgs e)

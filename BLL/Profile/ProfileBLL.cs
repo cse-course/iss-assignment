@@ -31,6 +31,11 @@ namespace BLL
             return this.repository.Remove(profile.QueryRemove);
         }
 
+        public bool RemoveCascade(Profile profile)
+        {
+            return this.repository.Remove(profile.QueryRemoveCascade);
+        }
+
         public Profile Update(Profile profile)
         {
             this.repository.Update(profile.QueryUpdate);
@@ -73,5 +78,6 @@ namespace BLL
             return result;
         }
 
+       
     }
 }
