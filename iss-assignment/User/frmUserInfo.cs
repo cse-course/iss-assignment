@@ -22,6 +22,7 @@ namespace iss_assignment
             LoadViewMode();
         }
 
+        public string frmParamUsername = "";
         private void LoadEditMode()
         {
             txtAdress.ReadOnly = false;
@@ -34,7 +35,7 @@ namespace iss_assignment
 
         private void LoadData()
         {
-            IEnumerable<USER_MANAGEMENT> userList = this.view.GetUserInfo("dev");
+            IEnumerable<USER_MANAGEMENT> userList = this.view.GetUserInfo(frmParamUsername);
             USER_MANAGEMENT user = userList.First();
             lblUsername.Text = user.USERNAME;
             txtEmail.Text = user.EMAIL;

@@ -1,14 +1,7 @@
 ﻿using BLL;
 using DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace iss_assignment
@@ -23,6 +16,8 @@ namespace iss_assignment
 
         private readonly UserManagementClassicBLL userManagementClassicBLL;
 
+        private readonly IProfileBLL profileBLL;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -32,6 +27,8 @@ namespace iss_assignment
 
             this.userManagementBLL = new UserManagementBLL(this.context);
             this.userManagementClassicBLL = new UserManagementClassicBLL(this.context);
+
+            this.profileBLL = new ProfileBLL(this.context);
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -83,7 +80,7 @@ namespace iss_assignment
             user.Show();
         }
 
-        private void showAllToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmUserManagerment user = new FrmUserManagerment(this.userManagementBLL)
             {
@@ -92,13 +89,41 @@ namespace iss_assignment
             user.Show();
         }
 
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OneUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo user = new frmUserInfo(this.userManagementBLL)
+            {
+                MdiParent = this
+            };
+            user.Show();
+
+        }
+
+        private void AddToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAddUser user = new FrmAddUser(this.userManagementBLL, this.userManagementClassicBLL)
             {
                 MdiParent = this
             };
             user.Show();
+        }
+
+        private void ShowAllToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmProfile profile = new FrmProfile(this.profileBLL)
+            {
+                MdiParent = this
+            };
+            profile.Show();
+        }
+
+        private void AddProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddProfile profile = new FrmAddProfile(this.profileBLL)
+            {
+                MdiParent = this
+            };
+            profile.Show();
         }
     }
 }

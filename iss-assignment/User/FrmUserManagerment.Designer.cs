@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DgvUserManagerment = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvUserManagerment)).BeginInit();
+            this.LvwUserManagerment = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
-            // DgvUserManagerment
+            // LvwUserManagerment
             // 
-            this.DgvUserManagerment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvUserManagerment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvUserManagerment.Location = new System.Drawing.Point(0, 0);
-            this.DgvUserManagerment.Name = "DgvUserManagerment";
-            this.DgvUserManagerment.Size = new System.Drawing.Size(629, 275);
-            this.DgvUserManagerment.TabIndex = 0;
+            this.LvwUserManagerment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvwUserManagerment.FullRowSelect = true;
+            this.LvwUserManagerment.GridLines = true;
+            this.LvwUserManagerment.Location = new System.Drawing.Point(0, 0);
+            this.LvwUserManagerment.Name = "LvwUserManagerment";
+            this.LvwUserManagerment.Size = new System.Drawing.Size(629, 275);
+            this.LvwUserManagerment.TabIndex = 0;
+            this.LvwUserManagerment.UseCompatibleStateImageBehavior = false;
+            this.LvwUserManagerment.View = System.Windows.Forms.View.Details;
+            this.LvwUserManagerment.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvwUserManagerment_MouseDoubleClick);
             // 
             // FrmUserManagerment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 275);
-            this.Controls.Add(this.DgvUserManagerment);
+            this.Controls.Add(this.LvwUserManagerment);
             this.Name = "FrmUserManagerment";
             this.Text = "FrmUserManagerment";
             this.Load += new System.EventHandler(this.FrmUserManagerment_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DgvUserManagerment)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView DgvUserManagerment;
+        private System.Windows.Forms.ListView LvwUserManagerment;
     }
 }

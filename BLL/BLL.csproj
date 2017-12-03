@@ -47,10 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IProfileBLL.cs" />
-    <Compile Include="ProfileBLL.cs" />
+    <Compile Include="Profile\IProfileBLL.cs" />
+    <Compile Include="Profile\ProfileBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SysViewBLL.cs" />
+    <Compile Include="SysView\SysViewBLL.cs" />
     <Compile Include="UserManagementBLL.cs" />
     <Compile Include="UserManagementClassicBLL.cs" />
   </ItemGroup>

@@ -57,7 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassicRepository.cs" />
+    <Compile Include="Core\ClassicRepository.cs" />
+    <Compile Include="Core\IClassicRepository.cs" />
     <Compile Include="IISModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,11 +74,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IISModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="IRepository.cs" />
-    <Compile Include="ISysViewRepository.cs" />
+    <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Profile\IProfileRepository.cs" />
+    <Compile Include="SysView\ISysViewRepository.cs" />
+    <Compile Include="Profile\ProfileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
-    <Compile Include="SysViewRepository.cs" />
+    <Compile Include="Core\Repository.cs" />
+    <Compile Include="SysView\SysViewRepository.cs" />
     <Compile Include="UserManagementClassicRepository.cs" />
     <Compile Include="UserManagementRepository.cs" />
     <Compile Include="USER_MANAGEMENT.cs">

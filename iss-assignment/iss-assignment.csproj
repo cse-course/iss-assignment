@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Profile\FrmAddProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profile\FrmAddProfile.Designer.cs">
+      <DependentUpon>FrmAddProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\FrmAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Profile\FrmAddProfile.resx">
+      <DependentUpon>FrmAddProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +192,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{9a19edf6-c48c-4dd6-b20b-a6daae3ed57d}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Domain.csproj">
+      <Project>{81c3a1dd-42dd-4762-ac6e-2f13a75f82dd}</Project>
+      <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -50,6 +50,8 @@ namespace iss_assignment
             //this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
             this.OracleView.AddOracleUser(txtUsername.Text, txtPassword.Text);
             ClearText();
+            MessageBox.Show("User created!");
+            Hide();
         }
     }
 }
