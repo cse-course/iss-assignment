@@ -35,17 +35,19 @@ namespace iss_assignment
             txtPassword.Text = "";
             txtPassword2.Text = "";
         }
-        private void btnClear_Click(object sender, EventArgs e)
+        private void BtnClear_Click(object sender, EventArgs e)
         {
             ClearText();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
-            USER_MANAGEMENT user = new USER_MANAGEMENT();
-            user.USERNAME = txtUsername.Text;
-            user.PASSWORD = txtPassword.Text;
-            this.view.Add(user);
+            USER_MANAGEMENT user = new USER_MANAGEMENT
+            {
+                USERNAME = txtUsername.Text,
+                PASSWORD = txtPassword.Text
+            };
+            //this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
             this.OracleView.AddOracleUser(txtUsername.Text, txtPassword.Text);
             ClearText();
         }

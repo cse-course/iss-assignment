@@ -21,28 +21,28 @@ namespace DAL
         {
             var result = new DataSet();
 
-            var cmd = this.context.Database.Connection.CreateCommand();
-            cmd.CommandType = commandType;
-            cmd.CommandText = sql;
+            var command = this.context.Database.Connection.CreateCommand();
+            command.CommandType = commandType;
+            command.CommandText = sql;
 
             foreach (var pr in parameters)
             {
-                var p = cmd.CreateParameter();
-                p.ParameterName = pr.Key;
-                p.Value = pr.Value;
-                cmd.Parameters.Add(p);
+                var param = command.CreateParameter();
+                param.ParameterName = pr.Key;
+                param.Value = pr.Value;
+                command.Parameters.Add(param);
             }
 
             try
             {
                 this.context.Database.Connection.Open();
-                var reader = cmd.ExecuteReader();
+                var reader = command.ExecuteReader();
 
                 do
                 {
-                    var tb = new DataTable();
-                    tb.Load(reader);
-                    result.Tables.Add(tb);
+                    var table = new DataTable();
+                    table.Load(reader);
+                    result.Tables.Add(table);
 
                 } while (!reader.IsClosed);
             }
@@ -61,6 +61,41 @@ namespace DAL
         protected DataSet GetDataSet(string sql)
         {
             return this.GetDataSet(sql, CommandType.Text);
+        }
+
+
+        protected void Execute(string sql, CommandType commandType, Dictionary<string, Object> parameters)
+        {
+            var command = this.context.Database.Connection.CreateCommand();
+            command.CommandType = commandType;
+            command.CommandText = sql;
+
+            foreach (var pr in parameters)
+            {
+                var param = command.CreateParameter();
+                param.ParameterName = pr.Key;
+                param.Value = pr.Value;
+                command.Parameters.Add(param);
+            }
+
+            try
+            {
+                this.context.Database.Connection.Open();
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                this.context.Database.Connection.Close();
+            }
+        }
+
+        protected void Execute(string sql, CommandType commandType)
+        {
+            this.Execute(sql, commandType, new Dictionary<String, Object>());
+        }
+        protected void Execute(string sql)
+        {
+            this.Execute(sql, CommandType.Text);
         }
     }
 }

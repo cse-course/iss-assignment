@@ -96,11 +96,11 @@
     <Compile Include="SysView\FrmUserDetail.Designer.cs">
       <DependentUpon>FrmUserDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="User\frmUserInfo.cs">
+    <Compile Include="User\FrmUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User\frmUserInfo.Designer.cs">
-      <DependentUpon>frmUserInfo.cs</DependentUpon>
+    <Compile Include="User\FrmUserInfo.Designer.cs">
+      <DependentUpon>FrmUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="User\FrmUserLogin.cs">
       <SubType>Form</SubType>
@@ -140,8 +140,8 @@
     <EmbeddedResource Include="SysView\FrmUserDetail.resx">
       <DependentUpon>FrmUserDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User\frmUserInfo.resx">
-      <DependentUpon>frmUserInfo.cs</DependentUpon>
+    <EmbeddedResource Include="User\FrmUserInfo.resx">
+      <DependentUpon>FrmUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\FrmUserLogin.resx">
       <DependentUpon>FrmUserLogin.cs</DependentUpon>
