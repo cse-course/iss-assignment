@@ -23,6 +23,8 @@ namespace iss_assignment
 
         private readonly UserManagementClassicBLL userManagementClassicBLL;
 
+        private readonly IProfileBLL profileBLL;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -32,6 +34,8 @@ namespace iss_assignment
 
             this.userManagementBLL = new UserManagementBLL(this.context);
             this.userManagementClassicBLL = new UserManagementClassicBLL(this.context);
+
+            this.profileBLL = new ProfileBLL(this.context);
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -83,7 +87,7 @@ namespace iss_assignment
             user.Show();
         }
 
-        private void showAllToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmUserManagerment user = new FrmUserManagerment(this.userManagementBLL)
             {
@@ -92,7 +96,7 @@ namespace iss_assignment
             user.Show();
         }
 
-        private void oneUserToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OneUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUserInfo user = new frmUserInfo(this.userManagementBLL)
             {
@@ -102,13 +106,22 @@ namespace iss_assignment
 
         }
 
-        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAddUser user = new FrmAddUser(this.userManagementBLL, this.userManagementClassicBLL)
             {
                 MdiParent = this
             };
             user.Show();
+        }
+
+        private void ShowAllToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmProfile profile = new FrmProfile(this.profileBLL)
+            {
+                MdiParent = this
+            };
+            profile.Show();
         }
     }
 }

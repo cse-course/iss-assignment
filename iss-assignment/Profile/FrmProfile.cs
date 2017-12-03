@@ -13,9 +13,9 @@ namespace iss_assignment
 {
     public partial class FrmProfile : Form
     {
-        private readonly ProfileBLL profileBLL;
+        private readonly IProfileBLL profileBLL;
 
-        public FrmProfile(ProfileBLL profileBLL)
+        public FrmProfile(IProfileBLL profileBLL)
         {
             this.profileBLL = profileBLL;
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace iss_assignment
 
         private void FrmProfile_Load(object sender, EventArgs e)
         {
-
+            this.DgvProfile.DataSource = this.profileBLL.View().Tables[0];
         }
     }
 }

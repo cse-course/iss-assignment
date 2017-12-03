@@ -31,8 +31,10 @@ namespace Model
         public string PasswordVerifyFunction{ get; set; }
         #endregion password_parameters 
 
-        public String Query { get; set; }
-        
+        public String QueryAdd { get; set; }
+        public String QueryUpdate { get; set; }
+        public String QueryRemove { get; set; }
+
         public String Name { get; set; }
     }
 
@@ -43,7 +45,7 @@ namespace Model
         public ProfileBuilder(String name)
         {
             this.profile.Name = name;
-            this.profile.Query = String.Join(" ", "CREATE PROFILE", name, "LIMIT");
+            this.profile.QueryAdd = String.Join(" ", "CREATE PROFILE", name, "LIMIT");
         }
 
         private Profile Build()
@@ -55,47 +57,47 @@ namespace Model
         public void SessionsPerUser(String value)
         {
             this.profile.SessionsPerUser = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.SESSIONS_PER_USER, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.SESSIONS_PER_USER, value);
         }
         public void CPUPerSession(String value)
         {
             this.profile.CPUPerSession = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.CPU_PER_SESSION, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.CPU_PER_SESSION, value);
         }
         public void CPUPerCall(String value)
         {
             this.profile.CPUPerCall = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.CPU_PER_CALL, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.CPU_PER_CALL, value);
         }
         public void ConnectTime(String value)
         {
             this.profile.ConnectTime = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.CONNECT_TIME, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.CONNECT_TIME, value);
         }
         public void IdleTime(String value)
         {
             this.profile.IdleTime = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.IDLE_TIME, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.IDLE_TIME, value);
         }
         public void LogicalReadsPerSession(String value)
         {
             this.profile.LogicalReadsPerSession = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.LOGICAL_READS_PER_SESSION, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.LOGICAL_READS_PER_SESSION, value);
         }
         public void LogicalReadsPerCall(String value)
         {
             this.profile.LogicalReadsPerCall = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.LOGICAL_READS_PER_CALL, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.LOGICAL_READS_PER_CALL, value);
         }
         public void PrivateSGA(String value)
         {
             this.profile.PrivateSGA = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.PRIVATE_SGA, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PRIVATE_SGA, value);
         }
         public void CompositeLimit(String value)
         {
             this.profile.CompositeLimit = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.COMPOSITE_LIMIT, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.COMPOSITE_LIMIT, value);
         }
         #endregion resource_parameters
 
@@ -103,37 +105,37 @@ namespace Model
         public void FailedLoginAttemps(String value)
         {
             this.profile.FailedLoginAttemps = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.FAILED_LOGIN_ATTEMPTS, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.FAILED_LOGIN_ATTEMPTS, value);
         }
         public void PasswordLifeTime(String value)
         {
             this.profile.PasswordLifeTime = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.PASSWORD_LIFE_TIME, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_LIFE_TIME, value);
         }
         public void PasswordReuseTime(String value)
         {
             this.profile.PasswordReuseTime = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.PASSWORD_REUSE_TIME, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_REUSE_TIME, value);
         }
         public void PasswordReuseMax(String value)
         {
             this.profile.PasswordReuseMax = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.PASSWORD_REUSE_MAX, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_REUSE_MAX, value);
         }
         public void PasswordLockTime(String value)
         {
             this.profile.PasswordLockTime = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.PASSWORD_LOCK_TIME, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_LOCK_TIME, value);
         }
         public void PasswordGraceTime(String value)
         {
             this.profile.PasswordGraceTime = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.PASSWORD_GRACE_TIME, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_GRACE_TIME, value);
         }
         public void PasswordVerifyFunction(String value)
         {
             this.profile.PasswordVerifyFunction = value;
-            this.profile.Query = String.Join(" ", this.profile.Query, ProfileType.PASSWORD_VERIFY_FUNCTION, value);
+            this.profile.QueryAdd = String.Join(" ", this.profile.QueryAdd, ProfileType.PASSWORD_VERIFY_FUNCTION, value);
         }
         #endregion password_parameters 
     }

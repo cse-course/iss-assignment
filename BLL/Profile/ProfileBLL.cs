@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Model;
 using DAL;
 using System.Data.Entity;
+using System.Data;
 
 namespace BLL
 {
@@ -20,19 +21,29 @@ namespace BLL
 
         public Profile Add(Profile profile)
         {
-            this.repository.Add(profile);
+            this.repository.Add(profile.QueryAdd);
             return profile;
         }
 
         public bool Remove(Profile profile)
         {
-            return this.repository.Remove(profile);
+            return this.repository.Remove(profile.QueryRemove);
         }
 
         public Profile Update(Profile profile)
         {
-            this.repository.Update(profile);
+            this.repository.Update(profile.QueryUpdate);
             return profile;
+        }
+
+        public DataSet View()
+        {
+            return this.repository.View();
+        }
+
+        public DataSet View(string profile)
+        {
+            return this.repository.View(profile);
         }
     }
 }
