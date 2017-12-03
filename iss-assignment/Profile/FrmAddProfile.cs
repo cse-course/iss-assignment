@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,8 +33,7 @@ namespace iss_assignment.Profile
 
         private void SetDefault()
         {
-            this.TxtName.Text = "";
-            this.SetValue("DEFAULT");
+            this.SetValue(ProfileValue.DEFAULT);
         }
 
         private void SetValue(String value)
@@ -66,6 +66,11 @@ namespace iss_assignment.Profile
         private void FrmAddProfile_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void SaveProfile()
+        {
+
         }
     }
 }

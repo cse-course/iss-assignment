@@ -125,7 +125,7 @@ namespace iss_assignment
             profile.Show();
         }
 
-        private void addProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAddProfile profile = new FrmAddProfile(this.profileBLL)
             {

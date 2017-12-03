@@ -149,7 +149,7 @@
             this.addProfileToolStripMenuItem.Name = "addProfileToolStripMenuItem";
             this.addProfileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.addProfileToolStripMenuItem.Text = "Add Profile";
-            this.addProfileToolStripMenuItem.Click += new System.EventHandler(this.addProfileToolStripMenuItem_Click);
+            this.addProfileToolStripMenuItem.Click += new System.EventHandler(this.AddProfileToolStripMenuItem_Click);
             // 
             // FrmMain
             // 

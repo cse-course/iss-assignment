@@ -167,6 +167,7 @@ namespace Model
 
     public class ProfileValue
     {
-
+        public static string DEFAULT = "DEFAULT";
+        public static string UNLIMITED = "UNLIMITED";
     }
 }
