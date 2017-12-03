@@ -40,6 +40,7 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,28 +110,29 @@
             // showAllToolStripMenuItem
             // 
             this.showAllToolStripMenuItem.Name = "showAllToolStripMenuItem";
-            this.showAllToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.showAllToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.showAllToolStripMenuItem.Text = "Show All";
             this.showAllToolStripMenuItem.Click += new System.EventHandler(this.ShowAllToolStripMenuItem_Click);
             // 
             // oneUserToolStripMenuItem
             // 
             this.oneUserToolStripMenuItem.Name = "oneUserToolStripMenuItem";
-            this.oneUserToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.oneUserToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.oneUserToolStripMenuItem.Text = "One User";
             this.oneUserToolStripMenuItem.Click += new System.EventHandler(this.OneUserToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem_Click);
             // 
             // profileToolStripMenuItem
             // 
             this.profileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showAllToolStripMenuItem1});
+            this.showAllToolStripMenuItem1,
+            this.addProfileToolStripMenuItem});
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
             this.profileToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.profileToolStripMenuItem.Text = "Profile";
@@ -141,6 +143,13 @@
             this.showAllToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.showAllToolStripMenuItem1.Text = "Show All";
             this.showAllToolStripMenuItem1.Click += new System.EventHandler(this.ShowAllToolStripMenuItem1_Click);
+            // 
+            // addProfileToolStripMenuItem
+            // 
+            this.addProfileToolStripMenuItem.Name = "addProfileToolStripMenuItem";
+            this.addProfileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.addProfileToolStripMenuItem.Text = "Add Profile";
+            this.addProfileToolStripMenuItem.Click += new System.EventHandler(this.addProfileToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -175,6 +184,7 @@
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addProfileToolStripMenuItem;
     }
 }
 

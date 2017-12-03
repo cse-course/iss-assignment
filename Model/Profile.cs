@@ -164,4 +164,9 @@ namespace Model
         public static string PASSWORD_VERIFY_FUNCTION = "PASSWORD_VERIFY_FUNCTION";
         #endregion password_parameters
     }
+
+    public class ProfileValue
+    {
+
+    }
 }

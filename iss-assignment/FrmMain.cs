@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using iss_assignment.Profile;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -118,6 +119,15 @@ namespace iss_assignment
         private void ShowAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmProfile profile = new FrmProfile(this.profileBLL)
+            {
+                MdiParent = this
+            };
+            profile.Show();
+        }
+
+        private void addProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddProfile profile = new FrmAddProfile(this.profileBLL)
             {
                 MdiParent = this
             };
