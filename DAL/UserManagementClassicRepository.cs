@@ -15,7 +15,8 @@ namespace DAL
         }
         public void AddOracleUser(String Username, String Password)
         {
-            string sql = "CREATE USER "+ Username + " IDENTIFIED BY " + Password + ";";
+            //string sql = "CREATE USER " + "c##" + Username + " IDENTIFIED BY " + Password + ";";
+            string sql = "CREATE USER aabbbbbbbbb IDENTIFIED BY aaaaaaaaaaaaa;";
             Console.WriteLine(sql);
         }
     }
