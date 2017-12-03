@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace BLL
 {
@@ -18,6 +19,18 @@ namespace BLL
         public void AddOracleUser(String Username, String Password)
         {
             this.repository.AddOracleUser(Username, Password);
+        }
+        public DataSet GetDistincRoleName()
+        {
+            return this.repository.DistinctRoleName();
+        }
+        public DataSet GetDistincProfileName()
+        {
+            return this.repository.DistinctProfileName();
+        }
+        public DataSet GetDistincTablespaceName()
+        {
+            return this.repository.DistinctTablespaceName();
         }
     }
 }

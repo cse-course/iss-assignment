@@ -26,7 +26,12 @@ namespace iss_assignment
 
         private void FrmAddUser_Load(object sender, EventArgs e)
         {
-
+            AddColumnLvwProfile();
+            AddColumnLvwRole();
+            LoadDataLvwProfile();
+            LoadDataLvwRole();
+            LoadDataCbbDefaultTablespace();
+            LoadDataCbbTemporaryTablespace();
         }
 
         public void ClearText()
@@ -52,6 +57,56 @@ namespace iss_assignment
             ClearText();
             MessageBox.Show("User created!");
             Hide();
+        }
+        private void AddColumnLvwProfile()
+        {
+            LvwProfile.Items.Clear();
+            LvwProfile.Columns.Clear();
+            LvwProfile.Columns.Add("Profile", 300);
+        }
+        private void AddColumnLvwRole()
+        {
+            LvwRole.Items.Clear();
+            LvwRole.Columns.Clear();
+            LvwRole.Columns.Add("Role", 300);
+        }
+        private void LoadDataLvwProfile()
+        {
+            DataSet ds = OracleView.GetDistincProfileName();
+            DataTable dt = ds.Tables[0];
+            ListViewItem it;
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                it = LvwProfile.Items.Add(dr[0].ToString());
+            }
+        }
+        private void LoadDataLvwRole()
+        {
+            DataSet ds = OracleView.GetDistincRoleName();
+            DataTable dt = ds.Tables[0];
+            ListViewItem it;
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                it = LvwRole.Items.Add(dr[0].ToString());
+            }
+
+        }
+        private void LoadDataCbbDefaultTablespace()
+        {
+            DataSet ds = OracleView.GetDistincTablespaceName();
+            DataTable dt = ds.Tables[0];
+            foreach (DataRow dr in dt.Rows)
+            {
+               CbbDefaultTablespace.Items.Add(dr[0].ToString());
+            }
+            CbbDefaultTablespace.SelectedIndex = 0;
+        }
+        private void LoadDataCbbTemporaryTablespace()
+        {
+            CbbTemporaryTablespace.Items.Add("TEMP");
+            CbbTemporaryTablespace.SelectedIndex = 0;
         }
     }
 }

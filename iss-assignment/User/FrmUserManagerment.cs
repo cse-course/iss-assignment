@@ -34,7 +34,7 @@ namespace iss_assignment
 
         private void LoadListviewUserManagement()
         {
-            ListViewItem lvwUser = new ListViewItem();
+            ListViewItem lvwUser;
             foreach (USER_MANAGEMENT user in this.view.GetAll())
             {
                 lvwUser = new ListViewItem();

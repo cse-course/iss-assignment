@@ -18,5 +18,26 @@ namespace DAL
             string sql = "CREATE USER "+ Username + " IDENTIFIED BY " + Password;
             this.Execute(sql);
         }
+        public DataSet DistinctProfileName()
+        {
+            string sql = "select Distinct DBA_PROFILES.profile from DBA_PROFILES";
+            return this.GetDataSet(sql);
+        }
+        public DataSet DistinctRoleName()
+        {
+            string sql = "SELECT Distinct DBA_ROLES.ROLE FROM DBA_ROLES";
+            return this.GetDataSet(sql);
+        }
+        public DataSet DistinctTablespaceName()
+        {
+            string sql = @"SELECT dd.tablespace_name tablespace_name
+                            FROM sys.dba_free_space fs, sys.dba_data_files dd
+                            WHERE dd.tablespace_name = fs.tablespace_name
+                            AND dd.file_id = fs.file_id
+                            GROUP BY dd.tablespace_name
+                            ORDER BY dd.tablespace_name
+                           ";
+            return this.GetDataSet(sql);
+        }
     }
 }
