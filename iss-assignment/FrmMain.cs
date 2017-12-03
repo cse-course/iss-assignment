@@ -92,16 +92,6 @@ namespace iss_assignment
             user.Show();
         }
 
-        private void oneUserToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmUserInfo user = new frmUserInfo(this.userManagementBLL)
-            {
-                MdiParent = this
-            };
-            user.Show();
-
-        }
-
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAddUser user = new FrmAddUser(this.userManagementBLL, this.userManagementClassicBLL)
