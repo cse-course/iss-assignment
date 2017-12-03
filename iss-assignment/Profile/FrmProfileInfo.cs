@@ -92,14 +92,19 @@ namespace iss_assignment
             //Case: Update
             if (this.profile != null)
             {
+                this.SetEnable(false);
                 this.profileBLL.Update(profile);
                 MessageBox.Show(String.Join(" ", "Update profile", profile.Name, "sucessfull!"));
+                this.SetEnable(true);
             }
             else
             {
+                this.SetEnable(false);
                 this.profileBLL.Add(profile);
                 MessageBox.Show(String.Join(" ", "Add profile", profile.Name, "sucessfull!"));
+                this.SetEnable(true);
             }
+            this.profile = profile;
         }
 
         private void BtnUnlimited_Click(object sender, EventArgs e)
@@ -165,6 +170,33 @@ namespace iss_assignment
             this.TxtPasswordVerifyFunction.Text = profile.PasswordVerifyFunction;
             #endregion password_parameters 
 
+        }
+
+        private void SetEnable(Boolean value)
+        {
+            this.TxtName.Enabled = value;
+
+            #region resource_parameters
+            this.TxtSessionsPerUser.Enabled = value;
+            this.TxtCPUPerSession.Enabled = value;
+            this.TxtCPUPerCall.Enabled = value;
+            this.TxtConnectTime.Enabled = value;
+            this.TxtIdleTime.Enabled = value;
+            this.TxtLogicalReadsPerSession.Enabled = value;
+            this.TxtLogicalReadsPerCall.Enabled = value;
+            this.TxtCompositeLimit.Enabled = value;
+            this.TxtPrivateSGA.Enabled = value;
+            #endregion resource_parameters
+
+            #region password_parameters 
+            this.TxtFailedLoginAttemps.Enabled = value;
+            this.TxtPasswordLifeTime.Enabled = value;
+            this.TxtPasswordReuseTime.Enabled = value;
+            this.TxtPasswordReuseMax.Enabled = value;
+            this.TxtPasswordLockTime.Enabled = value;
+            this.TxtPasswordGraceTime.Enabled = value;
+            this.TxtPasswordVerifyFunction.Enabled = value;
+            #endregion password_parameters 
         }
     }
 }

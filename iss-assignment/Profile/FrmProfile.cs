@@ -25,6 +25,7 @@ namespace iss_assignment
         private void FrmProfile_Load(object sender, EventArgs e)
         {
             this.LoadAll();
+            this.LvwProfile.ContextMenuStrip = this.CmsProfile;
         }
         private void LoadAll()
         {
@@ -35,7 +36,7 @@ namespace iss_assignment
         {
             this.LvwProfile.Items.Clear();
             this.LvwProfile.Columns.Clear();
-            this.LvwProfile.Columns.Add("Profile Name", 300, HorizontalAlignment.Center);
+            this.LvwProfile.Columns.Add("Profile Name", 320, HorizontalAlignment.Center);
         }
 
         private void LoadData()
@@ -52,7 +53,13 @@ namespace iss_assignment
 
         private void LvwProfile_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            String name = LvwProfile.SelectedItems[0]?.Text;
+            String name = null;
+            try
+            {
+                name = LvwProfile.SelectedItems?[0]?.Text;
+            }
+            catch { }
+
             if (name != null)
             {
                 this.OpenProfileInfo(name);
@@ -61,7 +68,13 @@ namespace iss_assignment
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            String name = LvwProfile.SelectedItems[0]?.Text;
+            String name = null;
+            try
+            {
+                name = LvwProfile.SelectedItems?[0]?.Text;
+            }
+            catch { }
+            
             if (name != null)
             {
                 this.OpenProfileInfo(name);
@@ -77,28 +90,68 @@ namespace iss_assignment
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            String name = LvwProfile.SelectedItems[0]?.Text;
+            String name = null;
+            try
+            {
+                name = LvwProfile.SelectedItems?[0]?.Text;
+            }
+            catch { }
+
             if (name != null)
             {
-                ProfileBuilder builder = new ProfileBuilder(name);
-                this.profileBLL.Remove(builder.Build());
-                MessageBox.Show(String.Join(" ", "Delete profile ", name, "sucessfull!"));
-                this.LoadAll();
+                DialogResult dr = MessageBox.Show("Are you sure?", "Delete", MessageBoxButtons.YesNoCancel,
+        MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    ProfileBuilder builder = new ProfileBuilder(name);
+                    this.profileBLL.Remove(builder.Build());
+                    MessageBox.Show(String.Join(" ", "Delete profile ", name, "sucessfull!"));
+                    this.LoadAll();
+                }
             }
-
-            
         }
 
         private void BtnDeleteCascade_Click(object sender, EventArgs e)
         {
-            String name = LvwProfile.SelectedItems[0]?.Text;
+            String name = null;
+            try
+            {
+                name = LvwProfile.SelectedItems?[0]?.Text;
+            }
+            catch { }
+
             if (name != null)
             {
-                ProfileBuilder builder = new ProfileBuilder(name);
-                this.profileBLL.RemoveCascade(builder.Build());
-                MessageBox.Show(String.Join(" ", "Delete cascade profile ", name, "sucessfull!"));
-                this.LoadAll();
+                DialogResult dr = MessageBox.Show("Are you sure?", "Delete", MessageBoxButtons.YesNoCancel,
+        MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    ProfileBuilder builder = new ProfileBuilder(name);
+                    this.profileBLL.RemoveCascade(builder.Build());
+                    MessageBox.Show(String.Join(" ", "Delete cascade profile ", name, "sucessfull!"));
+                    this.LoadAll();
+                }
             }
+        }
+
+        private void EditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BtnEdit_Click(sender, e);
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BtnDelete_Click(sender, e);
+        }
+
+        private void DeleteCascadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BtnDeleteCascade_Click(sender, e);
+        }
+
+        private void RefreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LoadAll();
         }
     }
 }
