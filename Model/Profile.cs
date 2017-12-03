@@ -148,7 +148,7 @@ namespace Model
         public static string IDLE_TIME = "IDLE_TIME";
         public static string LOGICAL_READS_PER_SESSION = "LOGICAL_READS_PER_SESSION";
         public static string LOGICAL_READS_PER_CALL = "LOGICAL_READS_PER_CALL";
-        public static string PRIVATE_SGA = "PRIVATE_SGA ";
+        public static string PRIVATE_SGA = "PRIVATE_SGA";
         public static string COMPOSITE_LIMIT = "COMPOSITE_LIMIT";
         #endregion resource_parameters
 

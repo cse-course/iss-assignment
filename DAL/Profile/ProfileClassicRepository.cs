@@ -1,25 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
 
-namespace BLL
+namespace DAL
 {
-    public class ProfileBLL : IProfileBLL
+    public class ProfileClassicRepository : ClassicRepository, IProfileClassicRepository
     {
-        public Profile Add(Profile profile)
+        public ProfileClassicRepository(DbContext context) : base(context)
+        {
+        }
+
+        public bool Add(Profile profile)
         {
             throw new NotImplementedException();
         }
 
-        public bool Remove(Profile proile)
+        public bool Remove(Profile profile)
         {
             throw new NotImplementedException();
         }
 
-        public Profile Update(Profile profile)
+        public bool Update(Profile profile)
         {
             throw new NotImplementedException();
         }
