@@ -47,9 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Role\IRoleBLL.cs" />
     <Compile Include="Profile\IProfileBLL.cs" />
     <Compile Include="Profile\ProfileBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role\RoleBLL.cs" />
     <Compile Include="SysView\SysViewBLL.cs" />
     <Compile Include="UserManagementBLL.cs" />
     <Compile Include="UserManagementClassicBLL.cs" />
@@ -59,7 +61,7 @@
       <Project>{9a19edf6-c48c-4dd6-b20b-a6daae3ed57d}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Model\Domain.csproj">
+    <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{81c3a1dd-42dd-4762-ac6e-2f13a75f82dd}</Project>
       <Name>Domain</Name>
     </ProjectReference>
@@ -72,5 +74,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

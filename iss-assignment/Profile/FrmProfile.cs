@@ -53,17 +53,7 @@ namespace iss_assignment
 
         private void LvwProfile_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            String name = null;
-            try
-            {
-                name = LvwProfile.SelectedItems?[0]?.Text;
-            }
-            catch { }
-
-            if (name != null)
-            {
-                this.OpenProfileInfo(name);
-            }
+            this.BtnEdit_Click(sender, e);
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -71,7 +61,7 @@ namespace iss_assignment
             String name = null;
             try
             {
-                name = LvwProfile.SelectedItems?[0]?.Text;
+                name = this.LvwProfile.SelectedItems?[0]?.Text;
             }
             catch { }
             

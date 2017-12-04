@@ -75,7 +75,9 @@
       <DependentUpon>IISModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Role\IRoleRepository.cs" />
     <Compile Include="Profile\IProfileRepository.cs" />
+    <Compile Include="Role\RoleRepository.cs" />
     <Compile Include="SysView\ISysViewRepository.cs" />
     <Compile Include="Profile\ProfileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,5 +115,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
