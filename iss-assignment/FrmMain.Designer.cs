@@ -40,6 +40,9 @@
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showAllToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +52,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewToolStripMenuItem,
             this.userToolStripMenuItem,
-            this.profileToolStripMenuItem});
+            this.profileToolStripMenuItem,
+            this.roleToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -108,14 +112,14 @@
             // showAllToolStripMenuItem
             // 
             this.showAllToolStripMenuItem.Name = "showAllToolStripMenuItem";
-            this.showAllToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.showAllToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.showAllToolStripMenuItem.Text = "Show All";
             this.showAllToolStripMenuItem.Click += new System.EventHandler(this.ShowAllToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem_Click);
             // 
@@ -131,16 +135,39 @@
             // showAllToolStripMenuItem1
             // 
             this.showAllToolStripMenuItem1.Name = "showAllToolStripMenuItem1";
-            this.showAllToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.showAllToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
             this.showAllToolStripMenuItem1.Text = "Show All";
             this.showAllToolStripMenuItem1.Click += new System.EventHandler(this.ShowAllToolStripMenuItem1_Click);
             // 
             // addProfileToolStripMenuItem
             // 
             this.addProfileToolStripMenuItem.Name = "addProfileToolStripMenuItem";
-            this.addProfileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.addProfileToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.addProfileToolStripMenuItem.Text = "Add Profile";
             this.addProfileToolStripMenuItem.Click += new System.EventHandler(this.AddProfileToolStripMenuItem_Click);
+            // 
+            // roleToolStripMenuItem
+            // 
+            this.roleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showAllToolStripMenuItem2,
+            this.addToolStripMenuItem1});
+            this.roleToolStripMenuItem.Name = "roleToolStripMenuItem";
+            this.roleToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.roleToolStripMenuItem.Text = "Role";
+            // 
+            // showAllToolStripMenuItem2
+            // 
+            this.showAllToolStripMenuItem2.Name = "showAllToolStripMenuItem2";
+            this.showAllToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.showAllToolStripMenuItem2.Text = "Show All";
+            this.showAllToolStripMenuItem2.Click += new System.EventHandler(this.ShowAllToolStripMenuItem2_Click);
+            // 
+            // addToolStripMenuItem1
+            // 
+            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.addToolStripMenuItem1.Text = "Add Role";
+            this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
             // 
             // FrmMain
             // 
@@ -175,6 +202,9 @@
         private System.Windows.Forms.ToolStripMenuItem profileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addProfileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem roleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
     }
 }
 

@@ -18,6 +18,8 @@ namespace iss_assignment
 
         private readonly IProfileBLL profileBLL;
 
+        private readonly IRoleBLL roleBLL;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace iss_assignment
             this.userManagementClassicBLL = new UserManagementClassicBLL(this.context);
 
             this.profileBLL = new ProfileBLL(this.context);
+            this.roleBLL = new RoleBLL(this.context);
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -120,6 +123,24 @@ namespace iss_assignment
         private void AddProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmProfileInfo profile = new FrmProfileInfo(this.profileBLL)
+            {
+                MdiParent = this
+            };
+            profile.Show();
+        }
+
+        private void ShowAllToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmRole profile = new FrmRole(this.roleBLL)
+            {
+                MdiParent = this
+            };
+            profile.Show();
+        }
+
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmAddRole profile = new FrmAddRole(this.roleBLL)
             {
                 MdiParent = this
             };

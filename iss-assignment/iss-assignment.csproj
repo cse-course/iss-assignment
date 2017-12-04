@@ -60,6 +60,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Role\FrmAddRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Role\FrmAddRole.Designer.cs">
+      <DependentUpon>FrmAddRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Role\FrmRoleInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Role\FrmRoleInfo.Designer.cs">
+      <DependentUpon>FrmRoleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Role\FrmRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Role\FrmRole.Designer.cs">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Profile\FrmProfileInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,8 +146,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Role\FrmAddRole.resx">
+      <DependentUpon>FrmAddRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Role\FrmRole.resx">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Profile\FrmProfileInfo.resx">
       <DependentUpon>FrmProfileInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Role\FrmRoleInfo.resx">
+      <DependentUpon>FrmRoleInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
