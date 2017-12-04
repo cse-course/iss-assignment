@@ -15,11 +15,12 @@ namespace iss_assignment
     public partial class frmUserInfo : Form
     {
         private readonly UserManagementBLL view;
-        public frmUserInfo(UserManagementBLL view)
+        private readonly UserManagementClassicBLL OracleView;
+        public frmUserInfo(UserManagementBLL view, UserManagementClassicBLL OracleView)
         {
             this.view = view;
+            this.OracleView = OracleView;
             InitializeComponent();
-            LoadViewMode();
         }
 
         public string frmParamUsername = "";
@@ -66,7 +67,9 @@ namespace iss_assignment
         }
         private void frmUserInfo_Load(object sender, EventArgs e)
         {
+            LoadViewMode();
             LoadData();
+            LoadDataLvwRole();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -86,6 +89,25 @@ namespace iss_assignment
             ClearText();
             LoadData();
             LoadViewMode();
+        }
+        private void AddColumnLvwRole()
+        {
+            LvwRole.Items.Clear();
+            LvwRole.Columns.Clear();
+            LvwRole.Columns.Add("GRANTED_ROLE", 200);
+        }
+        private void LoadDataLvwRole()
+        {
+
+            AddColumnLvwRole();
+            DataSet ds = OracleView.GetGrantedRoleToUser(frmParamUsername);
+            DataTable dt = ds.Tables[0];
+            ListViewItem it;
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                it = LvwRole.Items.Add(dr[0].ToString());
+            }
         }
     }
 

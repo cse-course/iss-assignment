@@ -15,9 +15,11 @@ namespace iss_assignment
     public partial class FrmUserManagerment : Form
     {
         private readonly UserManagementBLL view;
-        public FrmUserManagerment(UserManagementBLL view)
+        private readonly UserManagementClassicBLL OracleView;
+        public FrmUserManagerment(UserManagementBLL view, UserManagementClassicBLL OracleView)
         {
             this.view = view;
+            this.OracleView = OracleView;
             InitializeComponent();
         }
         private void AddColumnListviewUserManagement()
@@ -55,7 +57,7 @@ namespace iss_assignment
         private void LvwUserManagerment_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             String text = LvwUserManagerment.SelectedItems[0].Text;
-            frmUserInfo frm = new frmUserInfo(view);
+            frmUserInfo frm = new frmUserInfo(view, OracleView);
             frm.frmParamUsername = text;
             frm.Show();
         }

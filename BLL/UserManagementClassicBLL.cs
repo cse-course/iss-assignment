@@ -32,5 +32,9 @@ namespace BLL
         {
             return this.repository.DistinctTablespaceName();
         }
+        public DataSet GetGrantedRoleToUser(string Userneme)
+        {
+            return this.repository.GetGrantedRoleToUser(Userneme);
+        }
     }
 }

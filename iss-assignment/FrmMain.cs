@@ -82,21 +82,11 @@ namespace iss_assignment
 
         private void ShowAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmUserManagerment user = new FrmUserManagerment(this.userManagementBLL)
+            FrmUserManagerment user = new FrmUserManagerment(this.userManagementBLL, this.userManagementClassicBLL)
             {
                 MdiParent = this
             };
             user.Show();
-        }
-
-        private void OneUserToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmUserInfo user = new frmUserInfo(this.userManagementBLL)
-            {
-                MdiParent = this
-            };
-            user.Show();
-
         }
 
         private void AddToolStripMenuItem_Click(object sender, EventArgs e)

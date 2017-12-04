@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace DAL
 {
@@ -37,6 +38,13 @@ namespace DAL
                             GROUP BY dd.tablespace_name
                             ORDER BY dd.tablespace_name
                            ";
+            return this.GetDataSet(sql);
+        }
+        public DataSet GetGrantedRoleToUser(string Userneme)
+        {
+            Userneme = Userneme.ToUpper();
+            string sql = "SELECT Granted_Role From Dba_Role_Privs WHERE GRANTEE = '" + Userneme + "'";
+            Debug.WriteLine(sql);
             return this.GetDataSet(sql);
         }
     }

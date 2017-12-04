@@ -45,7 +45,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.LvwRole = new System.Windows.Forms.ListView();
+            this.LvwProfile = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -197,21 +201,43 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.LvwProfile);
             this.groupBox2.Location = new System.Drawing.Point(334, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 316);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Privileges";
+            this.groupBox2.Text = "Profiles";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.LvwRole);
             this.groupBox3.Location = new System.Drawing.Point(540, 13);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 316);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Roles";
+            // 
+            // LvwRole
+            // 
+            this.LvwRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvwRole.Location = new System.Drawing.Point(3, 16);
+            this.LvwRole.Name = "LvwRole";
+            this.LvwRole.Size = new System.Drawing.Size(194, 297);
+            this.LvwRole.TabIndex = 0;
+            this.LvwRole.UseCompatibleStateImageBehavior = false;
+            this.LvwRole.View = System.Windows.Forms.View.Details;
+            // 
+            // LvwProfile
+            // 
+            this.LvwProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvwProfile.Location = new System.Drawing.Point(3, 16);
+            this.LvwProfile.Name = "LvwProfile";
+            this.LvwProfile.Size = new System.Drawing.Size(194, 297);
+            this.LvwProfile.TabIndex = 0;
+            this.LvwProfile.UseCompatibleStateImageBehavior = false;
+            this.LvwProfile.View = System.Windows.Forms.View.Details;
             // 
             // frmUserInfo
             // 
@@ -226,6 +252,8 @@
             this.Load += new System.EventHandler(this.frmUserInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -249,5 +277,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblDateJoin;
+        private System.Windows.Forms.ListView LvwProfile;
+        private System.Windows.Forms.ListView LvwRole;
     }
 }
