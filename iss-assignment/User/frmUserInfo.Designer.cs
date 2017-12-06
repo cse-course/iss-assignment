@@ -44,9 +44,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LvwProfile = new System.Windows.Forms.ListView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.LvwRole = new System.Windows.Forms.ListView();
-            this.LvwProfile = new System.Windows.Forms.ListView();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -54,6 +56,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnDelete);
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.lblDateJoin);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.btnEdit);
@@ -78,7 +82,7 @@
             // lblDateJoin
             // 
             this.lblDateJoin.AutoSize = true;
-            this.lblDateJoin.Location = new System.Drawing.Point(98, 241);
+            this.lblDateJoin.Location = new System.Drawing.Point(98, 229);
             this.lblDateJoin.Name = "lblDateJoin";
             this.lblDateJoin.Size = new System.Drawing.Size(49, 13);
             this.lblDateJoin.TabIndex = 14;
@@ -96,7 +100,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(101, 284);
+            this.btnEdit.Location = new System.Drawing.Point(209, 284);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 0;
@@ -148,7 +152,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 241);
+            this.label6.Location = new System.Drawing.Point(18, 229);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 5;
@@ -209,6 +213,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Profiles";
             // 
+            // LvwProfile
+            // 
+            this.LvwProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvwProfile.Location = new System.Drawing.Point(3, 16);
+            this.LvwProfile.Name = "LvwProfile";
+            this.LvwProfile.Size = new System.Drawing.Size(194, 297);
+            this.LvwProfile.TabIndex = 0;
+            this.LvwProfile.UseCompatibleStateImageBehavior = false;
+            this.LvwProfile.View = System.Windows.Forms.View.Details;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.LvwRole);
@@ -229,15 +243,25 @@
             this.LvwRole.UseCompatibleStateImageBehavior = false;
             this.LvwRole.View = System.Windows.Forms.View.Details;
             // 
-            // LvwProfile
+            // checkBox1
             // 
-            this.LvwProfile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LvwProfile.Location = new System.Drawing.Point(3, 16);
-            this.LvwProfile.Name = "LvwProfile";
-            this.LvwProfile.Size = new System.Drawing.Size(194, 297);
-            this.LvwProfile.TabIndex = 0;
-            this.LvwProfile.UseCompatibleStateImageBehavior = false;
-            this.LvwProfile.View = System.Windows.Forms.View.Details;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(21, 257);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(98, 17);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "Account block.";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.Location = new System.Drawing.Point(119, 284);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelete.TabIndex = 16;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // frmUserInfo
             // 
@@ -279,5 +303,7 @@
         private System.Windows.Forms.Label lblDateJoin;
         private System.Windows.Forms.ListView LvwProfile;
         private System.Windows.Forms.ListView LvwRole;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button BtnDelete;
     }
 }

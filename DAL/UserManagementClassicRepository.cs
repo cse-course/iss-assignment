@@ -19,6 +19,12 @@ namespace DAL
             string sql = "CREATE USER "+ Username + " IDENTIFIED BY " + Password;
             this.Execute(sql);
         }
+        public void DropOracleUser(String Username)
+        {
+            Username = Username.ToUpper();
+            string sql = "drop user " + Username;
+            this.Execute(sql);
+        }
         public DataSet DistinctProfileName()
         {
             string sql = "select Distinct DBA_PROFILES.profile from DBA_PROFILES";
@@ -46,6 +52,34 @@ namespace DAL
             string sql = "SELECT Granted_Role From Dba_Role_Privs WHERE GRANTEE = '" + Userneme + "'";
             Debug.WriteLine(sql);
             return this.GetDataSet(sql);
+        }
+        public DataSet GetGrantedProfileToUser(string Username)
+        {
+            Username = Username.ToUpper();
+            string sql = "SELECT Distinct PROFILE, USERNAME FROM DBA_PROFILES P LEFT OUTER JOIN DBA_USERS U USING(PROFILE) WHERE USERNAME = '" + Username + "'";
+            Debug.WriteLine(sql);
+            return this.GetDataSet(sql);
+        }
+        public void AddRoleToUser(String Username, String Role)
+        {
+            string sql = "GRANT " + Role + " TO " + Username;
+            this.Execute(sql);
+        }
+        public void RemoveRoleFromUser(String Username, String Role)
+        {
+            string sql = "REVOKE " + Role + " FROM " + Username;
+            this.Execute(sql);
+        }
+
+        public void AddProfileToUser(String Username, String Role)
+        {
+            string sql = "GRANT " + Role + " TO " + Username;
+            this.Execute(sql);
+        }
+        public void RemoveProfileFromUser(String Username, String Role)
+        {
+            string sql = "REVOKE " + Role + " FROM " + Username;
+            this.Execute(sql);
         }
     }
 }

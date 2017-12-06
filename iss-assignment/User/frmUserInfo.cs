@@ -32,6 +32,7 @@ namespace iss_assignment
             txtPhone.ReadOnly = false;
             btnEdit.Visible = false;
             btnSave.Visible = true;
+            BtnDelete.Visible = true;
         }
 
         private void LoadData()
@@ -54,6 +55,7 @@ namespace iss_assignment
             txtPhone.ReadOnly = true;
             btnEdit.Visible = true;
             btnSave.Visible = false;
+            BtnDelete.Visible = false;
         }
 
         private void ClearText()
@@ -70,6 +72,7 @@ namespace iss_assignment
             LoadViewMode();
             LoadData();
             LoadDataLvwRole();
+            LoadDataLvwProfile();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -108,6 +111,36 @@ namespace iss_assignment
 
                 it = LvwRole.Items.Add(dr[0].ToString());
             }
+        }
+        
+        private void AddColumnLvwProfile()
+        {
+            LvwProfile.Items.Clear();
+            LvwProfile.Columns.Clear();
+            LvwProfile.Columns.Add("GRANTED_PROFILES", 200);
+        }
+        private void LoadDataLvwProfile()
+        {
+
+            AddColumnLvwProfile();
+            DataSet ds = OracleView.GetGrantedProfileToUser(frmParamUsername);
+            DataTable dt = ds.Tables[0];
+            ListViewItem it;
+            foreach (DataRow dr in dt.Rows)
+            {
+
+                it = LvwProfile.Items.Add(dr[0].ToString());
+    
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            IEnumerable<USER_MANAGEMENT> userList = this.view.GetUserInfo(lblUsername.Text);
+            USER_MANAGEMENT user = userList.First();
+            this.view.Remove(user);
+            this.OracleView.DropOracleUser(lblUsername.Text);
+            Hide();
         }
     }
 

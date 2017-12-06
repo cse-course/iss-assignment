@@ -42,7 +42,12 @@ namespace iss_assignment
         }
         private void BtnClear_Click(object sender, EventArgs e)
         {
-            ClearText();
+            //ClearText();
+            foreach (ListViewItem eachItem in LvwRole.CheckedItems)
+            {
+                string SelectedRole = eachItem.Text;
+                this.OracleView.AddRoleToUser("aaa", SelectedRole);
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -52,7 +57,7 @@ namespace iss_assignment
                 USERNAME = txtUsername.Text,
                 PASSWORD = txtPassword.Text
             };
-            //this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
+            this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
             this.OracleView.AddOracleUser(txtUsername.Text, txtPassword.Text);
             ClearText();
             MessageBox.Show("User created!");

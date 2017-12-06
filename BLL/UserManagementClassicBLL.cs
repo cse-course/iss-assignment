@@ -36,5 +36,30 @@ namespace BLL
         {
             return this.repository.GetGrantedRoleToUser(Userneme);
         }
+
+        public DataSet GetGrantedProfileToUser(string Userneme)
+        {
+            return this.repository.GetGrantedProfileToUser(Userneme);
+        }
+        public void AddProfileToUser(String Username, String Profile)
+        {
+            this.repository.AddProfileToUser(Username, Profile);
+        }
+        public void RemoveProfileFromUser(String Username, String Profile)
+        {
+            this.repository.RemoveProfileFromUser(Username, Profile);
+        }
+        public void AddRoleToUser(String Username, String Role)
+        {
+            this.repository.AddRoleToUser(Username, Role);
+        }
+        public void RemoveRoleFromUser(String Username, String Role)
+        {
+            this.repository.RemoveRoleFromUser(Username, Role);
+        }
+        public void DropOracleUser(String Username)
+        {
+            this.repository.DropOracleUser(Username);
+        }
     }
 }

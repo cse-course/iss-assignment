@@ -168,9 +168,9 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(9, 116);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(139, 17);
+            this.checkBox1.Size = new System.Drawing.Size(111, 17);
             this.checkBox1.TabIndex = 19;
-            this.checkBox1.Text = "Account is block/active";
+            this.checkBox1.Text = "Account is block?";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
