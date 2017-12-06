@@ -28,7 +28,7 @@ namespace iss_assignment
 
         private void FrmRolePrivilege_Load(object sender, EventArgs e)
         {
-            this.LoadPrivilige();
+            this.LoadPrivilege();
             this.LoadUser();
             this.LoadRole();
 
@@ -45,16 +45,47 @@ namespace iss_assignment
 
         }
 
-        private void LoadPrivilige()
+        private void LoadPrivilege()
         {
-            this.LvwPrivilege.Items.Clear();
-            this.LvwPrivilege.Columns.Clear();
-            this.LvwPrivilege.Columns.Add("Privilege Name", 320, HorizontalAlignment.Center);
+            
             List<Privilege> items = this.privilegeBLL.SystemPrivileges("SYS", true);
+            DataGridViewCheckBoxColumn privilegeColumn = new DataGridViewCheckBoxColumn()
+            {
+                FalseValue = 0,
+                TrueValue = 1,
+                Visible = true,
+            };
+            DataGridViewCheckBoxColumn adminColumn = new DataGridViewCheckBoxColumn()
+            {
+                Name = "Admin",
+                FalseValue = 0,
+                TrueValue = 1,
+                Visible = true
+            };
+            this.DgvPrivilege.Columns.Add(privilegeColumn);
+            this.DgvPrivilege.Columns.Add("Privilege", "Privilege");
+            this.DgvPrivilege.Columns.Add(adminColumn);
             foreach (var item in items)
             {
-                ListViewItem viewItem = this.LvwPrivilege.Items.Add(item.Name);
-                viewItem.SubItems.Add(item.Name);
+                DataGridViewRow row = new DataGridViewRow();
+                DataGridViewCheckBoxCell cellName = new DataGridViewCheckBoxCell
+                {
+                    ToolTipText = item.Name,
+                    Value = false
+                };
+                DataGridViewTextBoxCell cellPrivilege = new DataGridViewTextBoxCell()
+                {
+                    Value = item.Name
+                };
+                DataGridViewCheckBoxCell cellAdmin = new DataGridViewCheckBoxCell
+                {
+                    Value = false
+                };
+                row.Cells.Add(cellName);
+                row.Cells.Add(cellPrivilege);
+                row.Cells.Add(cellAdmin);
+
+                this.DgvPrivilege.Rows.Add(row);
             }
         }
 

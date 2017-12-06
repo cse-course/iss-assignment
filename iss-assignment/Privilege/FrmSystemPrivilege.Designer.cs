@@ -39,12 +39,13 @@
             this.LvwSelectedPrivilege = new System.Windows.Forms.ListView();
             this.BtnClear = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.LvwPrivilege = new System.Windows.Forms.ListView();
+            this.DgvPrivilege = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvPrivilege)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -163,7 +164,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.LvwPrivilege);
+            this.groupBox5.Controls.Add(this.DgvPrivilege);
             this.groupBox5.Location = new System.Drawing.Point(12, 12);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(293, 471);
@@ -171,20 +172,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "System Privilege";
             // 
-            // LvwPrivilege
+            // DgvPrivilege
             // 
-            this.LvwPrivilege.CheckBoxes = true;
-            this.LvwPrivilege.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LvwPrivilege.FullRowSelect = true;
-            this.LvwPrivilege.GridLines = true;
-            this.LvwPrivilege.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LvwPrivilege.Location = new System.Drawing.Point(3, 18);
-            this.LvwPrivilege.Name = "LvwPrivilege";
-            this.LvwPrivilege.Size = new System.Drawing.Size(287, 450);
-            this.LvwPrivilege.TabIndex = 0;
-            this.LvwPrivilege.UseCompatibleStateImageBehavior = false;
-            this.LvwPrivilege.View = System.Windows.Forms.View.Details;
-            this.LvwPrivilege.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.LvwPrivilege_ItemChecked);
+            this.DgvPrivilege.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvPrivilege.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvPrivilege.Location = new System.Drawing.Point(3, 18);
+            this.DgvPrivilege.Name = "DgvPrivilege";
+            this.DgvPrivilege.RowTemplate.Height = 24;
+            this.DgvPrivilege.Size = new System.Drawing.Size(287, 450);
+            this.DgvPrivilege.TabIndex = 0;
             // 
             // FrmSystemPrivilege
             // 
@@ -207,6 +203,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvPrivilege)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -224,6 +221,6 @@
         private System.Windows.Forms.ListView LvwSelectedPrivilege;
         private System.Windows.Forms.Button BtnClear;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ListView LvwPrivilege;
+        private System.Windows.Forms.DataGridView DgvPrivilege;
     }
 }
