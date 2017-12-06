@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Privilege\ColumnPrivilegeRepository.cs" />
     <Compile Include="Core\ClassicRepository.cs" />
     <Compile Include="Core\IClassicRepository.cs" />
     <Compile Include="IISModel.Context.cs">
@@ -75,9 +76,14 @@
       <DependentUpon>IISModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Privilege\IObjectPrivilegeRepository.cs" />
+    <Compile Include="Privilege\ISystemPrivilegeRepository.cs" />
+    <Compile Include="Privilege\TablePrivilegeRepository.cs" />
+    <Compile Include="Privilege\RolePrivilegeRepository.cs" />
     <Compile Include="Role\IRoleRepository.cs" />
     <Compile Include="Profile\IProfileRepository.cs" />
     <Compile Include="Role\RoleRepository.cs" />
+    <Compile Include="Privilege\SystemPrivilegeRepository.cs" />
     <Compile Include="SysView\ISysViewRepository.cs" />
     <Compile Include="Profile\ProfileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Privilege\IPrivilegeBLL.cs" />
+    <Compile Include="Privilege\PrivilegeBLL.cs" />
     <Compile Include="Role\IRoleBLL.cs" />
     <Compile Include="Profile\IProfileBLL.cs" />
     <Compile Include="Profile\ProfileBLL.cs" />

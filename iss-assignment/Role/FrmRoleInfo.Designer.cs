@@ -137,7 +137,9 @@
             this.ClientSize = new System.Drawing.Size(545, 258);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmRoleInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmRoleInfo";
             this.Load += new System.EventHandler(this.FrmRoleInfo_Load);
             this.groupBox1.ResumeLayout(false);

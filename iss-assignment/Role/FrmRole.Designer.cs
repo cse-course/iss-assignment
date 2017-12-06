@@ -125,6 +125,7 @@
             this.Controls.Add(this.BtnEdit);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmRole";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRole";

@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 namespace Domain
 {
     //https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_9013.htm
-    public class Privileges
+    public class Privilege
     {
+        public string Name {get; set;}
+        public Boolean isAdmin { get; set; }
+        
     }
 
-    public class SystemPrivilegesBuilder
+    public class SystemPrivilegeBuilder
     {
         private String query;
 
@@ -21,25 +24,25 @@ namespace Domain
 
         private Boolean isAdmin;
 
-        public SystemPrivilegesBuilder()
+        public SystemPrivilegeBuilder()
         {
             this.query = "GRANT";
             this.isAdmin = false;
         }
 
-        public SystemPrivilegesBuilder Privilege(List<String> privilege)
+        public SystemPrivilegeBuilder Privilege(List<String> privilege)
         {
             this.privilege = privilege;
             return this;
         }
 
-        public SystemPrivilegesBuilder Grantee(GranteeClauseBuilder grantee)
+        public SystemPrivilegeBuilder Grantee(GranteeClauseBuilder grantee)
         {
             this.grantee = grantee;
             return this;
         }
 
-        public SystemPrivilegesBuilder AdminOption(Boolean isAdmin)
+        public SystemPrivilegeBuilder AdminOption(Boolean isAdmin)
         {
             this.isAdmin = isAdmin;
             return this;
@@ -58,7 +61,7 @@ namespace Domain
 
     }
 
-    public class ObjectPrivileges
+    public class ObjectPrivilege
     {
         private String query;
 
@@ -72,38 +75,38 @@ namespace Domain
 
         private Boolean isHierarchy;
 
-        public ObjectPrivileges()
+        public ObjectPrivilege()
         {
             this.query = "GRANT";
             this.isAdmin = false;
             this.isHierarchy = false;
         }
 
-        public ObjectPrivileges Privilege(List<String> privilege)
+        public ObjectPrivilege Privilege(List<String> privilege)
         {
             this.privilege = privilege;
             return this;
         }
 
-        public ObjectPrivileges ObjectClauses(ObjectClauseBuilder objectClauses)
+        public ObjectPrivilege ObjectClauses(ObjectClauseBuilder objectClauses)
         {
             this.objectClauses = objectClauses;
             return this;
         }
 
-        public ObjectPrivileges Grantee(GranteeClauseBuilder grantee)
+        public ObjectPrivilege Grantee(GranteeClauseBuilder grantee)
         {
             this.grantee = grantee;
             return this;
         }
 
-        public ObjectPrivileges AdminOption(Boolean isAdmin)
+        public ObjectPrivilege AdminOption(Boolean isAdmin)
         {
             this.isAdmin = isAdmin;
             return this;
         }
 
-        public ObjectPrivileges HierarchyOption(Boolean isHierarchy)
+        public ObjectPrivilege HierarchyOption(Boolean isHierarchy)
         {
             this.isHierarchy = isHierarchy;
             return this;
