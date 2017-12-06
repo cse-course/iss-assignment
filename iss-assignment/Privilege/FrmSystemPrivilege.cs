@@ -54,16 +54,23 @@ namespace iss_assignment
                 FalseValue = 0,
                 TrueValue = 1,
                 Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            };
+            DataGridViewTextBoxColumn contentColumn = new DataGridViewTextBoxColumn()
+            {
+                Name = "Privilege",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
             DataGridViewCheckBoxColumn adminColumn = new DataGridViewCheckBoxColumn()
             {
                 Name = "Admin",
                 FalseValue = 0,
                 TrueValue = 1,
-                Visible = true
+                Visible = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
             };
             this.DgvPrivilege.Columns.Add(privilegeColumn);
-            this.DgvPrivilege.Columns.Add("Privilege", "Privilege");
+            this.DgvPrivilege.Columns.Add(contentColumn);
             this.DgvPrivilege.Columns.Add(adminColumn);
             foreach (var item in items)
             {
