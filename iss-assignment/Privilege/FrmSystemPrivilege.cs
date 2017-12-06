@@ -18,7 +18,7 @@ namespace iss_assignment
         private readonly IPrivilegeBLL privilegeBLL;
 
         private readonly IRoleBLL roleBLL;
-        
+
         public FrmSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL)
         {
             this.privilegeBLL = privilegeBLL;
@@ -37,7 +37,65 @@ namespace iss_assignment
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            this.SetEnable(false);
 
+            List<String> privileges = new List<String>();
+            List<String> privilegesAdmin = new List<String>();
+            for (int i = 0; i < this.DgvPrivilege.RowCount; i++)
+            {
+                Boolean isHandle = (Boolean)this.DgvPrivilege.Rows[i].Cells[0].Value;
+                if (isHandle)
+                {
+                    if ((Boolean)this.DgvPrivilege.Rows[i].Cells[2].Value)
+                    {
+                        privilegesAdmin.Add((String)this.DgvPrivilege.Rows[i].Cells[1].Value);
+                    }
+                    else
+                    {
+                        privileges.Add((String)this.DgvPrivilege.Rows[i].Cells[1].Value);
+                    }
+                }
+            }
+
+            if (privileges.Count > 0 || privilegesAdmin.Count > 0)
+            {
+                List<String> grantee = new List<string>();
+                foreach (ListViewItem item in this.LvwUsers.Items)
+                {
+                    if (item.Checked == true)
+                    {
+                        grantee.Add(item.Text);
+                    }
+                }
+                foreach (ListViewItem item in this.LvwRole.Items)
+                {
+                    if (item.Checked == true)
+                    {
+                        grantee.Add(item.Text);
+                    }
+                }
+                foreach (var g in grantee)
+                {
+                    this.ExecuteGrant(privileges, g, false);
+                    this.ExecuteGrant(privilegesAdmin, g, true);
+                }
+                MessageBox.Show(String.Join(" ", "Grant ", privileges.Count + privilegesAdmin.Count, " privilege to ", grantee.Count, "grantee sucessfull!"));
+            }
+            this.SetEnable(true);
+
+        }
+
+        private void ExecuteGrant(List<String> privileges, String grantee, Boolean isAdmin)
+        {
+            if (privileges.Count > 0)
+            {
+                SystemPrivilegeBuilder builder = new SystemPrivilegeBuilder();
+                SystemPrivilege privilege = builder
+                    .Privilege(privileges)
+                    .Grantee(new GranteeClauseBuilder().Grantee(grantee))
+                    .AdminOption(isAdmin).Build();
+                this.privilegeBLL.GrantSystemPrivilege(privilege);
+            }
         }
 
         private void BtnClear_Click(object sender, EventArgs e)
@@ -49,7 +107,7 @@ namespace iss_assignment
 
         private void LoadPrivilege()
         {
-            
+
             List<Privilege> items = this.privilegeBLL.SystemPrivileges("SYS", true);
             DataGridViewCheckBoxColumn privilegeColumn = new DataGridViewCheckBoxColumn()
             {
@@ -149,6 +207,12 @@ namespace iss_assignment
                 item.Checked = false;
             }
         }
-  
+
+        private void SetEnable(Boolean enable)
+        {
+            this.DgvPrivilege.Enabled = enable;
+            this.LvwRole.Enabled = enable;
+            this.LvwUsers.Enabled = enable;
+        }
     }
 }

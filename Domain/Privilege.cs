@@ -14,8 +14,18 @@ namespace Domain
         
     }
 
+    public class SystemPrivilege
+    {
+        public String QueryGrant { get; set; }
+
+        public String QueryRevoke { get; set; }
+
+    }
+
     public class SystemPrivilegeBuilder
     {
+        private SystemPrivilege systemPrivilege;
+
         private String query;
 
         private List<String> privilege;
@@ -28,6 +38,7 @@ namespace Domain
         {
             this.query = "GRANT";
             this.isAdmin = false;
+            this.systemPrivilege = new SystemPrivilege();
         }
 
         public SystemPrivilegeBuilder Privilege(List<String> privilege)
@@ -48,21 +59,32 @@ namespace Domain
             return this;
         }
 
-        public String Build()
+        public SystemPrivilege Build()
         {
-            return String.Join(" ", 
+            this.systemPrivilege.QueryGrant =  String.Join(" ", 
                 this.query, 
                 string.Join(",", this.privilege), 
                 "TO", 
                 this.grantee.Build(),
                 isAdmin ? "WITH ADMIN OPTION" : ""
                 );
+            return this.systemPrivilege;
         }
 
     }
 
     public class ObjectPrivilege
     {
+        public String QueryGrant { get; set; }
+
+        public String QueryRevoke { get; set; }
+
+    }
+
+    public class ObjectPrivilegeBuilder
+    {
+        private ObjectPrivilege objectPrivilege;
+
         private String query;
 
         private List<String> privilege;
@@ -75,47 +97,48 @@ namespace Domain
 
         private Boolean isHierarchy;
 
-        public ObjectPrivilege()
+        public ObjectPrivilegeBuilder()
         {
             this.query = "GRANT";
             this.isAdmin = false;
             this.isHierarchy = false;
+            this.objectPrivilege = new ObjectPrivilege();
         }
 
-        public ObjectPrivilege Privilege(List<String> privilege)
+        public ObjectPrivilegeBuilder Privilege(List<String> privilege)
         {
             this.privilege = privilege;
             return this;
         }
 
-        public ObjectPrivilege ObjectClauses(ObjectClauseBuilder objectClauses)
+        public ObjectPrivilegeBuilder ObjectClauses(ObjectClauseBuilder objectClauses)
         {
             this.objectClauses = objectClauses;
             return this;
         }
 
-        public ObjectPrivilege Grantee(GranteeClauseBuilder grantee)
+        public ObjectPrivilegeBuilder Grantee(GranteeClauseBuilder grantee)
         {
             this.grantee = grantee;
             return this;
         }
 
-        public ObjectPrivilege AdminOption(Boolean isAdmin)
+        public ObjectPrivilegeBuilder AdminOption(Boolean isAdmin)
         {
             this.isAdmin = isAdmin;
             return this;
         }
 
-        public ObjectPrivilege HierarchyOption(Boolean isHierarchy)
+        public ObjectPrivilegeBuilder HierarchyOption(Boolean isHierarchy)
         {
             this.isHierarchy = isHierarchy;
             return this;
         }
 
 
-        public String Build()
+        public ObjectPrivilege Build()
         {
-            return String.Join(" ",
+            this.objectPrivilege.QueryGrant = String.Join(" ",
                 this.query,
                 string.Join(",", this.privilege),
                 this.objectClauses.Build(),
@@ -124,6 +147,8 @@ namespace Domain
                 this.isAdmin ? "WITH ADMIN OPTION" : "",
                 this.isHierarchy ? "WITH HIERARCHY OPTION" : ""
                 );
+
+            return this.objectPrivilege;
         }
     }
 

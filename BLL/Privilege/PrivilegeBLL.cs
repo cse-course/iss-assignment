@@ -44,9 +44,9 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public bool GrantSystemPrivilege(string username, Privilege privilege)
+        public bool GrantSystemPrivilege(SystemPrivilege privilege)
         {
-            throw new NotImplementedException();
+            return this.systemPrivilegeRepository.Execute(privilege.QueryGrant);
         }
 
         public bool GrantTablePrivilege(string username, Privilege privilege)
@@ -74,9 +74,9 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public bool RevokeSystemPrivilege(string username, Privilege privilege)
+        public bool RevokeSystemPrivilege(SystemPrivilege privilege)
         {
-            throw new NotImplementedException();
+            return this.systemPrivilegeRepository.Execute(privilege.QueryRevoke);
         }
 
         public bool RevokeTablePrivilege(string username, Privilege privilege)

@@ -12,9 +12,9 @@ namespace BLL
         #region System
         Boolean HasSystemPrivilege(String username, Privilege privilege);
 
-        Boolean GrantSystemPrivilege(String username, Privilege privilege);
+        Boolean GrantSystemPrivilege(SystemPrivilege privilege);
 
-        Boolean RevokeSystemPrivilege(String username, Privilege privilege);
+        Boolean RevokeSystemPrivilege(SystemPrivilege privilege);
 
         List<Privilege> SystemPrivileges(String username);
 
