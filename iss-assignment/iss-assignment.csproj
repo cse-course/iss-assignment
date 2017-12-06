@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Privilege\FrmRolePrivilege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Privilege\FrmRolePrivilege.Designer.cs">
+      <DependentUpon>FrmRolePrivilege.cs</DependentUpon>
+    </Compile>
     <Compile Include="Role\FrmAddRole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Privilege\FrmRolePrivilege.resx">
+      <DependentUpon>FrmRolePrivilege.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Role\FrmAddRole.resx">
       <DependentUpon>FrmAddRole.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,8 +234,6 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Privilege\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

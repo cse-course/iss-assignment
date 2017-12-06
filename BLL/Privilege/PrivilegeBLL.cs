@@ -9,42 +9,77 @@ namespace BLL
 {
     public class PrivilegeBLL : IPrivilegeBLL
     {
-        public bool GrantObjectPrivilege(string username, string privilege, bool isAdmin)
+        public List<Privilege> ColumnPrivileges(string username)
         {
             throw new NotImplementedException();
         }
 
-        public bool GrantSystemPrivilege(string username, string privilege, bool isAdmin)
+        public List<Privilege> ColumnPrivileges()
         {
             throw new NotImplementedException();
         }
 
-        public bool HaveObjectPrivilege(string username, string privilege, bool isAdmin)
+        public bool GrantColumnPrivilege(string username, Privilege privilege)
         {
             throw new NotImplementedException();
         }
 
-        public bool HaveSystemPrivilege(string username, string privilege, bool isAdmin)
+        public bool GrantSystemPrivilege(string username, Privilege privilege)
         {
             throw new NotImplementedException();
         }
 
-        public List<Privilege> ObjectPrivileges(string username)
+        public bool GrantTablePrivilege(string username, Privilege privilege)
         {
             throw new NotImplementedException();
         }
 
-        public bool RevokeObjectPrivilege(string username, string privilege)
+        public bool HasColumnPrivilege(string username, Privilege privilege)
         {
             throw new NotImplementedException();
         }
 
-        public bool RevokeSystemPrivilege(string username, string privilege)
+        public bool HasSystemPrivilege(string username, Privilege privilege)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool HasTablePrivilege(string username, Privilege privilege)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RevokeColumnPrivilege(string username, Privilege privilege)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RevokeSystemPrivilege(string username, Privilege privilege)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RevokeTablePrivilege(string username, Privilege privilege)
         {
             throw new NotImplementedException();
         }
 
         public List<Privilege> SystemPrivileges(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Privilege> SystemPrivileges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Privilege> TablePrivileges(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Privilege> TablePrivileges()
         {
             throw new NotImplementedException();
         }
