@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
 using DAL;
 using System.Data.Entity;
 using System.Data;
+using Domain;
 
 namespace BLL
 {
@@ -48,7 +45,19 @@ namespace BLL
 
         public List<Role> View()
         {
-            throw new NotImplementedException();
+            List<Role> result = new List<Role>();
+            DataSet dataSet = this.repository.View();
+            DataTable table = dataSet.Tables[0];
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                Role role = new Role
+                {
+                    Name = table.Rows[i]["ROLE"].ToString()
+                };
+                result.Add(role);
+            }
+
+                return result;
         }
 
         public Role View(string role)

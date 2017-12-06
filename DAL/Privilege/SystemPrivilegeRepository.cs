@@ -30,6 +30,17 @@ namespace DAL
             return this.GetDataSet(query, CommandType.Text, dictionary);
         }
 
+        public DataSet View(string grantee, string isAdmin)
+        {
+            String query = "SELECT * FROM SYS.DBA_SYS_PRIVS WHERE GRANTEE= :grantee AND ADMIN_OPTION= :isAdmin";
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
+            {
+                { "grantee", grantee },
+                { "isAdmin", isAdmin }
+            };
+            return this.GetDataSet(query, CommandType.Text, dictionary);
+        }
+
         bool ISystemPrivilegeRepository.Execute(string query)
         {
             try

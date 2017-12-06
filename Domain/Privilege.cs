@@ -10,7 +10,7 @@ namespace Domain
     public class Privilege
     {
         public string Name {get; set;}
-        public Boolean isAdmin { get; set; }
+        public Boolean IsAdmin { get; set; }
         
     }
 

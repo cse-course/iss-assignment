@@ -63,6 +63,7 @@
             this.LvwUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LvwUsers.FullRowSelect = true;
             this.LvwUsers.GridLines = true;
+            this.LvwUsers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.LvwUsers.Location = new System.Drawing.Point(3, 18);
             this.LvwUsers.Name = "LvwUsers";
             this.LvwUsers.Size = new System.Drawing.Size(287, 450);
@@ -86,6 +87,7 @@
             this.LvwRole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LvwRole.FullRowSelect = true;
             this.LvwRole.GridLines = true;
+            this.LvwRole.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.LvwRole.Location = new System.Drawing.Point(3, 18);
             this.LvwRole.Name = "LvwRole";
             this.LvwRole.Size = new System.Drawing.Size(287, 450);
@@ -118,6 +120,7 @@
             this.LvwSelectedGrantee.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LvwSelectedGrantee.FullRowSelect = true;
             this.LvwSelectedGrantee.GridLines = true;
+            this.LvwSelectedGrantee.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.LvwSelectedGrantee.Location = new System.Drawing.Point(3, 18);
             this.LvwSelectedGrantee.Name = "LvwSelectedGrantee";
             this.LvwSelectedGrantee.Size = new System.Drawing.Size(311, 188);
@@ -140,6 +143,7 @@
             this.LvwSelectedPrivilege.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LvwSelectedPrivilege.FullRowSelect = true;
             this.LvwSelectedPrivilege.GridLines = true;
+            this.LvwSelectedPrivilege.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.LvwSelectedPrivilege.Location = new System.Drawing.Point(3, 18);
             this.LvwSelectedPrivilege.Name = "LvwSelectedPrivilege";
             this.LvwSelectedPrivilege.Size = new System.Drawing.Size(311, 184);
@@ -173,14 +177,16 @@
             this.LvwPrivilege.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LvwPrivilege.FullRowSelect = true;
             this.LvwPrivilege.GridLines = true;
+            this.LvwPrivilege.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.LvwPrivilege.Location = new System.Drawing.Point(3, 18);
             this.LvwPrivilege.Name = "LvwPrivilege";
             this.LvwPrivilege.Size = new System.Drawing.Size(287, 450);
             this.LvwPrivilege.TabIndex = 0;
             this.LvwPrivilege.UseCompatibleStateImageBehavior = false;
             this.LvwPrivilege.View = System.Windows.Forms.View.Details;
+            this.LvwPrivilege.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.LvwPrivilege_ItemChecked);
             // 
-            // FrmRolePrivilege
+            // FrmSystemPrivilege
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,7 +198,7 @@
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmRolePrivilege";
+            this.Name = "FrmSystemPrivilege";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "System Privilege";
             this.Load += new System.EventHandler(this.FrmRolePrivilege_Load);

@@ -17,6 +17,8 @@ namespace BLL
         Boolean RevokeSystemPrivilege(String username, Privilege privilege);
 
         List<Privilege> SystemPrivileges(String username);
+
+        List<Privilege> SystemPrivileges(String username, Boolean isAdmin);
         List<Privilege> SystemPrivileges();
 
         #endregion System
@@ -30,6 +32,9 @@ namespace BLL
 
         List<Privilege> TablePrivileges(String username);
 
+        List<Privilege> TablePrivileges(String username, Boolean isAdmin);
+
+
         List<Privilege> TablePrivileges();
 
         #endregion Table
@@ -42,6 +47,9 @@ namespace BLL
         Boolean RevokeColumnPrivilege(String username, Privilege privilege);
 
         List<Privilege> ColumnPrivileges(String username);
+
+        List<Privilege> ColumnPrivileges(String username, Boolean isAdmin);
+
         List<Privilege> ColumnPrivileges();
         #endregion Column
 

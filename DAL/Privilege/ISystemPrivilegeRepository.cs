@@ -23,6 +23,14 @@ namespace DAL
         DataSet View(String grantee);
 
         /// <summary>
+        /// Get all privilege of grantee with admin option
+        /// </summary>
+        /// <param name="grantee"></param>
+        /// <param name="isAdmin"></param>
+        /// <returns></returns>
+        DataSet View(String grantee, String isAdmin);
+
+        /// <summary>
         /// Execute query
         /// Use for Grant or Revoke
         /// </summary>

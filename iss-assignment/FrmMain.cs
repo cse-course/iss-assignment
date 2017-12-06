@@ -142,7 +142,7 @@ namespace iss_assignment
 
         private void SystemPrivilegeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmSystemPrivilege frm = new FrmSystemPrivilege(this.privilegeBLL)
+            FrmSystemPrivilege frm = new FrmSystemPrivilege(this.privilegeBLL, this.roleBLL)
             {
                 MdiParent = this
             };

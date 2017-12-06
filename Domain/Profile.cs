@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Domain
 {
     //https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6010.htm
     public class Profile
