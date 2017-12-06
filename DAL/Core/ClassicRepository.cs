@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public abstract class ClassicRepository : IClassicRepository
+    public abstract class ClassicRepository
     {
         protected readonly DbContext context;
 

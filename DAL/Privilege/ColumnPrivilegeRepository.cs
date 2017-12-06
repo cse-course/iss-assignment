@@ -16,13 +16,13 @@ namespace DAL
 
         public DataSet View()
         {
-            String query = @"SELECT * FROM SYS.DBA_COL_PRIVS";
+            String query = "SELECT * FROM SYS.DBA_COL_PRIVS";
             return this.GetDataSet(query);
         }
 
         public DataSet View(string grantee)
         {
-            String query = @"SELECT * FROM SYS.DBA_COL_PRIVS WHERE GRANTEE = :grantee";
+            String query = "SELECT * FROM SYS.DBA_COL_PRIVS WHERE GRANTEE = :grantee";
             Dictionary<string, object> dictionary = new Dictionary<string, object>
             {
                 { "grantee", grantee }

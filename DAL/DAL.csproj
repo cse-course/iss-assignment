@@ -59,7 +59,6 @@
   <ItemGroup>
     <Compile Include="Privilege\ColumnPrivilegeRepository.cs" />
     <Compile Include="Core\ClassicRepository.cs" />
-    <Compile Include="Core\IClassicRepository.cs" />
     <Compile Include="IISModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
