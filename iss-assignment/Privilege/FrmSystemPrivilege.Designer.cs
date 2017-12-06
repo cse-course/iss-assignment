@@ -129,6 +129,7 @@
             this.DgvPrivilege.Location = new System.Drawing.Point(3, 18);
             this.DgvPrivilege.Name = "DgvPrivilege";
             this.DgvPrivilege.RowTemplate.Height = 24;
+            this.DgvPrivilege.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvPrivilege.Size = new System.Drawing.Size(593, 674);
             this.DgvPrivilege.TabIndex = 0;
             // 
@@ -142,6 +143,8 @@
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmSystemPrivilege";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "System Privilege";

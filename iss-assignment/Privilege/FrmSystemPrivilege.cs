@@ -42,7 +42,9 @@ namespace iss_assignment
 
         private void BtnClear_Click(object sender, EventArgs e)
         {
-
+            this.ClearPrivilege();
+            this.ClearUser();
+            this.ClearRole();
         }
 
         private void LoadPrivilege()
@@ -82,7 +84,7 @@ namespace iss_assignment
                 };
                 DataGridViewTextBoxCell cellPrivilege = new DataGridViewTextBoxCell()
                 {
-                    Value = item.Name
+                    Value = item.Name,
                 };
                 DataGridViewCheckBoxCell cellAdmin = new DataGridViewCheckBoxCell
                 {
@@ -94,6 +96,7 @@ namespace iss_assignment
 
                 this.DgvPrivilege.Rows.Add(row);
             }
+            contentColumn.ReadOnly = true;
         }
 
         private void LoadUser()
@@ -122,9 +125,30 @@ namespace iss_assignment
             }
         }
 
-        private void LvwPrivilege_ItemChecked(object sender, ItemCheckedEventArgs e)
+        private void ClearPrivilege()
         {
-            Debug.WriteLine("LvwUsers");
+            for (int i = 0; i < this.DgvPrivilege.RowCount; i++)
+            {
+                this.DgvPrivilege.Rows[i].Cells[0].Value = false;
+                this.DgvPrivilege.Rows[i].Cells[2].Value = false;
+            }
         }
+
+        private void ClearUser()
+        {
+            foreach (ListViewItem item in this.LvwUsers.Items)
+            {
+                item.Checked = false;
+            }
+        }
+
+        private void ClearRole()
+        {
+            foreach (ListViewItem item in this.LvwRole.Items)
+            {
+                item.Checked = false;
+            }
+        }
+  
     }
 }
