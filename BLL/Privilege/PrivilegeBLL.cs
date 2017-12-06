@@ -4,11 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using System.Data.Entity;
+using DAL;
+using System.Data;
 
 namespace BLL
 {
     public class PrivilegeBLL : IPrivilegeBLL
     {
+        private DbContext context;
+
+        private ISystemPrivilegeRepository systemPrivilegeRepository;
+
+        private ISystemPrivilegeRepository rolePrivilegeRepository;
+        public PrivilegeBLL(DbContext context)
+        {
+            this.context = context;
+            this.systemPrivilegeRepository = new SystemPrivilegeRepository(this.context);
+            this.rolePrivilegeRepository = new RolePrivilegeRepository(this.context);
+        }
         public List<Privilege> ColumnPrivileges(string username)
         {
             throw new NotImplementedException();
@@ -71,7 +85,19 @@ namespace BLL
 
         public List<Privilege> SystemPrivileges()
         {
-            throw new NotImplementedException();
+            List<Privilege> result = new List<Privilege>();
+            DataSet dataSet = this.systemPrivilegeRepository.View();
+            DataTable table = dataSet.Tables[0];
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                //table.Rows[i][0] RESOURCE_NAME
+                //table.Rows[i][1] LIMIT
+                Privilege privilege = new Privilege();
+                privilege.Name = table.Rows[i]["PRIVILEGE"].ToString();
+                //table.Rows[i]["ADMIN_OPTION"];
+
+            }
+            return result;
         }
 
         public List<Privilege> TablePrivileges(string username)

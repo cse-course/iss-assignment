@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace iss_assignment
 {
-    public partial class FrmRolePrivilege : Form
+    public partial class FrmSystemPrivilege : Form
     {
         private IPrivilegeBLL privilegeBLL;
-        public FrmRolePrivilege(IPrivilegeBLL privilegeBLL)
+        public FrmSystemPrivilege(IPrivilegeBLL privilegeBLL)
         {
             this.privilegeBLL = privilegeBLL;
             InitializeComponent();

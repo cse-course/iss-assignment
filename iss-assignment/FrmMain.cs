@@ -20,6 +20,8 @@ namespace iss_assignment
 
         private readonly IRoleBLL roleBLL;
 
+        private readonly IPrivilegeBLL privilegeBLL;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace iss_assignment
 
             this.profileBLL = new ProfileBLL(this.context);
             this.roleBLL = new RoleBLL(this.context);
+            this.privilegeBLL = new PrivilegeBLL(this.context);
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -135,6 +138,15 @@ namespace iss_assignment
                 MdiParent = this
             };
             profile.Show();
+        }
+
+        private void SystemPrivilegeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSystemPrivilege frm = new FrmSystemPrivilege(this.privilegeBLL)
+            {
+                MdiParent = this
+            };
+            frm.Show();
         }
     }
 }

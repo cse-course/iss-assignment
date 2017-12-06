@@ -1,6 +1,6 @@
 ﻿namespace iss_assignment
 {
-    partial class FrmRolePrivilege
+    partial class FrmSystemPrivilege
     {
         /// <summary>
         /// Required designer variable.
@@ -194,7 +194,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmRolePrivilege";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FrmRolePrivilege";
+            this.Text = "System Privilege";
             this.Load += new System.EventHandler(this.FrmRolePrivilege_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

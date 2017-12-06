@@ -43,6 +43,8 @@
             this.roleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAllToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.privilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemPrivilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +55,8 @@
             this.viewToolStripMenuItem,
             this.userToolStripMenuItem,
             this.profileToolStripMenuItem,
-            this.roleToolStripMenuItem});
+            this.roleToolStripMenuItem,
+            this.privilegeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -158,16 +161,31 @@
             // showAllToolStripMenuItem2
             // 
             this.showAllToolStripMenuItem2.Name = "showAllToolStripMenuItem2";
-            this.showAllToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.showAllToolStripMenuItem2.Size = new System.Drawing.Size(146, 26);
             this.showAllToolStripMenuItem2.Text = "Show All";
             this.showAllToolStripMenuItem2.Click += new System.EventHandler(this.ShowAllToolStripMenuItem2_Click);
             // 
             // addToolStripMenuItem1
             // 
             this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(146, 26);
             this.addToolStripMenuItem1.Text = "Add Role";
             this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
+            // 
+            // privilegeToolStripMenuItem
+            // 
+            this.privilegeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.systemPrivilegeToolStripMenuItem});
+            this.privilegeToolStripMenuItem.Name = "privilegeToolStripMenuItem";
+            this.privilegeToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.privilegeToolStripMenuItem.Text = "Privilege";
+            // 
+            // systemPrivilegeToolStripMenuItem
+            // 
+            this.systemPrivilegeToolStripMenuItem.Name = "systemPrivilegeToolStripMenuItem";
+            this.systemPrivilegeToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.systemPrivilegeToolStripMenuItem.Text = "System Privilege";
+            this.systemPrivilegeToolStripMenuItem.Click += new System.EventHandler(this.SystemPrivilegeToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -205,6 +223,8 @@
         private System.Windows.Forms.ToolStripMenuItem roleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem privilegeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem systemPrivilegeToolStripMenuItem;
     }
 }
 
