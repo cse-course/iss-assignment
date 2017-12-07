@@ -73,5 +73,17 @@ namespace BLL
         {
             return this.repository.IsLock(Username);
         }
+        public void UpdateDefaultTablespace(String Username, String Tablespace)
+        {
+            this.repository.UpdateDefaultTablespace(Username, Tablespace);
+        }
+        public void UpdateTemporaryTablespace(String Username, String TmpTablespace)
+        {
+            this.repository.UpdateTemporaryTablespace(Username, TmpTablespace);
+        }
+        public void UpdateQuota(String Username, String Quota, String Location)
+        {
+            this.UpdateQuota(Username, Quota, Location);
+        }
     }
 }

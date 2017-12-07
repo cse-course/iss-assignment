@@ -183,7 +183,7 @@ namespace iss_assignment
         private void BtnAddRole_Click(object sender, EventArgs e)
         {
             String Username = lblUsername.Text;
-            User.FrmAddRoleToUser FrmChild_AddRole = new User.FrmAddRoleToUser(OracleView);
+            FrmAddRoleToUser FrmChild_AddRole = new FrmAddRoleToUser(OracleView);
             FrmChild_AddRole.frmParamUsername = Username;
             FrmChild_AddRole.FormClosed += new FormClosedEventHandler(FrmChild_FormClosed);
             FrmChild_AddRole.Show();

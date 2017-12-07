@@ -32,6 +32,7 @@ namespace iss_assignment
             LoadDataLvwRole();
             LoadDataCbbDefaultTablespace();
             LoadDataCbbTemporaryTablespace();
+            DeActiveAdvanceMode();
         }
 
         public void ClearText()
@@ -66,13 +67,116 @@ namespace iss_assignment
                 this.OracleView.LockAccount("aaa");
             }
         }
+        private void SaveTableSpaceFromForm()
+        {
+            String DefaultTablespaceSelected = CbbDefaultTablespace.SelectedItem.ToString();
+            String TemporaryTablespaceSeleted = CbbTemporaryTablespace.SelectedItem.ToString();
+            OracleView.UpdateDefaultTablespace(txtUsername.Text, DefaultTablespaceSelected);
+            OracleView.UpdateTemporaryTablespace(txtUsername.Text, TemporaryTablespaceSeleted);
+        }
         private void BtnClear_Click(object sender, EventArgs e)
         {
-            if (CbbDefaultTablespace.SelectedItem.ToString() != "select")
+            String Example = "";
+            String Sysaux = "";
+            String System = "";
+            String Temp = "";
+            String Undotps1 = "";
+            String Users = "";
+            if (CbxExample.Checked)
             {
+                Example = "UNLIMITED";
             }
-            if (CbbTemporaryTablespace.SelectedItem.ToString() != "select")
+            else
             {
+                if (TxtExample.Text != "")
+                {
+                    Example = TxtExample.Text + "M";
+                }
+            }
+
+            if (CbxSysaux.Checked)
+            {
+                Sysaux = "UNLIMITED";
+            }
+            else
+            {
+                if (TxtSysaux.Text != "")
+                {
+                    Sysaux = TxtSysaux.Text + "M";
+                }
+            }
+
+            if (CbxSystem.Checked)
+            {
+                System = "UNLIMITED";
+            }
+            else
+            {
+                if (TxtSystem.Text != "")
+                {
+                    System = TxtSystem.Text + "M";
+                }
+            }
+
+            if (CbxTemp.Checked)
+            {
+                Temp = "UNLIMITED";
+            }
+            else
+            {
+                if (TxtTemp.Text != "")
+                {
+                    Temp = TxtTemp.Text + "M";
+                }
+            }
+
+            if (CbxUndotps1.Checked)
+            {
+                Undotps1 = "UNLIMITED";
+            }
+            else
+            {
+                if (TxtUndotps1.Text != "")
+                {
+                    Undotps1 = TxtUndotps1.Text + "M";
+                }
+            }
+
+            if (CbxUsers.Checked)
+            {
+                Users = "UNLIMITED";
+            }
+            else
+            {
+                if (TxtUsers.Text != "")
+                {
+                    Users = TxtUsers.Text + "M";
+                }
+            }
+
+            if (Example != "")
+            {
+                MessageBox.Show("EXAMPLE " + Example);
+            }
+            if (System != "")
+            {
+                MessageBox.Show("SYSTEM" + System);
+            }
+            if (Sysaux != "")
+            {
+                MessageBox.Show("SYSAUX " + Sysaux);
+            }
+            if (Temp != "")
+            {
+                MessageBox.Show("TEMP" + Temp);
+            }
+            if (Undotps1 != "")
+            {
+                MessageBox.Show("UNDOTPS1" + Undotps1);
+            }
+            if (Users != "")
+            {
+                MessageBox.Show("USERS" + Users);
             }
         }
 
@@ -140,6 +244,103 @@ namespace iss_assignment
         {
             CbbTemporaryTablespace.Items.Add("TEMP");
             CbbTemporaryTablespace.SelectedIndex = 0;
+        }
+
+        private void CbxExample_CheckedChanged(object sender, EventArgs e)
+        {
+            TxtExample.Text = "";
+        }
+
+        private void CbxSysaux_CheckedChanged(object sender, EventArgs e)
+        {
+            TxtSysaux.Text = "";
+        }
+
+        private void CbxSystem_CheckedChanged(object sender, EventArgs e)
+        {
+            TxtSystem.Text = "";
+        }
+
+        private void CbxTemp_CheckedChanged(object sender, EventArgs e)
+        {
+            TxtTemp.Text = "";
+        }
+
+        private void CbxUndotps1_CheckedChanged(object sender, EventArgs e)
+        {
+            TxtUndotps1.Text = "";
+        }
+
+        private void CbxUsers_CheckedChanged(object sender, EventArgs e)
+        {
+            TxtUsers.Text = "";
+        }
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckUserInputNotNull();
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckUserInputNotNull();
+        }
+
+        private void txtPassword2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckUserInputNotNull();
+        }
+
+        private void CheckUserInputNotNull()
+        {
+            if (txtUsername.Text != "" && txtPassword.Text != "" && txtPassword2.Text != "")
+            ActiveAdvanceMode();
+        }
+
+        private void ActiveAdvanceMode()
+        {
+            btnSave.Enabled = true;
+            LvwProfile.CheckBoxes = true;
+            LvwProfile.Enabled = true;
+            LvwRole.CheckBoxes = true;
+            LvwRole.Enabled = true;
+            CbbDefaultTablespace.Enabled = true;
+            CbbTemporaryTablespace.Enabled = true;
+            CbxExample.AutoCheck = false;
+            CbxSysaux.AutoCheck = false;
+            CbxSystem.AutoCheck = false;
+            CbxTemp.AutoCheck = false;
+            CbxUndotps1.AutoCheck = false;
+            CbxUsers.AutoCheck = false;
+            TxtExample.Enabled = true;
+            TxtSysaux.Enabled = true;
+            TxtSystem.Enabled = true;
+            TxtTemp.Enabled = true;
+            TxtUndotps1.Enabled = true;
+            TxtUsers.Enabled = true;
+        }
+
+        private void DeActiveAdvanceMode()
+        {
+            btnSave.Enabled = false;
+            LvwProfile.CheckBoxes = false;
+            LvwProfile.Enabled = false;
+            LvwRole.CheckBoxes = false;
+            LvwRole.Enabled = false;
+            CbbDefaultTablespace.Enabled = false;
+            CbbTemporaryTablespace.Enabled = false;
+            CbxExample.AutoCheck = true;
+            CbxSysaux.AutoCheck = true;
+            CbxSystem.AutoCheck = true;
+            CbxTemp.AutoCheck = true;
+            CbxUndotps1.AutoCheck = true;
+            CbxUsers.AutoCheck = true;
+            TxtExample.Enabled = false;
+            TxtSysaux.Enabled = false;
+            TxtSystem.Enabled = false;
+            TxtTemp.Enabled = false;
+            TxtUndotps1.Enabled = false;
+            TxtUsers.Enabled = false;
         }
     }
 }

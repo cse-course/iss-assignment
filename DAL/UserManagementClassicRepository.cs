@@ -16,7 +16,7 @@ namespace DAL
         }
         public void AddOracleUser(String Username, String Password)
         {
-            string sql = "CREATE USER "+ Username + " IDENTIFIED BY " + Password;
+            string sql = "CREATE USER " + Username + " IDENTIFIED BY " + Password;
             this.Execute(sql);
         }
         public void DropOracleUser(String Username)
@@ -106,6 +106,21 @@ namespace DAL
             {
                 return false;
             }
+        }
+        public void UpdateDefaultTablespace(String Username, String Tablespace)
+        {
+            string sql = "ALTER USER '" + Username + "' DEFAULT TABLESPACE "+Tablespace;
+            this.Execute(sql);
+        }
+        public void UpdateTemporaryTablespace(String Username, String TmpTablespace)
+        {
+            string sql = "ALTER USER '" + Username + "' TEMPORARY TABLESPACE " + TmpTablespace;
+            this.Execute(sql);
+        }
+        public void UpdateQuota(String Username, String Quota, String Location)
+        {
+            String sql = "ALTER USER '" + Username + "' QUOTA '" + Quota + "' ON " + Location;
+            this.Execute(sql);
         }
     }
 }
