@@ -48,10 +48,15 @@ namespace iss_assignment
                 lvwUser.SubItems.Add(user.CREATE_TIME.ToString());
             }
         }
-        private void FrmUserManagerment_Load(object sender, EventArgs e)
+
+        public void LoadData()
         {
             AddColumnListviewUserManagement();
             LoadListviewUserManagement();
+        }
+        private void FrmUserManagerment_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void LvwUserManagerment_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -59,8 +64,18 @@ namespace iss_assignment
             String text = LvwUserManagerment.SelectedItems[0].Text;
             frmUserInfo frm = new frmUserInfo(view, OracleView);
             frm.frmParamUsername = text;
+            frm.FormClosed += new FormClosedEventHandler(frmUserInfo_FormClosed);
             frm.Show();
         }
 
+        private void frmUserInfo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LvwUserManagerment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

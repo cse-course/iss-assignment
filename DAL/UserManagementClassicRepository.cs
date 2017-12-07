@@ -71,15 +71,41 @@ namespace DAL
             this.Execute(sql);
         }
 
-        public void AddProfileToUser(String Username, String Role)
+        public void AddProfileToUser(String Username, String Profile)
         {
-            string sql = "GRANT " + Role + " TO " + Username;
+            string sql = "ALTER USER " + Username + " PROFILE " + Profile;
             this.Execute(sql);
         }
-        public void RemoveProfileFromUser(String Username, String Role)
+        public void RemoveProfileFromUser(String Username, String Profile)
         {
-            string sql = "REVOKE " + Role + " FROM " + Username;
+            string sql = "ALTER USER " + Username + " PROFILE " + "Default";
             this.Execute(sql);
+        }
+        public void LockAccount(String Username)
+        {
+            Username = Username.ToUpper();
+            string sql = "ALTER USER " + Username + " ACCOUNT LOCK";
+            this.Execute(sql);
+        }
+        public void UnLockAccount(String Username)
+        {
+            Username = Username.ToUpper();
+            string sql = "ALTER USER " + Username + " ACCOUNT UNLOCK";
+            this.Execute(sql);
+        }
+        public Boolean IsLock(String Username)
+        {
+            Username = Username.ToUpper();
+            string sql = "Select 1 From Dba_Users Where username = '" + Username + "' AND Account_Status = 'OPEN'";
+            DataSet ds = this.GetDataSet(sql);
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

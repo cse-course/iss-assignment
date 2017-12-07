@@ -61,5 +61,17 @@ namespace BLL
         {
             this.repository.DropOracleUser(Username);
         }
+        public void LockAccount(String Username)
+        {
+            this.repository.LockAccount(Username);
+        }
+        public void UnLockAccount(String Username)
+        {
+            this.repository.UnLockAccount(Username);
+        }
+        public Boolean IsLock(String Username)
+        {
+            return this.repository.IsLock(Username);
+        }
     }
 }

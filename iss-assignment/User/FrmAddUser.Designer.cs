@@ -37,7 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.CbxBlockAccount = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CbbTemporaryTablespace = new System.Windows.Forms.ComboBox();
             this.CbbDefaultTablespace = new System.Windows.Forms.ComboBox();
@@ -149,7 +149,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.CbxBlockAccount);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.label1);
@@ -163,15 +163,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User";
             // 
-            // checkBox1
+            // CbxBlockAccount
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(9, 116);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(111, 17);
-            this.checkBox1.TabIndex = 19;
-            this.checkBox1.Text = "Account is block?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CbxBlockAccount.AutoSize = true;
+            this.CbxBlockAccount.Location = new System.Drawing.Point(9, 116);
+            this.CbxBlockAccount.Name = "CbxBlockAccount";
+            this.CbxBlockAccount.Size = new System.Drawing.Size(111, 17);
+            this.CbxBlockAccount.TabIndex = 19;
+            this.CbxBlockAccount.Text = "Account is block?";
+            this.CbxBlockAccount.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -517,7 +517,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox CbxBlockAccount;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox CbbTemporaryTablespace;
         private System.Windows.Forms.ComboBox CbbDefaultTablespace;

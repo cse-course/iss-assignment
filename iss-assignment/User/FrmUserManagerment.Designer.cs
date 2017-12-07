@@ -42,6 +42,7 @@
             this.LvwUserManagerment.TabIndex = 0;
             this.LvwUserManagerment.UseCompatibleStateImageBehavior = false;
             this.LvwUserManagerment.View = System.Windows.Forms.View.Details;
+            this.LvwUserManagerment.SelectedIndexChanged += new System.EventHandler(this.LvwUserManagerment_SelectedIndexChanged);
             this.LvwUserManagerment.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvwUserManagerment_MouseDoubleClick);
             // 
             // FrmUserManagerment

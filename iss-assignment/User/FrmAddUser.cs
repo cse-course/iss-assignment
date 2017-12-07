@@ -40,13 +40,39 @@ namespace iss_assignment
             txtPassword.Text = "";
             txtPassword2.Text = "";
         }
-        private void BtnClear_Click(object sender, EventArgs e)
+
+        private void AddRoleFromForm()
         {
-            //ClearText();
             foreach (ListViewItem eachItem in LvwRole.CheckedItems)
             {
                 string SelectedRole = eachItem.Text;
+                MessageBox.Show(SelectedRole);
                 this.OracleView.AddRoleToUser("aaa", SelectedRole);
+            }
+        }
+        private void AddProfileFromForm()
+        {
+            foreach (ListViewItem eachItem in LvwProfile.CheckedItems)
+            {
+                string SelectedProfileList = eachItem.Text;
+                MessageBox.Show(SelectedProfileList);
+                this.OracleView.AddProfileToUser("aaa", SelectedProfileList);
+            }
+        }
+        private void CheckLockAccountFromForm()
+        {
+            if (CbxBlockAccount.Checked)
+            {
+                this.OracleView.LockAccount("aaa");
+            }
+        }
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            if (CbbDefaultTablespace.SelectedItem.ToString() != "select")
+            {
+            }
+            if (CbbTemporaryTablespace.SelectedItem.ToString() != "select")
+            {
             }
         }
 
@@ -57,6 +83,7 @@ namespace iss_assignment
                 USERNAME = txtUsername.Text,
                 PASSWORD = txtPassword.Text
             };
+            //Rat tiec khong them thi khomg save duoc
             this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
             this.OracleView.AddOracleUser(txtUsername.Text, txtPassword.Text);
             ClearText();
@@ -100,6 +127,7 @@ namespace iss_assignment
         }
         private void LoadDataCbbDefaultTablespace()
         {
+            CbbDefaultTablespace.Items.Add("USERS");
             DataSet ds = OracleView.GetDistincTablespaceName();
             DataTable dt = ds.Tables[0];
             foreach (DataRow dr in dt.Rows)

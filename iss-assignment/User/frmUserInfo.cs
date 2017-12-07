@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using iss_assignment.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,10 +34,15 @@ namespace iss_assignment
             btnEdit.Visible = false;
             btnSave.Visible = true;
             BtnDelete.Visible = true;
+            CbxAccountLock.AutoCheck = true;
+            BtnRemoveRole.Enabled = true;
+            BtnAddRole.Enabled = true;
+            BtnChangeProfile.Enabled = true;
         }
 
         private void LoadData()
         {
+            //Load userinfo
             IEnumerable<USER_MANAGEMENT> userList = this.view.GetUserInfo(frmParamUsername);
             USER_MANAGEMENT user = userList.First();
             lblUsername.Text = user.USERNAME;
@@ -45,6 +51,12 @@ namespace iss_assignment
             txtPhone.Text = user.PHONE;
             txtAdress.Text = user.ADDRESS;
             lblDateJoin.Text = user.CREATE_TIME.ToString();
+            //load checbox
+            CbxAccountLock.Checked = OracleView.IsLock(frmParamUsername);
+            //Load granted role
+            LoadDataLvwRole();
+            //Load granted profile
+            LoadDataLvwProfile();
         }
 
         private void LoadViewMode()
@@ -56,6 +68,10 @@ namespace iss_assignment
             btnEdit.Visible = true;
             btnSave.Visible = false;
             BtnDelete.Visible = false;
+            CbxAccountLock.AutoCheck = false;
+            BtnRemoveRole.Enabled = false;
+            BtnAddRole.Enabled = false;
+            BtnChangeProfile.Enabled = false;
         }
 
         private void ClearText()
@@ -71,8 +87,6 @@ namespace iss_assignment
         {
             LoadViewMode();
             LoadData();
-            LoadDataLvwRole();
-            LoadDataLvwProfile();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -95,6 +109,8 @@ namespace iss_assignment
         }
         private void AddColumnLvwRole()
         {
+            LvwRole.GridLines = true;
+            LvwRole.CheckBoxes = true;
             LvwRole.Items.Clear();
             LvwRole.Columns.Clear();
             LvwRole.Columns.Add("GRANTED_ROLE", 200);
@@ -115,6 +131,7 @@ namespace iss_assignment
         
         private void AddColumnLvwProfile()
         {
+            LvwProfile.GridLines = true;
             LvwProfile.Items.Clear();
             LvwProfile.Columns.Clear();
             LvwProfile.Columns.Add("GRANTED_PROFILES", 200);
@@ -141,6 +158,55 @@ namespace iss_assignment
             this.view.Remove(user);
             this.OracleView.DropOracleUser(lblUsername.Text);
             Hide();
+        }
+
+        private void frmUserInfo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FrmUserManagerment owner = new FrmUserManagerment(view,  OracleView);
+            owner.LoadData();
+        }
+
+        private void BtnAddRole_Click(object sender, EventArgs e)
+        {
+            String Username = lblUsername.Text;
+            User.FrmAddRoleToUser FrmChild_AddRole = new User.FrmAddRoleToUser(OracleView);
+            FrmChild_AddRole.frmParamUsername = Username;
+            FrmChild_AddRole.FormClosed += new FormClosedEventHandler(FrmChild_FormClosed);
+            FrmChild_AddRole.Show();
+        }
+
+        private void FrmChild_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.LoadData();
+        }
+
+        private void BtnChangeProfile_Click(object sender, EventArgs e)
+        {
+            String Username = lblUsername.Text;
+            DataTable dt = this.OracleView.GetGrantedProfileToUser(Username).Tables[0];
+            DataRow dr = dt.Rows[0];
+            String CurrentProfile = dr[0].ToString();
+            FrmAddProfileToUser FrmChild_AddProfile = new FrmAddProfileToUser(OracleView);
+            FrmChild_AddProfile.frmParamUsername = Username;
+            FrmChild_AddProfile.frmParamProfile = CurrentProfile;
+            FrmChild_AddProfile.FormClosed += new FormClosedEventHandler(FrmChild_FormClosed);
+            FrmChild_AddProfile.Show();
+        }
+
+        private void BtnRemoveRole_Click(object sender, EventArgs e)
+        {
+            RemoveRoleFromForm();
+            LoadData();
+        }
+
+        private void RemoveRoleFromForm()
+        {
+            foreach (ListViewItem eachItem in LvwRole.CheckedItems)
+            {
+                string SelectedRole = eachItem.Text;
+                this.OracleView.RemoveRoleFromUser(frmParamUsername, SelectedRole);
+                MessageBox.Show("Removed!");
+            }
         }
     }
 
