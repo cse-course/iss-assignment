@@ -19,5 +19,17 @@ namespace Utils
                 return false;
             }
         }
+
+        public static String FromBoolean(Boolean flag)
+        {
+            if (flag)
+            {
+                return "YES";
+            }
+            else
+            {
+                return "NO";
+            }
+        }
     }
 }

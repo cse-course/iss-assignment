@@ -194,6 +194,12 @@
     <EmbeddedResource Include="Privilege\FrmGrantSystemPrivilege.resx">
       <DependentUpon>FrmGrantSystemPrivilege.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Privilege\FrmRevokeSystemPrivilegeFromRole.resx">
+      <DependentUpon>FrmRevokeSystemPrivilegeFromRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Privilege\FrmRevokeSystemPrivilegeFromUser.resx">
+      <DependentUpon>FrmRevokeSystemPrivilegeFromUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Role\FrmAddRole.resx">
       <DependentUpon>FrmAddRole.cs</DependentUpon>
     </EmbeddedResource>

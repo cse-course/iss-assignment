@@ -19,7 +19,11 @@ namespace BLL
         List<Privilege> SystemPrivileges(String username);
 
         List<Privilege> SystemPrivileges(String username, Boolean isAdmin);
+
         List<Privilege> SystemPrivileges();
+
+        List<Grantee> GranteeSystemPrivileges(String privilege, Boolean isAdmin);
+
         #endregion System
 
         #region Role
@@ -33,6 +37,8 @@ namespace BLL
 
         List<Privilege> RolePrivileges(String username, Boolean isAdmin);
         List<Privilege> RolePrivileges();
+
+        List<Grantee> GranteeRolePrivileges(String privilege, Boolean isAdmin);
         #endregion Role
 
         #region Table
@@ -49,6 +55,8 @@ namespace BLL
 
         List<Privilege> TablePrivileges();
 
+        List<Grantee> GranteeTablePrivileges(String privilege, Boolean isAdmin);
+
         #endregion Table
 
         #region Column
@@ -63,6 +71,9 @@ namespace BLL
         List<Privilege> ColumnPrivileges(String username, Boolean isAdmin);
 
         List<Privilege> ColumnPrivileges();
+
+        List<Grantee> GranteeColumnPrivileges(String privilege, Boolean isAdmin);
+
         #endregion Column
 
 

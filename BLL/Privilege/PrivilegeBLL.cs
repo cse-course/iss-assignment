@@ -24,6 +24,24 @@ namespace BLL
             this.systemPrivilegeRepository = new SystemPrivilegeRepository(this.context);
             this.rolePrivilegeRepository = new RolePrivilegeRepository(this.context);
         }
+
+        public List<Grantee> GranteeSystemPrivileges(string privilege, bool isAdmin)
+        {
+            List<Grantee> result = new List<Grantee>();
+            DataSet dataSet = this.systemPrivilegeRepository.Grantee(privilege, BooleanUtils.FromBoolean(isAdmin));
+            DataTable table = dataSet.Tables[0];
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                Grantee p = new Grantee
+                {
+                    Name = table.Rows[i]["GRANTEE"].ToString(),
+                    IsAdmin = BooleanUtils.FromString(table.Rows[i]["ADMIN_OPTION"].ToString())
+                };
+                result.Add(p);
+            }
+            return result;
+        }
+
         public List<Privilege> ColumnPrivileges(string username)
         {
             throw new NotImplementedException();
@@ -170,15 +188,7 @@ namespace BLL
         public List<Privilege> SystemPrivileges(string username, bool isAdmin)
         {
             List<Privilege> result = new List<Privilege>();
-            DataSet dataSet;
-            if (isAdmin)
-            {
-                dataSet = this.systemPrivilegeRepository.View(username, "YES");
-            } 
-            else
-            {
-                dataSet = this.systemPrivilegeRepository.View(username, "NO");
-            }
+            DataSet dataSet = this.systemPrivilegeRepository.View(username, BooleanUtils.FromBoolean(isAdmin));
             DataTable table = dataSet.Tables[0];
             for (int i = 0; i < table.Rows.Count; i++)
             {
@@ -203,6 +213,21 @@ namespace BLL
         }
 
         public List<Privilege> TablePrivileges(string username, bool isAdmin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Grantee> GranteeRolePrivileges(string privilege, bool isAdmin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Grantee> GranteeTablePrivileges(string privilege, bool isAdmin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Grantee> GranteeColumnPrivileges(string privilege, bool isAdmin)
         {
             throw new NotImplementedException();
         }
