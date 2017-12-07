@@ -103,6 +103,20 @@ namespace iss_assignment
             user.FULL_NAME = txtFullname.Text;
             user.PHONE = txtPhone.Text;
             this.view.Update(user);
+            if (CbxAccountLock.Checked)
+            {
+                if (!OracleView.IsLock(lblUsername.Text))
+                {
+                    OracleView.LockAccount(lblUsername.Text);
+                }
+            }
+            else
+            {
+                if (OracleView.IsLock(lblUsername.Text))
+                {
+                    OracleView.UnLockAccount(lblUsername.Text);
+                }
+            }
             ClearText();
             LoadData();
             LoadViewMode();
