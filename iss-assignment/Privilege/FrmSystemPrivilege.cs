@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,13 @@ namespace iss_assignment
 
         private readonly IRoleBLL roleBLL;
 
-        public FrmSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL)
+        private readonly UserManagementBLL userManagementBLL;
+
+        public FrmSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, UserManagementBLL userManagementBLL)
         {
             this.privilegeBLL = privilegeBLL;
             this.roleBLL = roleBLL;
+            this.userManagementBLL = userManagementBLL;
             InitializeComponent();
         }
 
@@ -162,11 +166,11 @@ namespace iss_assignment
             this.LvwUsers.Items.Clear();
             this.LvwUsers.Columns.Clear();
             this.LvwUsers.Columns.Add("User Name", 320, HorizontalAlignment.Center);
-            List<Privilege> items = this.privilegeBLL.SystemPrivileges("SYS", true);
+            IEnumerable<USER_MANAGEMENT> items = this.userManagementBLL.GetAll();
             foreach (var item in items)
             {
-                ListViewItem viewItem = this.LvwUsers.Items.Add(item.Name);
-                viewItem.SubItems.Add(item.Name);
+                ListViewItem viewItem = this.LvwUsers.Items.Add(item.USERNAME);
+                viewItem.SubItems.Add(item.USERNAME);
             }
         }
 

@@ -198,7 +198,7 @@ namespace Domain
 
         public GranteeClauseBuilder Grantee(String grantee)
         {
-            this.grantee = grantee;
+            this.grantee = grantee.ToUpper();
             return this;
         }
 
