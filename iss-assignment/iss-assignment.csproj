@@ -150,6 +150,18 @@
     <Compile Include="User\FrmUserManagerment.Designer.cs">
       <DependentUpon>FrmUserManagerment.cs</DependentUpon>
     </Compile>
+    <Compile Include="User\FrmAddProfileToUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FrmAddProfileToUser.Designer.cs">
+      <DependentUpon>FrmAddProfileToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\FrmAddRoleToUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\FrmAddRoleToUser.Designer.cs">
+      <DependentUpon>FrmAddRoleToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="SysView\FrmUserPrivilege.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\FrmAddProfileToUser.resx">
+      <DependentUpon>FrmAddProfileToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\FrmAddRoleToUser.resx">
+      <DependentUpon>FrmAddRoleToUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

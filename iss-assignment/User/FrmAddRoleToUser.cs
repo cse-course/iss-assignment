@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace iss_assignment.User
+namespace iss_assignment
 {
     public partial class FrmAddRoleToUser : Form
     {

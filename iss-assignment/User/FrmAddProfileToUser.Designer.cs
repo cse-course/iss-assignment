@@ -1,4 +1,4 @@
-﻿namespace iss_assignment.User
+﻿namespace iss_assignment
 {
     partial class FrmAddProfileToUser
     {
