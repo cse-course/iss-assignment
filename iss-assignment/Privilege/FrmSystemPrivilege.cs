@@ -22,11 +22,15 @@ namespace iss_assignment
 
         private readonly UserManagementBLL userManagementBLL;
 
-        public FrmSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, UserManagementBLL userManagementBLL)
+        private readonly USER_MANAGEMENT currentUser;
+
+        public FrmSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, 
+            UserManagementBLL userManagementBLL, USER_MANAGEMENT currentUser)
         {
             this.privilegeBLL = privilegeBLL;
             this.roleBLL = roleBLL;
             this.userManagementBLL = userManagementBLL;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
 
@@ -35,8 +39,6 @@ namespace iss_assignment
             this.LoadPrivilege();
             this.LoadUser();
             this.LoadRole();
-
-
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -109,10 +111,30 @@ namespace iss_assignment
             this.ClearRole();
         }
 
+        /// <summary>
+        /// To grant a system privilege, 
+        /// you must either have been granted the system privilege with the ADMIN OPTION 
+        /// or 
+        /// have been granted the GRANT ANY PRIVILEGE system privilege.
+        /// </summary>
         private void LoadPrivilege()
         {
-
-            List<Privilege> items = this.privilegeBLL.SystemPrivileges("SYS", true);
+            //Get privilege
+            Privilege privilege = new Privilege()
+            {
+                Name = "GRANT ANY PRIVILEGE"
+            };
+            List<Privilege> items;
+            if (this.privilegeBLL.HasSystemPrivilege(this.currentUser.USERNAME, privilege))
+            {
+                items = this.privilegeBLL.SystemPrivileges();
+            } 
+            else
+            {
+                items  = this.privilegeBLL.SystemPrivileges(this.currentUser.USERNAME, true);
+            }
+            
+            //Setup column
             DataGridViewCheckBoxColumn privilegeColumn = new DataGridViewCheckBoxColumn()
             {
                 FalseValue = 0,

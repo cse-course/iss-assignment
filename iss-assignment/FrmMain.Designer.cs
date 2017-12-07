@@ -45,6 +45,7 @@
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.privilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemPrivilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grantRoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -175,7 +176,8 @@
             // privilegeToolStripMenuItem
             // 
             this.privilegeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.systemPrivilegeToolStripMenuItem});
+            this.systemPrivilegeToolStripMenuItem,
+            this.grantRoleToolStripMenuItem});
             this.privilegeToolStripMenuItem.Name = "privilegeToolStripMenuItem";
             this.privilegeToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.privilegeToolStripMenuItem.Text = "Privilege";
@@ -183,9 +185,16 @@
             // systemPrivilegeToolStripMenuItem
             // 
             this.systemPrivilegeToolStripMenuItem.Name = "systemPrivilegeToolStripMenuItem";
-            this.systemPrivilegeToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.systemPrivilegeToolStripMenuItem.Text = "System Privilege";
+            this.systemPrivilegeToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.systemPrivilegeToolStripMenuItem.Text = "Grant System Privilege";
             this.systemPrivilegeToolStripMenuItem.Click += new System.EventHandler(this.SystemPrivilegeToolStripMenuItem_Click);
+            // 
+            // grantRoleToolStripMenuItem
+            // 
+            this.grantRoleToolStripMenuItem.Name = "grantRoleToolStripMenuItem";
+            this.grantRoleToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.grantRoleToolStripMenuItem.Text = "Grant Role";
+            this.grantRoleToolStripMenuItem.Click += new System.EventHandler(this.GrantRoleToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -225,6 +234,7 @@
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem privilegeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemPrivilegeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem grantRoleToolStripMenuItem;
     }
 }
 

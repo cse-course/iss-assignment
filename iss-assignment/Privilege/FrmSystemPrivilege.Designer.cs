@@ -45,11 +45,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.LvwUsers);
-            this.groupBox1.Location = new System.Drawing.Point(463, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(617, 12);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(264, 562);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(352, 692);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Users";
@@ -61,10 +61,10 @@
             this.LvwUsers.FullRowSelect = true;
             this.LvwUsers.GridLines = true;
             this.LvwUsers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LvwUsers.Location = new System.Drawing.Point(2, 15);
-            this.LvwUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LvwUsers.Location = new System.Drawing.Point(3, 17);
+            this.LvwUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LvwUsers.Name = "LvwUsers";
-            this.LvwUsers.Size = new System.Drawing.Size(260, 545);
+            this.LvwUsers.Size = new System.Drawing.Size(346, 673);
             this.LvwUsers.TabIndex = 0;
             this.LvwUsers.UseCompatibleStateImageBehavior = false;
             this.LvwUsers.View = System.Windows.Forms.View.Details;
@@ -72,11 +72,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.LvwRole);
-            this.groupBox2.Location = new System.Drawing.Point(734, 10);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(979, 12);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(264, 562);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(352, 692);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Roles";
@@ -88,20 +88,20 @@
             this.LvwRole.FullRowSelect = true;
             this.LvwRole.GridLines = true;
             this.LvwRole.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.LvwRole.Location = new System.Drawing.Point(2, 15);
-            this.LvwRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LvwRole.Location = new System.Drawing.Point(3, 17);
+            this.LvwRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LvwRole.Name = "LvwRole";
-            this.LvwRole.Size = new System.Drawing.Size(260, 545);
+            this.LvwRole.Size = new System.Drawing.Size(346, 673);
             this.LvwRole.TabIndex = 1;
             this.LvwRole.UseCompatibleStateImageBehavior = false;
             this.LvwRole.View = System.Windows.Forms.View.Details;
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(1010, 94);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnSave.Location = new System.Drawing.Point(1347, 116);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(88, 43);
+            this.BtnSave.Size = new System.Drawing.Size(117, 53);
             this.BtnSave.TabIndex = 2;
             this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = true;
@@ -109,10 +109,10 @@
             // 
             // BtnClear
             // 
-            this.BtnClear.Location = new System.Drawing.Point(1010, 24);
-            this.BtnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnClear.Location = new System.Drawing.Point(1347, 30);
+            this.BtnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(88, 43);
+            this.BtnClear.Size = new System.Drawing.Size(117, 53);
             this.BtnClear.TabIndex = 2;
             this.BtnClear.Text = "Clear";
             this.BtnClear.UseVisualStyleBackColor = true;
@@ -121,11 +121,11 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.DgvPrivilege);
-            this.groupBox5.Location = new System.Drawing.Point(9, 10);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Location = new System.Drawing.Point(12, 12);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox5.Size = new System.Drawing.Size(449, 565);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Size = new System.Drawing.Size(599, 695);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "System Privilege";
@@ -136,26 +136,26 @@
             this.DgvPrivilege.AllowUserToDeleteRows = false;
             this.DgvPrivilege.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvPrivilege.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvPrivilege.Location = new System.Drawing.Point(2, 15);
-            this.DgvPrivilege.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DgvPrivilege.Location = new System.Drawing.Point(3, 17);
+            this.DgvPrivilege.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DgvPrivilege.Name = "DgvPrivilege";
             this.DgvPrivilege.RowTemplate.Height = 24;
             this.DgvPrivilege.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvPrivilege.Size = new System.Drawing.Size(445, 548);
+            this.DgvPrivilege.Size = new System.Drawing.Size(593, 676);
             this.DgvPrivilege.TabIndex = 0;
             // 
             // FrmSystemPrivilege
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 584);
+            this.ClientSize = new System.Drawing.Size(1491, 719);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.BtnClear);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "FrmSystemPrivilege";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

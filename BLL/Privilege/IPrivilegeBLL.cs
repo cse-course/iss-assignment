@@ -20,8 +20,20 @@ namespace BLL
 
         List<Privilege> SystemPrivileges(String username, Boolean isAdmin);
         List<Privilege> SystemPrivileges();
-
         #endregion System
+
+        #region Role
+        Boolean HasRolePrivilege(String username, Privilege privilege);
+
+        Boolean GrantRolePrivilege(RolePrivilege privilege);
+
+        Boolean RevokeRolePrivilege(RolePrivilege privilege);
+
+        List<Privilege> RolePrivileges(String username);
+
+        List<Privilege> RolePrivileges(String username, Boolean isAdmin);
+        List<Privilege> RolePrivileges();
+        #endregion Role
 
         #region Table
         Boolean HasTablePrivilege(String username, Privilege privilege);

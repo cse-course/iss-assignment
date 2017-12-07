@@ -31,6 +31,22 @@ namespace DAL
         DataSet View(String grantee, String isAdmin);
 
         /// <summary>
+        /// Check grantee has privilege
+        /// </summary>
+        /// <param name="grantee"></param>
+        /// <param name="privilege"></param>
+        /// <returns></returns>
+        DataSet Has(String grantee, String privilege);
+
+        /// <summary>
+        /// Check grantee has admin privilege
+        /// </summary>
+        /// <param name="grantee"></param>
+        /// <param name="privilege"></param>
+        /// <returns></returns>
+        DataSet Has(String grantee, String privilege, String isAdmin);
+
+        /// <summary>
         /// Execute query
         /// Use for Grant or Revoke
         /// </summary>

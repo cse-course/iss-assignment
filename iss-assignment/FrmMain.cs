@@ -22,6 +22,8 @@ namespace iss_assignment
 
         private readonly IPrivilegeBLL privilegeBLL;
 
+        private USER_MANAGEMENT currentUser;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -142,7 +144,16 @@ namespace iss_assignment
 
         private void SystemPrivilegeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmSystemPrivilege frm = new FrmSystemPrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL)
+            FrmSystemPrivilege frm = new FrmSystemPrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
+            {
+                MdiParent = this
+            };
+            frm.Show();
+        }
+
+        private void GrantRoleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRolePrivilege frm = new FrmRolePrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
             {
                 MdiParent = this
             };

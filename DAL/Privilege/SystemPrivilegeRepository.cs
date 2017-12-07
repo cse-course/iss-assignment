@@ -14,6 +14,29 @@ namespace DAL
         {
         }
 
+        public DataSet Has(string grantee, string privilege)
+        {
+            String query = "SELECT * FROM SYS.DBA_SYS_PRIVS WHERE PRIVILEGE= :privilege AND GRANTEE= :grantee";
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
+            {
+                { "privilege", privilege },
+                { "grantee", grantee }
+            };
+            return this.GetDataSet(query, CommandType.Text, dictionary);
+        }
+
+        public DataSet Has(string grantee, string privilege, string isAdmin)
+        {
+            String query = "SELECT * FROM SYS.DBA_SYS_PRIVS WHERE PRIVILEGE= :privilege AND GRANTEE= :grantee AND ADMIN_OPTION= :isAdmin";
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
+            {
+                { "privilege", privilege },
+                { "grantee", grantee },
+                { "isAdmin", isAdmin }
+            };
+            return this.GetDataSet(query, CommandType.Text, dictionary);
+        }
+
         public DataSet View()
         {
             String query = "SELECT * FROM SYS.DBA_SYS_PRIVS";
