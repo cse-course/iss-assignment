@@ -40,47 +40,49 @@ namespace iss_assignment
             txtUsername.Text = "";
             txtPassword.Text = "";
             txtPassword2.Text = "";
+            TxtSysaux.Text = "";
+            TxtSystem.Text = "";
+            TxtUsers.Text = "";
+            TxtExample.Text = "";
         }
 
-        private void AddRoleFromForm()
+        public void AddRoleFromForm()
         {
             foreach (ListViewItem eachItem in LvwRole.CheckedItems)
             {
                 string SelectedRole = eachItem.Text;
-                MessageBox.Show(SelectedRole);
-                this.OracleView.AddRoleToUser("aaa", SelectedRole);
+                this.OracleView.AddRoleToUser(txtUsername.Text, SelectedRole);
             }
         }
-        private void AddProfileFromForm()
+        public void AddProfileFromForm()
         {
             foreach (ListViewItem eachItem in LvwProfile.CheckedItems)
             {
                 string SelectedProfileList = eachItem.Text;
-                MessageBox.Show(SelectedProfileList);
-                this.OracleView.AddProfileToUser("aaa", SelectedProfileList);
+                this.OracleView.AddProfileToUser(txtUsername.Text, SelectedProfileList);
             }
         }
-        private void CheckLockAccountFromForm()
+        public void CheckLockAccountFromForm()
         {
             if (CbxBlockAccount.Checked)
             {
-                this.OracleView.LockAccount("aaa");
+                this.OracleView.LockAccount(txtUsername.Text);
             }
         }
-        private void SaveTableSpaceFromForm()
+        public void AddTableSpaceFromForm()
         {
             String DefaultTablespaceSelected = CbbDefaultTablespace.SelectedItem.ToString();
             String TemporaryTablespaceSeleted = CbbTemporaryTablespace.SelectedItem.ToString();
             OracleView.UpdateDefaultTablespace(txtUsername.Text, DefaultTablespaceSelected);
             OracleView.UpdateTemporaryTablespace(txtUsername.Text, TemporaryTablespaceSeleted);
         }
-        private void BtnClear_Click(object sender, EventArgs e)
+        public void UpdateQoutaDromform()
         {
             String Example = "";
             String Sysaux = "";
             String System = "";
-            String Temp = "";
-            String Undotps1 = "";
+            //String Temp = "";
+            //String Undotps1 = "";
             String Users = "";
             if (CbxExample.Checked)
             {
@@ -118,7 +120,7 @@ namespace iss_assignment
                 }
             }
 
-            if (CbxTemp.Checked)
+            /*if (CbxTemp.Checked)
             {
                 Temp = "UNLIMITED";
             }
@@ -140,7 +142,7 @@ namespace iss_assignment
                 {
                     Undotps1 = TxtUndotps1.Text + "M";
                 }
-            }
+            }*/
 
             if (CbxUsers.Checked)
             {
@@ -156,28 +158,32 @@ namespace iss_assignment
 
             if (Example != "")
             {
-                MessageBox.Show("EXAMPLE " + Example);
+                OracleView.UpdateQuota(txtUsername.Text, Example, "EXAMPLE");
             }
             if (System != "")
             {
-                MessageBox.Show("SYSTEM" + System);
+                OracleView.UpdateQuota(txtUsername.Text, System, "SYSTEM");
             }
             if (Sysaux != "")
             {
-                MessageBox.Show("SYSAUX " + Sysaux);
+                OracleView.UpdateQuota(txtUsername.Text, Sysaux, "SYSAUX");
             }
-            if (Temp != "")
+            /*if (Temp != "")
             {
-                MessageBox.Show("TEMP" + Temp);
+                OracleView.UpdateQuota(txtUsername.Text, Temp, "TEMP");
             }
             if (Undotps1 != "")
             {
-                MessageBox.Show("UNDOTPS1" + Undotps1);
-            }
+                OracleView.UpdateQuota(txtUsername.Text, Undotps1, "UNDOTPS1");
+            }*/
             if (Users != "")
             {
-                MessageBox.Show("USERS" + Users);
+                OracleView.UpdateQuota(txtUsername.Text, Users, "USERS");
             }
+        }
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            ClearText();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -190,6 +196,11 @@ namespace iss_assignment
             //Rat tiec khong them thi khomg save duoc
             this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
             this.OracleView.AddOracleUser(txtUsername.Text, txtPassword.Text);
+            UpdateQoutaDromform();
+            AddProfileFromForm();
+            AddRoleFromForm();
+            AddTableSpaceFromForm();
+            CheckLockAccountFromForm();
             ClearText();
             MessageBox.Show("User created!");
             Hide();
@@ -236,7 +247,8 @@ namespace iss_assignment
             DataTable dt = ds.Tables[0];
             foreach (DataRow dr in dt.Rows)
             {
-               CbbDefaultTablespace.Items.Add(dr[0].ToString());
+                if (dr[0].ToString() != "TEMP" && dr[0].ToString() != "UNDOTBS1")
+                CbbDefaultTablespace.Items.Add(dr[0].ToString());
             }
             CbbDefaultTablespace.SelectedIndex = 0;
         }
@@ -259,16 +271,6 @@ namespace iss_assignment
         private void CbxSystem_CheckedChanged(object sender, EventArgs e)
         {
             TxtSystem.Text = "";
-        }
-
-        private void CbxTemp_CheckedChanged(object sender, EventArgs e)
-        {
-            TxtTemp.Text = "";
-        }
-
-        private void CbxUndotps1_CheckedChanged(object sender, EventArgs e)
-        {
-            TxtUndotps1.Text = "";
         }
 
         private void CbxUsers_CheckedChanged(object sender, EventArgs e)
@@ -294,7 +296,13 @@ namespace iss_assignment
         private void CheckUserInputNotNull()
         {
             if (txtUsername.Text != "" && txtPassword.Text != "" && txtPassword2.Text != "")
-            ActiveAdvanceMode();
+            {
+                ActiveAdvanceMode();
+            }
+            else
+            {
+                DeActiveAdvanceMode();
+            }
         }
 
         private void ActiveAdvanceMode()
@@ -306,17 +314,17 @@ namespace iss_assignment
             LvwRole.Enabled = true;
             CbbDefaultTablespace.Enabled = true;
             CbbTemporaryTablespace.Enabled = true;
-            CbxExample.AutoCheck = false;
-            CbxSysaux.AutoCheck = false;
-            CbxSystem.AutoCheck = false;
-            CbxTemp.AutoCheck = false;
-            CbxUndotps1.AutoCheck = false;
-            CbxUsers.AutoCheck = false;
+            CbxExample.AutoCheck = true;
+            CbxSysaux.AutoCheck = true;
+            CbxSystem.AutoCheck = true;
+            //CbxTemp.AutoCheck = false;
+            //CbxUndotps1.AutoCheck = false;
+            CbxUsers.AutoCheck = true;
             TxtExample.Enabled = true;
             TxtSysaux.Enabled = true;
             TxtSystem.Enabled = true;
-            TxtTemp.Enabled = true;
-            TxtUndotps1.Enabled = true;
+            //TxtTemp.Enabled = true;
+            //TxtUndotps1.Enabled = true;
             TxtUsers.Enabled = true;
         }
 
@@ -332,14 +340,14 @@ namespace iss_assignment
             CbxExample.AutoCheck = true;
             CbxSysaux.AutoCheck = true;
             CbxSystem.AutoCheck = true;
-            CbxTemp.AutoCheck = true;
-            CbxUndotps1.AutoCheck = true;
+            //CbxTemp.AutoCheck = true;
+            //CbxUndotps1.AutoCheck = true;
             CbxUsers.AutoCheck = true;
             TxtExample.Enabled = false;
             TxtSysaux.Enabled = false;
             TxtSystem.Enabled = false;
-            TxtTemp.Enabled = false;
-            TxtUndotps1.Enabled = false;
+            //TxtTemp.Enabled = false;
+            //TxtUndotps1.Enabled = false;
             TxtUsers.Enabled = false;
         }
     }

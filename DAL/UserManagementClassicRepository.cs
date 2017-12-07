@@ -109,17 +109,20 @@ namespace DAL
         }
         public void UpdateDefaultTablespace(String Username, String Tablespace)
         {
-            string sql = "ALTER USER '" + Username + "' DEFAULT TABLESPACE "+Tablespace;
+            Username = Username.ToUpper();
+            string sql = "ALTER USER " + Username + " DEFAULT TABLESPACE "+Tablespace;
             this.Execute(sql);
         }
         public void UpdateTemporaryTablespace(String Username, String TmpTablespace)
         {
-            string sql = "ALTER USER '" + Username + "' TEMPORARY TABLESPACE " + TmpTablespace;
+            Username = Username.ToUpper();
+            string sql = "ALTER USER " + Username + " TEMPORARY TABLESPACE " + TmpTablespace;
             this.Execute(sql);
         }
         public void UpdateQuota(String Username, String Quota, String Location)
         {
-            String sql = "ALTER USER '" + Username + "' QUOTA '" + Quota + "' ON " + Location;
+            Username = Username.ToUpper();
+            String sql = "ALTER USER " + Username + " QUOTA " + Quota + " ON " + Location;
             this.Execute(sql);
         }
     }

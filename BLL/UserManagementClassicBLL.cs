@@ -83,7 +83,7 @@ namespace BLL
         }
         public void UpdateQuota(String Username, String Quota, String Location)
         {
-            this.UpdateQuota(Username, Quota, Location);
+            this.repository.UpdateQuota(Username, Quota, Location);
         }
     }
 }

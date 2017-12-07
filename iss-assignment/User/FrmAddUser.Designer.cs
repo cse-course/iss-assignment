@@ -46,24 +46,18 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CbxUsers = new System.Windows.Forms.CheckBox();
-            this.CbxUndotps1 = new System.Windows.Forms.CheckBox();
-            this.CbxTemp = new System.Windows.Forms.CheckBox();
             this.CbxSystem = new System.Windows.Forms.CheckBox();
             this.CbxSysaux = new System.Windows.Forms.CheckBox();
             this.CbxExample = new System.Windows.Forms.CheckBox();
             this.TxtExample = new System.Windows.Forms.TextBox();
             this.TxtUsers = new System.Windows.Forms.TextBox();
-            this.TxtUndotps1 = new System.Windows.Forms.TextBox();
-            this.TxtTemp = new System.Windows.Forms.TextBox();
             this.TxtSysaux = new System.Windows.Forms.TextBox();
             this.TxtSystem = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.LvwRole = new System.Windows.Forms.ListView();
@@ -227,24 +221,18 @@
             // 
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.CbxUsers);
-            this.groupBox3.Controls.Add(this.CbxUndotps1);
-            this.groupBox3.Controls.Add(this.CbxTemp);
             this.groupBox3.Controls.Add(this.CbxSystem);
             this.groupBox3.Controls.Add(this.CbxSysaux);
             this.groupBox3.Controls.Add(this.CbxExample);
             this.groupBox3.Controls.Add(this.TxtExample);
             this.groupBox3.Controls.Add(this.TxtUsers);
-            this.groupBox3.Controls.Add(this.TxtUndotps1);
-            this.groupBox3.Controls.Add(this.TxtTemp);
             this.groupBox3.Controls.Add(this.TxtSysaux);
             this.groupBox3.Controls.Add(this.TxtSystem);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Location = new System.Drawing.Point(374, 97);
             this.groupBox3.Name = "groupBox3";
@@ -256,7 +244,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(97, 16);
+            this.label7.Location = new System.Drawing.Point(97, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 26;
@@ -272,30 +260,10 @@
             this.CbxUsers.UseVisualStyleBackColor = true;
             this.CbxUsers.CheckedChanged += new System.EventHandler(this.CbxUsers_CheckedChanged);
             // 
-            // CbxUndotps1
-            // 
-            this.CbxUndotps1.AutoSize = true;
-            this.CbxUndotps1.Location = new System.Drawing.Point(107, 134);
-            this.CbxUndotps1.Name = "CbxUndotps1";
-            this.CbxUndotps1.Size = new System.Drawing.Size(15, 14);
-            this.CbxUndotps1.TabIndex = 15;
-            this.CbxUndotps1.UseVisualStyleBackColor = true;
-            this.CbxUndotps1.CheckedChanged += new System.EventHandler(this.CbxUndotps1_CheckedChanged);
-            // 
-            // CbxTemp
-            // 
-            this.CbxTemp.AutoSize = true;
-            this.CbxTemp.Location = new System.Drawing.Point(107, 113);
-            this.CbxTemp.Name = "CbxTemp";
-            this.CbxTemp.Size = new System.Drawing.Size(15, 14);
-            this.CbxTemp.TabIndex = 13;
-            this.CbxTemp.UseVisualStyleBackColor = true;
-            this.CbxTemp.CheckedChanged += new System.EventHandler(this.CbxTemp_CheckedChanged);
-            // 
             // CbxSystem
             // 
             this.CbxSystem.AutoSize = true;
-            this.CbxSystem.Location = new System.Drawing.Point(107, 89);
+            this.CbxSystem.Location = new System.Drawing.Point(107, 129);
             this.CbxSystem.Name = "CbxSystem";
             this.CbxSystem.Size = new System.Drawing.Size(15, 14);
             this.CbxSystem.TabIndex = 11;
@@ -305,7 +273,7 @@
             // CbxSysaux
             // 
             this.CbxSysaux.AutoSize = true;
-            this.CbxSysaux.Location = new System.Drawing.Point(107, 66);
+            this.CbxSysaux.Location = new System.Drawing.Point(107, 94);
             this.CbxSysaux.Name = "CbxSysaux";
             this.CbxSysaux.Size = new System.Drawing.Size(15, 14);
             this.CbxSysaux.TabIndex = 9;
@@ -315,7 +283,7 @@
             // CbxExample
             // 
             this.CbxExample.AutoSize = true;
-            this.CbxExample.Location = new System.Drawing.Point(107, 42);
+            this.CbxExample.Location = new System.Drawing.Point(107, 61);
             this.CbxExample.Name = "CbxExample";
             this.CbxExample.Size = new System.Drawing.Size(15, 14);
             this.CbxExample.TabIndex = 7;
@@ -324,7 +292,7 @@
             // 
             // TxtExample
             // 
-            this.TxtExample.Location = new System.Drawing.Point(156, 36);
+            this.TxtExample.Location = new System.Drawing.Point(156, 55);
             this.TxtExample.Margin = new System.Windows.Forms.Padding(4);
             this.TxtExample.Name = "TxtExample";
             this.TxtExample.Size = new System.Drawing.Size(183, 20);
@@ -338,25 +306,9 @@
             this.TxtUsers.Size = new System.Drawing.Size(183, 20);
             this.TxtUsers.TabIndex = 18;
             // 
-            // TxtUndotps1
-            // 
-            this.TxtUndotps1.Location = new System.Drawing.Point(156, 132);
-            this.TxtUndotps1.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtUndotps1.Name = "TxtUndotps1";
-            this.TxtUndotps1.Size = new System.Drawing.Size(183, 20);
-            this.TxtUndotps1.TabIndex = 16;
-            // 
-            // TxtTemp
-            // 
-            this.TxtTemp.Location = new System.Drawing.Point(156, 110);
-            this.TxtTemp.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtTemp.Name = "TxtTemp";
-            this.TxtTemp.Size = new System.Drawing.Size(183, 20);
-            this.TxtTemp.TabIndex = 14;
-            // 
             // TxtSysaux
             // 
-            this.TxtSysaux.Location = new System.Drawing.Point(156, 60);
+            this.TxtSysaux.Location = new System.Drawing.Point(156, 88);
             this.TxtSysaux.Margin = new System.Windows.Forms.Padding(4);
             this.TxtSysaux.Name = "TxtSysaux";
             this.TxtSysaux.Size = new System.Drawing.Size(183, 20);
@@ -364,7 +316,7 @@
             // 
             // TxtSystem
             // 
-            this.TxtSystem.Location = new System.Drawing.Point(156, 83);
+            this.TxtSystem.Location = new System.Drawing.Point(156, 123);
             this.TxtSystem.Margin = new System.Windows.Forms.Padding(4);
             this.TxtSystem.Name = "TxtSystem";
             this.TxtSystem.Size = new System.Drawing.Size(183, 20);
@@ -373,7 +325,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 17);
+            this.label14.Location = new System.Drawing.Point(6, 29);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(63, 13);
             this.label14.TabIndex = 8;
@@ -382,7 +334,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(153, 17);
+            this.label13.Location = new System.Drawing.Point(153, 29);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 13);
             this.label13.TabIndex = 7;
@@ -391,20 +343,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 67);
+            this.label12.Location = new System.Drawing.Point(6, 95);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 13);
             this.label12.TabIndex = 6;
             this.label12.Text = "SYSAUX";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 113);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "TEMP";
             // 
             // label10
             // 
@@ -418,25 +361,16 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 90);
+            this.label9.Location = new System.Drawing.Point(6, 130);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 13);
             this.label9.TabIndex = 3;
             this.label9.Text = "SYSTEM";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 135);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "UNDOTPS1";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 43);
+            this.label6.Location = new System.Drawing.Point(6, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 0;
@@ -537,22 +471,16 @@
         private System.Windows.Forms.ListView LvwProfile;
         private System.Windows.Forms.TextBox TxtExample;
         private System.Windows.Forms.TextBox TxtUsers;
-        private System.Windows.Forms.TextBox TxtUndotps1;
-        private System.Windows.Forms.TextBox TxtTemp;
         private System.Windows.Forms.TextBox TxtSysaux;
         private System.Windows.Forms.TextBox TxtSystem;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox CbxUsers;
-        private System.Windows.Forms.CheckBox CbxUndotps1;
-        private System.Windows.Forms.CheckBox CbxTemp;
         private System.Windows.Forms.CheckBox CbxSystem;
         private System.Windows.Forms.CheckBox CbxSysaux;
         private System.Windows.Forms.CheckBox CbxExample;
