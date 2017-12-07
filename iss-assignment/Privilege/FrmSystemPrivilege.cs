@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,17 @@ namespace iss_assignment
 
         private readonly IRoleBLL roleBLL;
 
-        public FrmSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL)
+        private readonly UserManagementBLL userManagementBLL;
+
+        private readonly USER_MANAGEMENT currentUser;
+
+        public FrmSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, 
+            UserManagementBLL userManagementBLL, USER_MANAGEMENT currentUser)
         {
             this.privilegeBLL = privilegeBLL;
             this.roleBLL = roleBLL;
+            this.userManagementBLL = userManagementBLL;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
 
@@ -31,8 +39,6 @@ namespace iss_assignment
             this.LoadPrivilege();
             this.LoadUser();
             this.LoadRole();
-
-
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -105,10 +111,30 @@ namespace iss_assignment
             this.ClearRole();
         }
 
+        /// <summary>
+        /// To grant a system privilege, 
+        /// you must either have been granted the system privilege with the ADMIN OPTION 
+        /// or 
+        /// have been granted the GRANT ANY PRIVILEGE system privilege.
+        /// </summary>
         private void LoadPrivilege()
         {
-
-            List<Privilege> items = this.privilegeBLL.SystemPrivileges("SYS", true);
+            //Get privilege
+            Privilege privilege = new Privilege()
+            {
+                Name = "GRANT ANY PRIVILEGE"
+            };
+            List<Privilege> items;
+            if (this.privilegeBLL.HasSystemPrivilege(this.currentUser.USERNAME, privilege))
+            {
+                items = this.privilegeBLL.SystemPrivileges();
+            } 
+            else
+            {
+                items  = this.privilegeBLL.SystemPrivileges(this.currentUser.USERNAME, true);
+            }
+            
+            //Setup column
             DataGridViewCheckBoxColumn privilegeColumn = new DataGridViewCheckBoxColumn()
             {
                 FalseValue = 0,
@@ -162,11 +188,11 @@ namespace iss_assignment
             this.LvwUsers.Items.Clear();
             this.LvwUsers.Columns.Clear();
             this.LvwUsers.Columns.Add("User Name", 320, HorizontalAlignment.Center);
-            List<Privilege> items = this.privilegeBLL.SystemPrivileges("SYS", true);
+            IEnumerable<USER_MANAGEMENT> items = this.userManagementBLL.GetAll();
             foreach (var item in items)
             {
-                ListViewItem viewItem = this.LvwUsers.Items.Add(item.Name);
-                viewItem.SubItems.Add(item.Name);
+                ListViewItem viewItem = this.LvwUsers.Items.Add(item.USERNAME);
+                viewItem.SubItems.Add(item.USERNAME);
             }
         }
 

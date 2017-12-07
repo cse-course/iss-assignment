@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +7,7 @@ using System.Data.Entity;
 using DAL;
 using System.Data;
 using Utils;
+using System;
 
 namespace BLL
 {
@@ -44,6 +44,11 @@ namespace BLL
             throw new NotImplementedException();
         }
 
+        public bool GrantRolePrivilege(RolePrivilege privilege)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool GrantSystemPrivilege(SystemPrivilege privilege)
         {
             return this.systemPrivilegeRepository.Execute(privilege.QueryGrant);
@@ -59,9 +64,33 @@ namespace BLL
             throw new NotImplementedException();
         }
 
+        public bool HasRolePrivilege(string username, Privilege privilege)
+        {
+            DataSet dataSet = this.rolePrivilegeRepository.Has(username, privilege.Name);
+            DataTable table = dataSet.Tables[0];
+            if (table.Rows.Count >= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
         public bool HasSystemPrivilege(string username, Privilege privilege)
         {
-            throw new NotImplementedException();
+            DataSet dataSet = this.systemPrivilegeRepository.Has(username, privilege.Name);
+            DataTable table = dataSet.Tables[0];
+            if (table.Rows.Count >= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool HasTablePrivilege(string username, Privilege privilege)
@@ -74,12 +103,32 @@ namespace BLL
             throw new NotImplementedException();
         }
 
+        public bool RevokeRolePrivilege(RolePrivilege privilege)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool RevokeSystemPrivilege(SystemPrivilege privilege)
         {
             return this.systemPrivilegeRepository.Execute(privilege.QueryRevoke);
         }
 
         public bool RevokeTablePrivilege(string username, Privilege privilege)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Privilege> RolePrivileges(string username)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Privilege> RolePrivileges(string username, bool isAdmin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Privilege> RolePrivileges()
         {
             throw new NotImplementedException();
         }

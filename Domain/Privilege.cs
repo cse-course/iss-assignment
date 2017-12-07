@@ -73,6 +73,56 @@ namespace Domain
 
     }
 
+    public class RolePrivilege
+    {
+        public String QueryGrant { get; set; }
+        public String QueryRevoke { get; set; }
+    }
+
+    public class RolePrivilegeBuilder
+    {
+        private RolePrivilege rolePrivilege;
+
+        private String query;
+
+        private String name;
+
+        private GranteeClauseBuilder grantee;
+
+        private Boolean isAdmin;
+
+        public RolePrivilegeBuilder(String name)
+        {
+            this.query = "GRANT";
+            this.isAdmin = false;
+            this.name = name.ToUpper();
+            this.rolePrivilege = new RolePrivilege();
+        }
+
+        public RolePrivilegeBuilder Grantee(GranteeClauseBuilder grantee)
+        {
+            this.grantee = grantee;
+            return this;
+        }
+
+        public RolePrivilegeBuilder AdminOption(Boolean isAdmin)
+        {
+            this.isAdmin = isAdmin;
+            return this;
+        }
+
+        public RolePrivilege Build()
+        {
+            this.rolePrivilege.QueryGrant = String.Join(" ",
+                this.query,
+                this.name,
+                "TO",
+                this.grantee.Build(),
+                isAdmin ? "WITH ADMIN OPTION" : ""
+                );
+            return this.rolePrivilege;
+        }
+    }
     public class ObjectPrivilege
     {
         public String QueryGrant { get; set; }
@@ -198,7 +248,7 @@ namespace Domain
 
         public GranteeClauseBuilder Grantee(String grantee)
         {
-            this.grantee = grantee;
+            this.grantee = grantee.ToUpper();
             return this;
         }
 
@@ -218,4 +268,7 @@ namespace Domain
                 );
         }
     }
+
+
+
 }
