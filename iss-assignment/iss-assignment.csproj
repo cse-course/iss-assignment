@@ -60,17 +60,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Privilege\FrmRolePrivilege.cs">
+    <Compile Include="FrmRoleRevoke.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Privilege\FrmRolePrivilege.Designer.cs">
-      <DependentUpon>FrmRolePrivilege.cs</DependentUpon>
+    <Compile Include="FrmRoleRevoke.Designer.cs">
+      <DependentUpon>FrmRoleRevoke.cs</DependentUpon>
     </Compile>
-    <Compile Include="Privilege\FrmSystemPrivilege.cs">
+    <Compile Include="Privilege\FrmGrantRolePrivilege.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Privilege\FrmSystemPrivilege.Designer.cs">
-      <DependentUpon>FrmSystemPrivilege.cs</DependentUpon>
+    <Compile Include="Privilege\FrmGrantRolePrivilege.Designer.cs">
+      <DependentUpon>FrmGrantRolePrivilege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Privilege\FrmGrantSystemPrivilege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Privilege\FrmGrantSystemPrivilege.Designer.cs">
+      <DependentUpon>FrmGrantSystemPrivilege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Privilege\FrmRevokeSystemPrivilegeFromRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Privilege\FrmRevokeSystemPrivilegeFromRole.Designer.cs">
+      <DependentUpon>FrmRevokeSystemPrivilegeFromRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Privilege\FrmRevokeSystemPrivilegeFromUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Privilege\FrmRevokeSystemPrivilegeFromUser.Designer.cs">
+      <DependentUpon>FrmRevokeSystemPrivilegeFromUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Role\FrmAddRole.cs">
       <SubType>Form</SubType>
@@ -170,11 +188,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Privilege\FrmRolePrivilege.resx">
-      <DependentUpon>FrmRolePrivilege.cs</DependentUpon>
+    <EmbeddedResource Include="Privilege\FrmGrantRolePrivilege.resx">
+      <DependentUpon>FrmGrantRolePrivilege.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Privilege\FrmSystemPrivilege.resx">
-      <DependentUpon>FrmSystemPrivilege.cs</DependentUpon>
+    <EmbeddedResource Include="Privilege\FrmGrantSystemPrivilege.resx">
+      <DependentUpon>FrmGrantSystemPrivilege.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Role\FrmAddRole.resx">
       <DependentUpon>FrmAddRole.cs</DependentUpon>

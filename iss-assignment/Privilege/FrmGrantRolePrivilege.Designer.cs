@@ -1,6 +1,6 @@
 ﻿namespace iss_assignment
 {
-    partial class FrmRolePrivilege
+    partial class FrmGrantRolePrivilege
     {
         /// <summary>
         /// Required designer variable.
@@ -34,14 +34,17 @@
             this.LvwUsers = new System.Windows.Forms.ListView();
             this.gro = new System.Windows.Forms.GroupBox();
             this.DgvRole = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LvwRole = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.gro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvRole)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnClear
             // 
-            this.BtnClear.Location = new System.Drawing.Point(742, 29);
+            this.BtnClear.Location = new System.Drawing.Point(1101, 28);
             this.BtnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnClear.Name = "BtnClear";
             this.BtnClear.Size = new System.Drawing.Size(117, 53);
@@ -52,7 +55,7 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(742, 115);
+            this.BtnSave.Location = new System.Drawing.Point(1101, 114);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(117, 53);
@@ -64,7 +67,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.LvwUsers);
-            this.groupBox1.Location = new System.Drawing.Point(370, 9);
+            this.groupBox1.Location = new System.Drawing.Point(373, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -91,7 +94,7 @@
             // gro
             // 
             this.gro.Controls.Add(this.DgvRole);
-            this.gro.Location = new System.Drawing.Point(12, 9);
+            this.gro.Location = new System.Drawing.Point(12, 11);
             this.gro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gro.Name = "gro";
             this.gro.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -114,24 +117,53 @@
             this.DgvRole.Size = new System.Drawing.Size(349, 673);
             this.DgvRole.TabIndex = 0;
             // 
-            // FrmRolePrivilege
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.LvwRole);
+            this.groupBox2.Location = new System.Drawing.Point(731, 11);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(352, 692);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Roles";
+            // 
+            // LvwRole
+            // 
+            this.LvwRole.CheckBoxes = true;
+            this.LvwRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvwRole.FullRowSelect = true;
+            this.LvwRole.GridLines = true;
+            this.LvwRole.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.LvwRole.Location = new System.Drawing.Point(3, 17);
+            this.LvwRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LvwRole.Name = "LvwRole";
+            this.LvwRole.Size = new System.Drawing.Size(346, 673);
+            this.LvwRole.TabIndex = 1;
+            this.LvwRole.UseCompatibleStateImageBehavior = false;
+            this.LvwRole.View = System.Windows.Forms.View.Details;
+            // 
+            // FrmGrantRolePrivilege
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 711);
+            this.ClientSize = new System.Drawing.Size(1239, 721);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gro);
             this.Controls.Add(this.BtnClear);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "FrmRolePrivilege";
+            this.Name = "FrmGrantRolePrivilege";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Role Privilege";
             this.Load += new System.EventHandler(this.FrmRolePrivilege_Load);
             this.groupBox1.ResumeLayout(false);
             this.gro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvRole)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -144,5 +176,7 @@
         private System.Windows.Forms.ListView LvwUsers;
         private System.Windows.Forms.GroupBox gro;
         private System.Windows.Forms.DataGridView DgvRole;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListView LvwRole;
     }
 }

@@ -144,7 +144,7 @@ namespace iss_assignment
 
         private void SystemPrivilegeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmSystemPrivilege frm = new FrmSystemPrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
+            FrmGrantSystemPrivilege frm = new FrmGrantSystemPrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
             {
                 MdiParent = this
             };
@@ -153,7 +153,7 @@ namespace iss_assignment
 
         private void GrantRoleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRolePrivilege frm = new FrmRolePrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
+            FrmGrantRolePrivilege frm = new FrmGrantRolePrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
             {
                 MdiParent = this
             };

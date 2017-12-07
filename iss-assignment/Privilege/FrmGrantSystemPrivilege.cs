@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace iss_assignment
 {
-    public partial class FrmSystemPrivilege : Form
+    public partial class FrmGrantSystemPrivilege : Form
     {
         private readonly IPrivilegeBLL privilegeBLL;
 
@@ -24,7 +24,7 @@ namespace iss_assignment
 
         private readonly USER_MANAGEMENT currentUser;
 
-        public FrmSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, 
+        public FrmGrantSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, 
             UserManagementBLL userManagementBLL, USER_MANAGEMENT currentUser)
         {
             this.privilegeBLL = privilegeBLL;

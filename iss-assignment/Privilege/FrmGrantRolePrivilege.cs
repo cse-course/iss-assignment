@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace iss_assignment
 {
-    public partial class FrmRolePrivilege : Form
+    public partial class FrmGrantRolePrivilege : Form
     {
         private readonly IPrivilegeBLL privilegeBLL;
 
@@ -23,7 +23,7 @@ namespace iss_assignment
 
         private USER_MANAGEMENT currentUser;
 
-        public FrmRolePrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, 
+        public FrmGrantRolePrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, 
             UserManagementBLL userManagementBLL, USER_MANAGEMENT currentUser)
         {
             this.privilegeBLL = privilegeBLL;
@@ -36,6 +36,7 @@ namespace iss_assignment
         private void BtnClear_Click(object sender, EventArgs e)
         {
             this.ClearUser();
+            this.ClearRolePrivilege();
             this.ClearRole();
         }
 
@@ -64,6 +65,13 @@ namespace iss_assignment
             {
                 List<String> grantee = new List<string>();
                 foreach (ListViewItem item in this.LvwUsers.Items)
+                {
+                    if (item.Checked == true)
+                    {
+                        grantee.Add(item.Text);
+                    }
+                }
+                foreach (ListViewItem item in this.LvwRole.Items)
                 {
                     if (item.Checked == true)
                     {
@@ -100,6 +108,7 @@ namespace iss_assignment
         private void FrmRolePrivilege_Load(object sender, EventArgs e)
         {
             this.LoadUser();
+            this.LoadRolePrivilege();
             this.LoadRole();
         }
 
@@ -122,7 +131,7 @@ namespace iss_assignment
         /// or have been granted the GRANT ANY ROLE system privilege, 
         /// or you must have created the role.
         /// </summary>
-        private void LoadRole()
+        private void LoadRolePrivilege()
         {
             List<Privilege> items;
             //Get privilege
@@ -189,6 +198,19 @@ namespace iss_assignment
             contentColumn.ReadOnly = true;
         }
 
+        private void LoadRole()
+        {
+            this.LvwRole.Items.Clear();
+            this.LvwRole.Columns.Clear();
+            this.LvwRole.Columns.Add("Role Name", 320, HorizontalAlignment.Center);
+            List<Role> items = this.roleBLL.View();
+            foreach (var item in items)
+            {
+                ListViewItem viewItem = this.LvwRole.Items.Add(item.Name);
+                viewItem.SubItems.Add(item.Name);
+            }
+        }
+
         private void ClearUser()
         {
             foreach (ListViewItem item in this.LvwUsers.Items)
@@ -197,7 +219,7 @@ namespace iss_assignment
             }
         }
 
-        private void ClearRole()
+        private void ClearRolePrivilege()
         {
             for (int i = 0; i < this.DgvRole.RowCount; i++)
             {
@@ -210,6 +232,14 @@ namespace iss_assignment
         {
             this.DgvRole.Enabled = enable;
             this.LvwUsers.Enabled = enable;
+        }
+
+        private void ClearRole()
+        {
+            foreach (ListViewItem item in this.LvwRole.Items)
+            {
+                item.Checked = false;
+            }
         }
     }
 }

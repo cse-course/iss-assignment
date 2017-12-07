@@ -1,6 +1,6 @@
 ﻿namespace iss_assignment
 {
-    partial class FrmSystemPrivilege
+    partial class FrmGrantSystemPrivilege
     {
         /// <summary>
         /// Required designer variable.
@@ -144,7 +144,7 @@
             this.DgvPrivilege.Size = new System.Drawing.Size(593, 676);
             this.DgvPrivilege.TabIndex = 0;
             // 
-            // FrmSystemPrivilege
+            // FrmGrantSystemPrivilege
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,7 +157,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.Name = "FrmSystemPrivilege";
+            this.Name = "FrmGrantSystemPrivilege";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "System Privilege";
             this.Load += new System.EventHandler(this.FrmRolePrivilege_Load);
