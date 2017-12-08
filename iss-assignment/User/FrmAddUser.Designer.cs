@@ -414,6 +414,7 @@
             this.LvwProfile.FullRowSelect = true;
             this.LvwProfile.GridLines = true;
             this.LvwProfile.Location = new System.Drawing.Point(3, 16);
+            this.LvwProfile.MultiSelect = false;
             this.LvwProfile.Name = "LvwProfile";
             this.LvwProfile.Size = new System.Drawing.Size(350, 172);
             this.LvwProfile.TabIndex = 19;

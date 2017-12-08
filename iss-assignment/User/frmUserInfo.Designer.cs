@@ -87,7 +87,7 @@
             this.BtnDelete.Location = new System.Drawing.Point(128, 287);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(75, 23);
-            this.BtnDelete.TabIndex = 16;
+            this.BtnDelete.TabIndex = 10;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
@@ -98,7 +98,7 @@
             this.CbxAccountLock.Location = new System.Drawing.Point(21, 257);
             this.CbxAccountLock.Name = "CbxAccountLock";
             this.CbxAccountLock.Size = new System.Drawing.Size(92, 17);
-            this.CbxAccountLock.TabIndex = 15;
+            this.CbxAccountLock.TabIndex = 8;
             this.CbxAccountLock.Text = "Account lock.";
             this.CbxAccountLock.UseVisualStyleBackColor = true;
             // 
@@ -113,10 +113,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(209, 287);
+            this.btnSave.Location = new System.Drawing.Point(209, 286);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 13;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -126,7 +126,7 @@
             this.btnEdit.Location = new System.Drawing.Point(209, 286);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 0;
+            this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -146,7 +146,7 @@
             this.txtFullname.Margin = new System.Windows.Forms.Padding(4);
             this.txtFullname.Name = "txtFullname";
             this.txtFullname.Size = new System.Drawing.Size(183, 20);
-            this.txtFullname.TabIndex = 11;
+            this.txtFullname.TabIndex = 4;
             // 
             // txtEmail
             // 
@@ -154,7 +154,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(183, 20);
-            this.txtEmail.TabIndex = 10;
+            this.txtEmail.TabIndex = 5;
             // 
             // txtPhone
             // 
@@ -162,7 +162,7 @@
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(183, 20);
-            this.txtPhone.TabIndex = 8;
+            this.txtPhone.TabIndex = 6;
             // 
             // txtAdress
             // 
@@ -233,7 +233,7 @@
             this.groupBox2.Location = new System.Drawing.Point(334, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 316);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Profiles";
             // 
@@ -242,7 +242,7 @@
             this.LvwProfile.Location = new System.Drawing.Point(6, 16);
             this.LvwProfile.Name = "LvwProfile";
             this.LvwProfile.Size = new System.Drawing.Size(194, 271);
-            this.LvwProfile.TabIndex = 0;
+            this.LvwProfile.TabIndex = 11;
             this.LvwProfile.UseCompatibleStateImageBehavior = false;
             this.LvwProfile.View = System.Windows.Forms.View.Details;
             // 
@@ -251,7 +251,7 @@
             this.BtnChangeProfile.Location = new System.Drawing.Point(140, 287);
             this.BtnChangeProfile.Name = "BtnChangeProfile";
             this.BtnChangeProfile.Size = new System.Drawing.Size(54, 23);
-            this.BtnChangeProfile.TabIndex = 17;
+            this.BtnChangeProfile.TabIndex = 12;
             this.BtnChangeProfile.Text = "Change";
             this.BtnChangeProfile.UseVisualStyleBackColor = true;
             this.BtnChangeProfile.Click += new System.EventHandler(this.BtnChangeProfile_Click);
@@ -264,7 +264,7 @@
             this.groupBox3.Location = new System.Drawing.Point(540, 13);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 316);
-            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Roles";
             // 
@@ -273,7 +273,7 @@
             this.BtnAddRole.Location = new System.Drawing.Point(136, 286);
             this.BtnAddRole.Name = "BtnAddRole";
             this.BtnAddRole.Size = new System.Drawing.Size(54, 23);
-            this.BtnAddRole.TabIndex = 19;
+            this.BtnAddRole.TabIndex = 14;
             this.BtnAddRole.Text = "Add";
             this.BtnAddRole.UseVisualStyleBackColor = true;
             this.BtnAddRole.Click += new System.EventHandler(this.BtnAddRole_Click);
@@ -283,7 +283,7 @@
             this.LvwRole.Location = new System.Drawing.Point(0, 16);
             this.LvwRole.Name = "LvwRole";
             this.LvwRole.Size = new System.Drawing.Size(194, 268);
-            this.LvwRole.TabIndex = 0;
+            this.LvwRole.TabIndex = 13;
             this.LvwRole.UseCompatibleStateImageBehavior = false;
             this.LvwRole.View = System.Windows.Forms.View.Details;
             // 
@@ -292,7 +292,7 @@
             this.BtnRemoveRole.Location = new System.Drawing.Point(72, 287);
             this.BtnRemoveRole.Name = "BtnRemoveRole";
             this.BtnRemoveRole.Size = new System.Drawing.Size(58, 23);
-            this.BtnRemoveRole.TabIndex = 18;
+            this.BtnRemoveRole.TabIndex = 15;
             this.BtnRemoveRole.Text = "Remove";
             this.BtnRemoveRole.UseVisualStyleBackColor = true;
             this.BtnRemoveRole.Click += new System.EventHandler(this.BtnRemoveRole_Click);

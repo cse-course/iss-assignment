@@ -166,7 +166,8 @@ namespace iss_assignment
             USER_MANAGEMENT user = userList.First();
             this.view.Remove(user);
             this.OracleView.DropOracleUser(lblUsername.Text);
-            Hide();
+            MessageBox.Show("Deleted");
+            Close();
         }
 
         private void frmUserInfo_FormClosing(object sender, FormClosingEventArgs e)
