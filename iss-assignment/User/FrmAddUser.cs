@@ -33,6 +33,8 @@ namespace iss_assignment
             LoadDataCbbDefaultTablespace();
             LoadDataCbbTemporaryTablespace();
             DeActiveAdvanceMode();
+            txtPassword.PasswordChar = '*';
+            txtPassword2.PasswordChar = '*';
         }
 
         public void ClearText()
@@ -188,22 +190,51 @@ namespace iss_assignment
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            USER_MANAGEMENT user = new USER_MANAGEMENT
+            String Username = txtUsername.Text;
+            String Password = txtPassword.Text;
+            String Password2 = txtPassword2.Text;
+            if (Username == "" || Password == "" || Password2 == "")
             {
-                USERNAME = txtUsername.Text,
-                PASSWORD = txtPassword.Text
-            };
-            //Rat tiec khong them thi khomg save duoc
-            this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
-            this.OracleView.AddOracleUser(txtUsername.Text, txtPassword.Text);
-            UpdateQoutaDromform();
-            AddProfileFromForm();
-            AddRoleFromForm();
-            AddTableSpaceFromForm();
-            CheckLockAccountFromForm();
-            ClearText();
-            MessageBox.Show("User created!");
-            Hide();
+                MessageBox.Show("Username and password not empty!");
+            }
+            else
+            {
+                Boolean flag = false;
+                foreach (USER_MANAGEMENT ExistUser in this.view.GetAll())
+                {
+                    if (ExistUser.USERNAME == Username)
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag == true)
+                {
+                    MessageBox.Show("Username  is realy exist!");
+                }
+                else
+                {
+                    HashPassword HP = new HashPassword();
+                    String HashPassword = HP.Get(Password);
+                    USER_MANAGEMENT user = new USER_MANAGEMENT
+                    {
+                        USERNAME = Username,
+                        PASSWORD = HashPassword
+                    };
+                    //Rat tiec khong them thi khomg save duoc
+                    this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
+                    this.OracleView.AddOracleUser(Username, Password);
+                    UpdateQoutaDromform();
+                    AddProfileFromForm();
+                    AddRoleFromForm();
+                    AddTableSpaceFromForm();
+                    CheckLockAccountFromForm();
+                    ClearText();
+                    MessageBox.Show("User created!");
+                    Hide();
+                }
+            }
+                
         }
         private void AddColumnLvwProfile()
         {

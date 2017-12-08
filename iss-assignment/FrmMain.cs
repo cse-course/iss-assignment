@@ -22,7 +22,7 @@ namespace iss_assignment
 
         private readonly IPrivilegeBLL privilegeBLL;
 
-        private USER_MANAGEMENT currentUser;
+        public USER_MANAGEMENT currentUser;
 
         public FrmMain()
         {
@@ -44,7 +44,7 @@ namespace iss_assignment
             //full screen
             this.WindowState = FormWindowState.Maximized;
 
-            FrmUserLogin login = new FrmUserLogin
+            FrmUserLogin login = new FrmUserLogin(userManagementBLL)
             {
                 MdiParent = this
             };
