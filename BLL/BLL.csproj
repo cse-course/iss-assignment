@@ -55,8 +55,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role\RoleBLL.cs" />
     <Compile Include="SysView\SysViewBLL.cs" />
-    <Compile Include="UserManagementBLL.cs" />
-    <Compile Include="UserManagementClassicBLL.cs" />
+    <Compile Include="User\UserManagementBLL.cs" />
+    <Compile Include="User\UserManagementClassicBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

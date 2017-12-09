@@ -88,8 +88,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Repository.cs" />
     <Compile Include="SysView\SysViewRepository.cs" />
-    <Compile Include="UserManagementClassicRepository.cs" />
-    <Compile Include="UserManagementRepository.cs" />
+    <Compile Include="User\UserManagementClassicRepository.cs" />
+    <Compile Include="User\UserManagementRepository.cs" />
     <Compile Include="USER_MANAGEMENT.cs">
       <DependentUpon>IISModel.tt</DependentUpon>
     </Compile>
