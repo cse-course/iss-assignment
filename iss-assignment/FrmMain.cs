@@ -97,7 +97,7 @@ namespace iss_assignment
                 };
                 user.Show();
             }
-            
+
         }
 
         private void RolePrivilegeUserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace iss_assignment
                 };
                 user.Show();
             }
-            
+
         }
 
         private void ShowAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace iss_assignment
                 };
                 user.Show();
             }
-            
+
         }
 
         private void AddToolStripMenuItem_Click(object sender, EventArgs e)
@@ -136,7 +136,7 @@ namespace iss_assignment
                 };
                 user.Show();
             }
-            
+
         }
 
         private void ShowAllToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -149,7 +149,7 @@ namespace iss_assignment
                 };
                 profile.Show();
             }
-            
+
         }
 
         private void AddProfileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -162,7 +162,7 @@ namespace iss_assignment
                 };
                 profile.Show();
             }
-            
+
         }
 
         private void ShowAllToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -175,7 +175,7 @@ namespace iss_assignment
                 };
                 profile.Show();
             }
-            
+
         }
 
         private void AddToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -188,7 +188,7 @@ namespace iss_assignment
                 };
                 profile.Show();
             }
-            
+
         }
 
         private void SystemPrivilegeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -201,7 +201,7 @@ namespace iss_assignment
                 };
                 frm.Show();
             }
-            
+
         }
 
         private void GrantRoleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -220,6 +220,12 @@ namespace iss_assignment
         private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.StatusAll(false);
+            foreach (Form frm in this.MdiChildren)
+            {
+                frm.Dispose();
+
+            }
+
             if (this.currentUser.IsLogin())
             {
                 this.currentUser.UserName = "";
