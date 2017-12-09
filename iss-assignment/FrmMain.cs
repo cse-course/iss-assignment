@@ -58,7 +58,7 @@ namespace iss_assignment
 
         private void UserPrifilegeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.currentUser.IsLogin())
+            if (this.currentUser.IsAdmin)
             {
                 FrmUserPrivilege user = new FrmUserPrivilege(this.sysViewBLL)
                 {
@@ -70,7 +70,7 @@ namespace iss_assignment
 
         private void UserDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.currentUser.IsLogin())
+            if (this.currentUser.IsAdmin)
             {
                 FrmUserDetail user = new FrmUserDetail(this.sysViewBLL)
                 {
@@ -83,7 +83,7 @@ namespace iss_assignment
 
         private void ProfileResourceUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.currentUser.IsLogin())
+            if (this.currentUser.IsAdmin)
             {
                 FrmProfileResourceUser user = new FrmProfileResourceUser(this.sysViewBLL)
                 {
