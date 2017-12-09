@@ -194,6 +194,15 @@ namespace iss_assignment
             String Username = txtUsername.Text;
             String Password = txtPassword.Text;
             String Password2 = txtPassword2.Text;
+            String IsAdmin;
+            if (CbxIsAdmin.Checked)
+            {
+                IsAdmin = "y";
+            }
+            else
+            {
+                IsAdmin = "";
+            }
             if (Username == "" || Password == "" || Password2 == "")
             {
                 MessageBox.Show("Username and password not empty!");
@@ -221,7 +230,8 @@ namespace iss_assignment
                     {
                         USERNAME = Username,
                         PASSWORD = HashPassword,
-                        CREATE_TIME = now
+                        CREATE_TIME = now,
+                        ADMIN_OPTION = IsAdmin
                     };
                     //Rat tiec khong them thi khomg save duoc
                     this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 

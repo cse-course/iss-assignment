@@ -52,6 +52,7 @@
             this.BtnAddRole = new System.Windows.Forms.Button();
             this.LvwRole = new System.Windows.Forms.ListView();
             this.BtnRemoveRole = new System.Windows.Forms.Button();
+            this.CbxIsAdmin = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CbxIsAdmin);
             this.groupBox1.Controls.Add(this.BtnDelete);
             this.groupBox1.Controls.Add(this.CbxAccountLock);
             this.groupBox1.Controls.Add(this.lblDateJoin);
@@ -297,6 +299,16 @@
             this.BtnRemoveRole.UseVisualStyleBackColor = true;
             this.BtnRemoveRole.Click += new System.EventHandler(this.BtnRemoveRole_Click);
             // 
+            // CbxIsAdmin
+            // 
+            this.CbxIsAdmin.AutoSize = true;
+            this.CbxIsAdmin.Location = new System.Drawing.Point(143, 257);
+            this.CbxIsAdmin.Name = "CbxIsAdmin";
+            this.CbxIsAdmin.Size = new System.Drawing.Size(69, 17);
+            this.CbxIsAdmin.TabIndex = 15;
+            this.CbxIsAdmin.Text = "Is Admin.";
+            this.CbxIsAdmin.UseVisualStyleBackColor = true;
+            // 
             // frmUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,5 +355,6 @@
         private System.Windows.Forms.Button BtnChangeProfile;
         private System.Windows.Forms.Button BtnAddRole;
         private System.Windows.Forms.Button BtnRemoveRole;
+        private System.Windows.Forms.CheckBox CbxIsAdmin;
     }
 }

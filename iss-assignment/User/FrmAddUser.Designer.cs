@@ -63,6 +63,7 @@
             this.LvwRole = new System.Windows.Forms.ListView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.LvwProfile = new System.Windows.Forms.ListView();
+            this.CbxIsAdmin = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -146,6 +147,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CbxIsAdmin);
             this.groupBox1.Controls.Add(this.CbxBlockAccount);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtUsername);
@@ -421,6 +423,16 @@
             this.LvwProfile.UseCompatibleStateImageBehavior = false;
             this.LvwProfile.View = System.Windows.Forms.View.Details;
             // 
+            // CbxIsAdmin
+            // 
+            this.CbxIsAdmin.AutoSize = true;
+            this.CbxIsAdmin.Location = new System.Drawing.Point(138, 116);
+            this.CbxIsAdmin.Name = "CbxIsAdmin";
+            this.CbxIsAdmin.Size = new System.Drawing.Size(72, 17);
+            this.CbxIsAdmin.TabIndex = 19;
+            this.CbxIsAdmin.Text = "Is Admin?";
+            this.CbxIsAdmin.UseVisualStyleBackColor = true;
+            // 
             // FrmAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,5 +497,6 @@
         private System.Windows.Forms.CheckBox CbxSystem;
         private System.Windows.Forms.CheckBox CbxSysaux;
         private System.Windows.Forms.CheckBox CbxExample;
+        private System.Windows.Forms.CheckBox CbxIsAdmin;
     }
 }

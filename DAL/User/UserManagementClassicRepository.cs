@@ -57,7 +57,6 @@ namespace DAL
         {
             Username = Username.ToUpper();
             string sql = "SELECT Distinct PROFILE, USERNAME FROM DBA_PROFILES P LEFT OUTER JOIN DBA_USERS U USING(PROFILE) WHERE USERNAME = '" + Username + "'";
-            Debug.WriteLine(sql);
             return this.GetDataSet(sql);
         }
         public void AddRoleToUser(String Username, String Role)

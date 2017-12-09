@@ -30,6 +30,7 @@ namespace iss_assignment
             btnSave.Visible = true;
             BtnDelete.Visible = true;
             CbxAccountLock.AutoCheck = true;
+            CbxIsAdmin.AutoCheck = true;
             BtnRemoveRole.Enabled = true;
             BtnAddRole.Enabled = true;
             BtnChangeProfile.Enabled = true;
@@ -48,6 +49,11 @@ namespace iss_assignment
             lblDateJoin.Text = user.CREATE_TIME.ToString();
             //load checbox
             CbxAccountLock.Checked = OracleView.IsLock(frmParamUsername);
+            //is admin
+            if (user.ADMIN_OPTION == "y")
+            {
+                CbxIsAdmin.Checked = true;
+            }
             //Load granted role
             LoadDataLvwRole();
             //Load granted profile
@@ -64,6 +70,7 @@ namespace iss_assignment
             btnSave.Visible = false;
             BtnDelete.Visible = false;
             CbxAccountLock.AutoCheck = false;
+            CbxIsAdmin.AutoCheck = false;
             BtnRemoveRole.Enabled = false;
             BtnAddRole.Enabled = false;
             BtnChangeProfile.Enabled = false;
@@ -97,6 +104,20 @@ namespace iss_assignment
             user.EMAIL = txtEmail.Text;
             user.FULL_NAME = txtFullname.Text;
             user.PHONE = txtPhone.Text;
+            if (user.ADMIN_OPTION == "y")
+            {
+                if (!CbxIsAdmin.Checked)
+                {
+                    user.ADMIN_OPTION = "";
+                }
+            }
+            else
+            {
+                if (CbxIsAdmin.Checked)
+                {
+                    user.ADMIN_OPTION = "y";
+                }
+            }
             this.view.Update(user);
             if (CbxAccountLock.Checked)
             {
