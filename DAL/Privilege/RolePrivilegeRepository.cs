@@ -50,7 +50,7 @@ namespace DAL
 
         public DataSet View()
         {
-            String query = "SELECT * FROM SYS.DBA_ROLE_PRIVS";
+            String query = "SELECT * FROM SYS.DBA_ROLES";
             return this.GetDataSet(query);
         }
 

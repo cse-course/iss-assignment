@@ -28,7 +28,7 @@ namespace BLL
         public List<Grantee> GranteeSystemPrivileges(string privilege, bool isAdmin)
         {
             List<Grantee> result = new List<Grantee>();
-            DataSet dataSet = this.systemPrivilegeRepository.Grantee(privilege, BooleanUtils.FromBoolean(isAdmin));
+            DataSet dataSet = this.systemPrivilegeRepository.Grantee(privilege.ToUpper(), BooleanUtils.FromBoolean(isAdmin));
             DataTable table = dataSet.Tables[0];
             for (int i = 0; i < table.Rows.Count; i++)
             {
@@ -84,7 +84,7 @@ namespace BLL
 
         public bool HasRolePrivilege(string username, Privilege privilege)
         {
-            DataSet dataSet = this.rolePrivilegeRepository.Has(username, privilege.Name);
+            DataSet dataSet = this.rolePrivilegeRepository.Has(username.ToUpper(), privilege.Name);
             DataTable table = dataSet.Tables[0];
             if (table.Rows.Count >= 1)
             {
@@ -99,7 +99,7 @@ namespace BLL
 
         public bool HasSystemPrivilege(string username, Privilege privilege)
         {
-            DataSet dataSet = this.systemPrivilegeRepository.Has(username, privilege.Name);
+            DataSet dataSet = this.systemPrivilegeRepository.Has(username.ToUpper(), privilege.Name);
             DataTable table = dataSet.Tables[0];
             if (table.Rows.Count >= 1)
             {
@@ -143,12 +143,36 @@ namespace BLL
 
         public List<Privilege> RolePrivileges(string username, bool isAdmin)
         {
-            throw new NotImplementedException();
+            List<Privilege> result = new List<Privilege>();
+            DataSet dataSet = this.rolePrivilegeRepository.View(username.ToUpper(), BooleanUtils.FromBoolean(isAdmin));
+            DataTable table = dataSet.Tables[0];
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                Privilege privilege = new Privilege
+                {
+                    Name = table.Rows[i]["GRANTED_ROLE"].ToString(),
+                    IsAdmin = BooleanUtils.FromString(table.Rows[i]["ADMIN_OPTION"].ToString())
+                };
+                result.Add(privilege);
+            }
+            return result;
         }
 
         public List<Privilege> RolePrivileges()
         {
-            throw new NotImplementedException();
+            List<Privilege> result = new List<Privilege>();
+            DataSet dataSet = this.rolePrivilegeRepository.View();
+            DataTable table = dataSet.Tables[0];
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                Privilege privilege = new Privilege
+                {
+                    Name = table.Rows[i]["ROLE"].ToString(),
+                    IsAdmin = false
+                };
+                result.Add(privilege);
+            }
+            return result;
         }
 
         public List<Privilege> SystemPrivileges(string username)
@@ -188,7 +212,7 @@ namespace BLL
         public List<Privilege> SystemPrivileges(string username, bool isAdmin)
         {
             List<Privilege> result = new List<Privilege>();
-            DataSet dataSet = this.systemPrivilegeRepository.View(username, BooleanUtils.FromBoolean(isAdmin));
+            DataSet dataSet = this.systemPrivilegeRepository.View(username.ToUpper(), BooleanUtils.FromBoolean(isAdmin));
             DataTable table = dataSet.Tables[0];
             for (int i = 0; i < table.Rows.Count; i++)
             {
