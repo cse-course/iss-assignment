@@ -16,6 +16,5 @@ namespace BLL
 
         Role View(String role);
 
-        List<String> ListRole();
     }
 }

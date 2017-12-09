@@ -47,13 +47,16 @@ namespace iss_assignment
         {
             //full screen
             this.WindowState = FormWindowState.Maximized;
+            this.LoadLogin();
+        }
 
+        private void LoadLogin()
+        {
             FrmUserLogin login = new FrmUserLogin(userManagementBLL, this.currentUser)
             {
                 MdiParent = this
             };
             login.Show();
-
         }
 
         private void UserPrifilegeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -163,7 +166,7 @@ namespace iss_assignment
         {
             if (this.currentUser.IsLogin())
             {
-                FrmRole profile = new FrmRole(this.roleBLL)
+                FrmRole profile = new FrmRole(this.privilegeBLL, this.roleBLL, this.currentUser)
                 {
                     MdiParent = this
                 };
@@ -209,6 +212,16 @@ namespace iss_assignment
                 frm.Show();
             }
 
+        }
+
+        private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.currentUser.IsLogin())
+            {
+                this.currentUser.UserName = "";
+                this.currentUser.IsAdmin = false;
+                this.LoadLogin();
+            }
         }
     }
 }

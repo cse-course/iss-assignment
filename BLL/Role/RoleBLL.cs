@@ -4,6 +4,7 @@ using DAL;
 using System.Data.Entity;
 using System.Data;
 using Domain;
+using Utils;
 
 namespace BLL
 {
@@ -11,26 +12,17 @@ namespace BLL
     {
         private IRoleRepository repository;
 
+        private ISystemPrivilegeRepository rolePrivilegeRepository;
+
         public RoleBLL(DbContext context)
         {
             this.repository = new RoleRepository(context);
+            this.rolePrivilegeRepository = new RolePrivilegeRepository(context);
         }
 
         public Boolean Add(Role role)
         {
             return this.repository.Add(role.QueryAdd);
-        }
-
-        public List<String> ListRole()
-        {
-            List<String> result = new List<string>();
-            DataSet dataSet = this.repository.ListRole();
-            DataTable table = dataSet.Tables[0];
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                result.Add(table.Rows[i][0].ToString());
-            }
-            return result;
         }
 
         public bool Remove(Role role)

@@ -9,9 +9,15 @@ namespace iss_assignment
     public partial class FrmRole : Form
     {
         private IRoleBLL roleBLL;
-        public FrmRole(IRoleBLL roleBLL)
+
+        private IPrivilegeBLL privilegeBLL;
+
+        private UserPrincipal currentUser;
+        public FrmRole(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, UserPrincipal currentUser)
         {
+            this.privilegeBLL = privilegeBLL;
             this.roleBLL = roleBLL;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
         private void FrmRole_Load(object sender, EventArgs e)
@@ -34,11 +40,11 @@ namespace iss_assignment
 
         private void LoadData()
         {
-            List<String> roles = this.roleBLL.ListRole() ;
+            List<Privilege> roles = this.privilegeBLL.RolePrivileges(this.currentUser.UserName, true);
             foreach (var item in roles)
             {
-                ListViewItem viewItem = this.LvwRole.Items.Add(item);
-                viewItem.SubItems.Add(item);
+                ListViewItem viewItem = this.LvwRole.Items.Add(item.Name);
+                viewItem.SubItems.Add(item.Name);
             }
 
         }

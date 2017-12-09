@@ -27,13 +27,6 @@ namespace DAL
             }
         }
 
-        public DataSet ListRole()
-        {
-            string sql = @"
-                    SELECT ROLE FROM  SYS.DBA_ROLES
-                    ";
-            return this.GetDataSet(sql);
-        }
 
         public bool Remove(string role)
         {

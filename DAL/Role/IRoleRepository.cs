@@ -15,6 +15,5 @@ namespace DAL
 
         DataSet View();
         DataSet View(String role);
-        DataSet ListRole();
     }
 }

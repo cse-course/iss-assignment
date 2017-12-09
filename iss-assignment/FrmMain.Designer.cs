@@ -46,6 +46,8 @@
             this.privilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemPrivilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grantRoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +55,7 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.homeToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.userToolStripMenuItem,
             this.profileToolStripMenuItem,
@@ -196,6 +199,21 @@
             this.grantRoleToolStripMenuItem.Text = "Grant Role";
             this.grantRoleToolStripMenuItem.Click += new System.EventHandler(this.GrantRoleToolStripMenuItem_Click);
             // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logoutToolStripMenuItem});
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.homeToolStripMenuItem.Text = "Home";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -235,6 +253,8 @@
         private System.Windows.Forms.ToolStripMenuItem privilegeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemPrivilegeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem grantRoleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
 
