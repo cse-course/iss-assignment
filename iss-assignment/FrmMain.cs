@@ -153,7 +153,7 @@ namespace iss_assignment
         {
             if (this.currentUser.IsLogin())
             {
-                FrmProfileInfo profile = new FrmProfileInfo(this.profileBLL)
+                FrmProfileInfo profile = new FrmProfileInfo(this.privilegeBLL, this.profileBLL, this.currentUser)
                 {
                     MdiParent = this
                 };

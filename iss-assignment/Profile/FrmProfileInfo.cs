@@ -7,13 +7,20 @@ namespace iss_assignment
 {
     public partial class FrmProfileInfo : Form
     {
+        private static String CREATE_PROFILE = "CREATE PROFILE";
         private IProfileBLL profileBLL;
+
+        private IPrivilegeBLL privilegeBLL;
+
+        private UserPrincipal currentUser;
 
         private Profile profile;
 
-        public FrmProfileInfo(IProfileBLL profileBLL)
+        public FrmProfileInfo(IPrivilegeBLL privilegeBLL, IProfileBLL profileBLL, UserPrincipal currentUser)
         {
+            this.privilegeBLL = privilegeBLL;
             this.profileBLL = profileBLL;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
 
@@ -61,43 +68,65 @@ namespace iss_assignment
             }
         }
 
+        /// <summary>
+        /// To create a profile, you must have the CREATE PROFILE system privilege.
+        /// To specify resource limits for a user, you must:
+        ///     Enable resource limits dynamically with the ALTER SYSTEM statement 
+        ///     or with the initialization parameter RESOURCE_LIMIT. 
+        ///     This parameter does not apply to password resources. Password resources are always enabled.
+        ///     
+        ///     Create a profile that defines the limits using the CREATE PROFILE statement
+        ///     Assign the profile to the user using the CREATE USER or ALTER USER statement
+        /// </summary>
         private void SaveProfile()
         {
-            ProfileBuilder builder = new ProfileBuilder(this.TxtName.Text);
-            Profile profile = builder
-                .SessionsPerUser(this.TxtSessionsPerUser.Text)
-                .CPUPerSession(this.TxtCPUPerSession.Text)
-                .CPUPerCall(this.TxtCPUPerCall.Text)
-                .ConnectTime(this.TxtConnectTime.Text)
-                .IdleTime(this.TxtIdleTime.Text)
-                .LogicalReadsPerSession(this.TxtLogicalReadsPerSession.Text)
-                .LogicalReadsPerCall(this.TxtLogicalReadsPerCall.Text)
-                .PrivateSGA(this.TxtPrivateSGA.Text)
-                .CompositeLimit(this.TxtCompositeLimit.Text)
-                .FailedLoginAttemps(this.TxtFailedLoginAttemps.Text)
-                .PasswordLifeTime(this.TxtPasswordLifeTime.Text)
-                .PasswordReuseTime(this.TxtPasswordReuseTime.Text)
-                .PasswordReuseMax(this.TxtPasswordReuseMax.Text)
-                .PasswordLockTime(this.TxtPasswordLockTime.Text)
-                .PasswordGraceTime(this.TxtPasswordGraceTime.Text)
-                .PasswordVerifyFunction(this.TxtPasswordVerifyFunction.Text)
-                .Build();
-            //Case: Update
-            if (this.profile != null)
+            Privilege privilege = new Privilege
             {
-                this.SetEnable(false);
-                this.profileBLL.Update(profile);
-                MessageBox.Show(String.Join(" ", "Update profile", profile.Name, "sucessfull!"));
-                this.SetEnable(true);
+                Name = CREATE_PROFILE
+            };
+            Boolean rs = this.privilegeBLL.HasSystemPrivilege(this.currentUser.UserName, privilege);
+            if (rs)
+            {
+                ProfileBuilder builder = new ProfileBuilder(this.TxtName.Text);
+                Profile profile = builder
+                    .SessionsPerUser(this.TxtSessionsPerUser.Text)
+                    .CPUPerSession(this.TxtCPUPerSession.Text)
+                    .CPUPerCall(this.TxtCPUPerCall.Text)
+                    .ConnectTime(this.TxtConnectTime.Text)
+                    .IdleTime(this.TxtIdleTime.Text)
+                    .LogicalReadsPerSession(this.TxtLogicalReadsPerSession.Text)
+                    .LogicalReadsPerCall(this.TxtLogicalReadsPerCall.Text)
+                    .PrivateSGA(this.TxtPrivateSGA.Text)
+                    .CompositeLimit(this.TxtCompositeLimit.Text)
+                    .FailedLoginAttemps(this.TxtFailedLoginAttemps.Text)
+                    .PasswordLifeTime(this.TxtPasswordLifeTime.Text)
+                    .PasswordReuseTime(this.TxtPasswordReuseTime.Text)
+                    .PasswordReuseMax(this.TxtPasswordReuseMax.Text)
+                    .PasswordLockTime(this.TxtPasswordLockTime.Text)
+                    .PasswordGraceTime(this.TxtPasswordGraceTime.Text)
+                    .PasswordVerifyFunction(this.TxtPasswordVerifyFunction.Text)
+                    .Build();
+                //Case: Update
+                if (this.profile != null)
+                {
+                    this.SetEnable(false);
+                    this.profileBLL.Update(profile);
+                    MessageBox.Show(String.Join(" ", "Update profile", profile.Name, "sucessfull!"));
+                    this.SetEnable(true);
+                }
+                else
+                {
+                    this.SetEnable(false);
+                    this.profileBLL.Add(profile);
+                    MessageBox.Show(String.Join(" ", "Add profile", profile.Name, "sucessfull!"));
+                    this.SetEnable(true);
+                }
+                this.profile = profile;
             }
             else
             {
-                this.SetEnable(false);
-                this.profileBLL.Add(profile);
-                MessageBox.Show(String.Join(" ", "Add profile", profile.Name, "sucessfull!"));
-                this.SetEnable(true);
+                MessageBox.Show(String.Join(" ", "You don't have ", CREATE_PROFILE , "privilege!"));
             }
-            this.profile = profile;
         }
 
         private void BtnUnlimited_Click(object sender, EventArgs e)
