@@ -7,12 +7,21 @@ namespace iss_assignment
 {
     public partial class FrmRoleInfo : Form
     {
+        private static string CREATE_ROLE = "CREATE ROLE";
         private Role role;
+
         private IRoleBLL roleBLL;
-        public FrmRoleInfo(IRoleBLL roleBLL, Role role)
+
+        private IPrivilegeBLL privilegeBLL;
+
+        private UserPrincipal currentUser;
+
+        public FrmRoleInfo(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, Role role, UserPrincipal currentUser)
         {
+            this.privilegeBLL = privilegeBLL;
             this.roleBLL = roleBLL;
             this.role = role;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
 
@@ -32,19 +41,37 @@ namespace iss_assignment
             this.LblPassword.Enabled = status;
         }
 
+        /// <summary>
+        /// You must have the CREATE ROLE system privilege.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            RoleBuilder builder = new RoleBuilder(this.TxtName.Text);
-            Role role = builder.Password(this.TxtPassword.Text).Build();
-            Boolean rs = this.roleBLL.Update(role);
-            if (rs)
+            Privilege privilege = new Privilege
             {
-                MessageBox.Show(String.Join(" ", "Save role ", role.Name, "sucessfull!"));
+                Name = CREATE_ROLE
+            };
+            bool check = this.privilegeBLL.HasRolePrivilege(this.currentUser.UserName, privilege);
+            if (check)
+            {
+                RoleBuilder builder = new RoleBuilder(this.TxtName.Text);
+                Role role = builder.Password(this.TxtPassword.Text).Build();
+                Boolean rs = this.roleBLL.Update(role);
+                if (rs)
+                {
+                    MessageBox.Show(String.Join(" ", "Save role ", role.Name, "sucessfull!"));
+                }
+                else
+                {
+                    MessageBox.Show(String.Join(" ", "Cannot save role ", role.Name));
+                }
             }
             else
             {
-                MessageBox.Show(String.Join(" ", "Cannot save role ", role.Name));
+                MessageBox.Show(String.Join(" ", "You don't have ", CREATE_ROLE, "privilege!"));
             }
+           
         }
     }
 }

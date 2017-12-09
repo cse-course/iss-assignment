@@ -179,7 +179,7 @@ namespace iss_assignment
         {
             if (this.currentUser.IsLogin())
             {
-                FrmAddRole profile = new FrmAddRole(this.roleBLL)
+                FrmAddRole profile = new FrmAddRole(this.privilegeBLL, this.roleBLL, this.currentUser)
                 {
                     MdiParent = this
                 };

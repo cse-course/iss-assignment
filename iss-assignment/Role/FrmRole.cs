@@ -91,7 +91,7 @@ namespace iss_assignment
         private void OpenRoleInfo(String name)
         {
             Role role = this.roleBLL.View(name);
-            FrmRoleInfo frmRoleInfo = new FrmRoleInfo(this.roleBLL, role);
+            FrmRoleInfo frmRoleInfo = new FrmRoleInfo(this.privilegeBLL, this.roleBLL, role, this.currentUser);
             frmRoleInfo.Show();
         }
 
