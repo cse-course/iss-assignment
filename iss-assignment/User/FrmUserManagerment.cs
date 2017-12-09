@@ -56,6 +56,7 @@ namespace iss_assignment
         }
         private void FrmUserManagerment_Load(object sender, EventArgs e)
         {
+            this.LvwUserManagerment.ContextMenuStrip = this.contextMenuStrip1;
             LoadData();
         }
 
@@ -76,6 +77,11 @@ namespace iss_assignment
         private void LvwUserManagerment_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void RefeshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
