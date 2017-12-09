@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -214,8 +215,7 @@ namespace iss_assignment
                 }
                 else
                 {
-                    HashPassword HP = new HashPassword();
-                    String HashPassword = HP.Get(Password);
+                    String HashPassword = PasswordUtils.Get(Password);
                     USER_MANAGEMENT user = new USER_MANAGEMENT
                     {
                         USERNAME = Username,

@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HashPassword.cs" />
     <Compile Include="Privilege\IPrivilegeBLL.cs" />
     <Compile Include="Privilege\PrivilegeBLL.cs" />
     <Compile Include="Role\IRoleBLL.cs" />
