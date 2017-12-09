@@ -73,9 +73,9 @@ namespace iss_assignment
 
         private void UserDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.currentUser.IsAdmin)
+            if (this.currentUser.IsLogin())
             {
-                FrmUserDetail user = new FrmUserDetail(this.sysViewBLL)
+                FrmUserDetail user = new FrmUserDetail(this.sysViewBLL, this.currentUser)
                 {
                     MdiParent = this
                 };

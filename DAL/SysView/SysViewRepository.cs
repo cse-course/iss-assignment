@@ -44,10 +44,29 @@ namespace DAL
                         ,P.GRANTEE, P.PRIVILEGE, P.ADMIN_OPTION
                         , R.GRANTEE AS GRANTEE_ROLE, R.GRANTED_ROLE, R.ADMIN_OPTION AS ADMIN_OPTION_ROLE
                     FROM SYS.DBA_USERS U 
-                    FULL OUTER JOIN SYS.DBA_SYS_PRIVS P ON U.USERNAME = P.GRANTEE
-                    FULL OUTER JOIN SYS.DBA_ROLE_PRIVS R ON U.USERNAME = R.GRANTEE
+                    LEFT OUTER JOIN SYS.DBA_SYS_PRIVS P ON U.USERNAME = P.GRANTEE
+                    LEFT OUTER JOIN SYS.DBA_ROLE_PRIVS R ON U.USERNAME = R.GRANTEE
                     ";
             return this.GetDataSet(sql);
+        }
+
+        public DataSet UserDetail(string username)
+        {
+            string sql = @"
+                    SELECT 
+                        U.USERNAME, U.ACCOUNT_STATUS, U.LOCK_DATE, U.CREATED, U.DEFAULT_TABLESPACE, U.TEMPORARY_TABLESPACE, U.PROFILE
+                        ,P.GRANTEE, P.PRIVILEGE, P.ADMIN_OPTION
+                        , R.GRANTEE AS GRANTEE_ROLE, R.GRANTED_ROLE, R.ADMIN_OPTION AS ADMIN_OPTION_ROLE
+                    FROM SYS.DBA_USERS U 
+                    LEFT OUTER JOIN SYS.DBA_SYS_PRIVS P ON U.USERNAME = P.GRANTEE
+                    LEFT OUTER JOIN SYS.DBA_ROLE_PRIVS R ON U.USERNAME = R.GRANTEE
+                    WHERE U.USERNAME = :username
+                    ";
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
+            {
+                { "username", username }
+            };
+            return this.GetDataSet(sql, CommandType.Text, dictionary);
         }
 
         public DataSet UserPrivilege()

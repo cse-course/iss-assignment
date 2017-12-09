@@ -37,5 +37,10 @@ namespace BLL
         {
             return this.repository.UserDetail();
         }
+
+        public DataSet UserDetail(String username)
+        {
+            return this.repository.UserDetail(username);
+        }
     }
 }

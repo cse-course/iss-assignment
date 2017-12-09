@@ -16,5 +16,7 @@ namespace DAL
         DataSet ProfileResourceUser();
 
         DataSet UserDetail();
+
+        DataSet UserDetail(String username);
     }
 }
