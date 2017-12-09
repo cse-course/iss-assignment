@@ -236,7 +236,6 @@ namespace iss_assignment
             {
                 string SelectedRole = eachItem.Text;
                 this.OracleView.RemoveRoleFromUser(frmParamUsername, SelectedRole);
-                MessageBox.Show("Removed!");
             }
         }
     }
