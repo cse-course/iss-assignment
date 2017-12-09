@@ -10,18 +10,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Domain;
 
 namespace iss_assignment
 {
     public partial class FrmAddUser : Form
     {
+        private static String CREATE_USER = "CREATE USER";
         private readonly UserManagementBLL view;
         private readonly UserManagementClassicBLL OracleView;
 
-        public FrmAddUser(UserManagementBLL view, UserManagementClassicBLL OracleView)
+        private IPrivilegeBLL privilegeBLL;
+
+        private UserPrincipal currentUser;
+
+        public FrmAddUser(IPrivilegeBLL privilegeBLL, UserManagementBLL view, UserManagementClassicBLL OracleView,
+            UserPrincipal currentUser)
         {
+            this.privilegeBLL = privilegeBLL;
             this.view = view;
             this.OracleView = OracleView;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
 
@@ -189,63 +198,86 @@ namespace iss_assignment
             ClearText();
         }
 
+        /// <summary>
+        /// You must have the CREATE USER system privilege. 
+        /// When you create a user with the CREATE USER statement, the user's privilege domain is empty. 
+        /// To log on to Oracle Database, a user must have the CREATE SESSION system privilege. 
+        /// Therefore, after creating a user, you should grant the user at least the CREATE SESSION system privilege. 
+        /// Please refer to GRANT for more information.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            String Username = txtUsername.Text;
-            String Password = txtPassword.Text;
-            String Password2 = txtPassword2.Text;
-            String IsAdmin;
-            if (CbxIsAdmin.Checked)
+            Privilege privilege = new Privilege
             {
-                IsAdmin = "y";
-            }
-            else
+                Name = CREATE_USER
+            };
+            Boolean hasPermision = this.privilegeBLL.HasSystemPrivilege(this.currentUser.UserName, privilege);
+            if (hasPermision)
             {
-                IsAdmin = "";
-            }
-            if (Username == "" || Password == "" || Password2 == "")
-            {
-                MessageBox.Show("Username and password not empty!");
-            }
-            else
-            {
-                Boolean flag = false;
-                foreach (USER_MANAGEMENT ExistUser in this.view.GetAll())
+                String Username = txtUsername.Text;
+                String Password = txtPassword.Text;
+                String Password2 = txtPassword2.Text;
+                String IsAdmin;
+                if (CbxIsAdmin.Checked)
                 {
-                    if (ExistUser.USERNAME == Username)
-                    {
-                        flag = true;
-                        break;
-                    }
-                }
-                if (flag == true)
-                {
-                    MessageBox.Show("Username  is realy exist!");
+                    IsAdmin = "y";
                 }
                 else
                 {
-                    String HashPassword = PasswordUtils.Get(Password);
-                    DateTime now = DateTime.Now;
-                    USER_MANAGEMENT user = new USER_MANAGEMENT
+                    IsAdmin = "";
+                }
+                if (Username == "" || Password == "" || Password2 == "")
+                {
+                    MessageBox.Show("Username and password not empty!");
+                }
+                else
+                {
+                    Boolean flag = false;
+                    foreach (USER_MANAGEMENT ExistUser in this.view.GetAll())
                     {
-                        USERNAME = Username,
-                        PASSWORD = HashPassword,
-                        CREATE_TIME = now,
-                        ADMIN_OPTION = IsAdmin
-                    };
-                    //Rat tiec khong them thi khomg save duoc
-                    this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
-                    this.OracleView.AddOracleUser(Username, Password);
-                    UpdateQoutaDromform();
-                    AddProfileFromForm();
-                    AddRoleFromForm();
-                    AddTableSpaceFromForm();
-                    CheckLockAccountFromForm();
-                    ClearText();
-                    MessageBox.Show("User created!");
-                    Hide();
+                        if (ExistUser.USERNAME == Username)
+                        {
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag == true)
+                    {
+                        MessageBox.Show("Username  is realy exist!");
+                    }
+                    else
+                    {
+                        String HashPassword = PasswordUtils.Get(Password);
+                        DateTime now = DateTime.Now;
+                        USER_MANAGEMENT user = new USER_MANAGEMENT
+                        {
+                            USERNAME = Username,
+                            PASSWORD = HashPassword,
+                            CREATE_TIME = now,
+                            ADMIN_OPTION = IsAdmin
+                        };
+
+                        this.view.Add(user); 
+                        this.OracleView.AddOracleUser(Username, Password);
+                        UpdateQoutaDromform();
+                        AddProfileFromForm();
+                        AddRoleFromForm();
+                        AddTableSpaceFromForm();
+                        CheckLockAccountFromForm();
+                        ClearText();
+                        MessageBox.Show("User created!");
+                        Hide();
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show(String.Join(" ", "You don't have", CREATE_USER, "privilege!"));
+            }
+
+           
                 
         }
         private void AddColumnLvwProfile()

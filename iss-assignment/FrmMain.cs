@@ -129,7 +129,7 @@ namespace iss_assignment
         {
             if (this.currentUser.IsLogin())
             {
-                FrmAddUser user = new FrmAddUser(this.userManagementBLL, this.userManagementClassicBLL)
+                FrmAddUser user = new FrmAddUser(this.privilegeBLL, this.userManagementBLL, this.userManagementClassicBLL, this.currentUser)
                 {
                     MdiParent = this
                 };
