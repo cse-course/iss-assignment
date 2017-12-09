@@ -85,10 +85,9 @@ namespace iss_assignment
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-
-            foreach (var item in this.LvwUser.CheckedItems)
+            for (int i = 0; i < this.LvwUser.CheckedItems.Count; i++)
             {
-                this.Revoke(this.currentPrivilege, item.ToString());
+                this.Revoke(this.currentPrivilege, this.LvwUser.CheckedItems[i].Text);
             }
             MessageBox.Show(String.Join(" ", "Revoke ", this.currentPrivilege, "from ", this.LvwUser.CheckedItems.Count, "grantee sucessfull!"));
         }
