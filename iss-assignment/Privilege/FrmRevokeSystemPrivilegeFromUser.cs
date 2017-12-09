@@ -67,6 +67,7 @@ namespace iss_assignment
 
         private void LoadUser(String privilege)
         {
+            //SELECT * FROM SYS.DBA_SYS_PRIVS P INNER JOIN SYS.DBA_USERS U ON U.USERNAME = P.GRANTEE
             var items = this.privilegeBLL.GranteeSystemPrivileges(privilege, true);
             this.LvwUser.Items.Clear();
             this.LvwUser.Columns.Clear();

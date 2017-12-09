@@ -16,6 +16,7 @@
           <Property Name="PHONE" Type="varchar2" MaxLength="11" />
           <Property Name="ADDRESS" Type="varchar2" MaxLength="255" />
           <Property Name="CREATE_TIME" Type="timestamp" Precision="6" />
+          <Property Name="ADMIN_OPTION" Type="varchar2" MaxLength="1" />
         </EntityType>
         <EntityContainer Name="IISModelStoreContainer">
           <EntitySet Name="USER_MANAGEMENT" EntityType="Self.USER_MANAGEMENT" Schema="USER_IIS" store:Type="Tables" />
@@ -38,6 +39,7 @@
           <Property Name="PHONE" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="CREATE_TIME" Type="DateTime" Precision="6" />
+          <Property Name="ADMIN_OPTION" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -48,6 +50,7 @@
           <EntitySetMapping Name="USER_MANAGEMENT">
             <EntityTypeMapping TypeName="IISModel.USER_MANAGEMENT">
               <MappingFragment StoreEntitySet="USER_MANAGEMENT">
+                <ScalarProperty Name="ADMIN_OPTION" ColumnName="ADMIN_OPTION" />
                 <ScalarProperty Name="CREATE_TIME" ColumnName="CREATE_TIME" />
                 <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
                 <ScalarProperty Name="PHONE" ColumnName="PHONE" />

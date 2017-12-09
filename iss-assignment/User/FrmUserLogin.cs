@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace iss_assignment
 {
@@ -39,15 +40,17 @@ namespace iss_assignment
             {
                 HashPassword HP = new HashPassword();
                 Password = HP.Get(Password);
+
                 try
                 {
                     IEnumerable<USER_MANAGEMENT> userList = this.view.GetUserInfo(Username);
                     USER_MANAGEMENT user = userList.First();
-                    if (user.PASSWORD == Password)
+                    if (user.PASSWORD.Equals(Password))
                     {
-                        MessageBox.Show("Login success!");
-                        FrmMain frm = new FrmMain();
-                        frm.currentUser = user;
+                        FrmMain frm = new FrmMain
+                        {
+                            currentUser = user
+                        };
                         Hide();
                     }
                     else
@@ -63,7 +66,7 @@ namespace iss_assignment
 
         }
 
-        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        private void TxtUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 BtnLogin.PerformClick();

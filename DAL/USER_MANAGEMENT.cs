@@ -21,5 +21,6 @@ namespace DAL
         public string PHONE { get; set; }
         public string ADDRESS { get; set; }
         public Nullable<System.DateTime> CREATE_TIME { get; set; }
+        public string ADMIN_OPTION { get; set; }
     }
 }

@@ -66,6 +66,7 @@ namespace iss_assignment
 
         private void LoadRole(String privilege)
         {
+            //SELECT * FROM SYS.DBA_SYS_PRIVS P INNER JOIN SYS.DBA_ROLES R ON R.ROLE = P.GRANTEE;
             var items = this.privilegeBLL.GranteeSystemPrivileges(privilege, true);
             this.LvwRoles.Items.Clear();
             this.LvwRoles.Columns.Clear();

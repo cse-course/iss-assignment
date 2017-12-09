@@ -23,7 +23,7 @@ namespace BLL
         }
         public IEnumerable<USER_MANAGEMENT> GetUserInfo(String Username)
         {
-            return this.repository.Find(u => u.USERNAME.Equals(Username));
+            return this.repository.Find(u => u.USERNAME.ToUpper().Equals(Username.ToUpper()));
         }
         public void Update(USER_MANAGEMENT user)
         {
