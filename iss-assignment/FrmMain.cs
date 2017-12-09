@@ -54,7 +54,7 @@ namespace iss_assignment
         {
             this.StatusAll(false);
             this.SetStatus("Ready");
-            FrmUserLogin login = new FrmUserLogin(this, this.userManagementBLL, this.currentUser)
+            FrmUserLogin login = new FrmUserLogin(this, this.userManagementBLL, this.userManagementClassicBLL, this.currentUser)
             {
                 MdiParent = this
             };

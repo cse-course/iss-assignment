@@ -12,15 +12,17 @@ namespace iss_assignment
     public partial class FrmUserLogin : Form
     {
         private readonly UserManagementBLL view;
+        private readonly UserManagementClassicBLL Oracleview;
 
         private UserPrincipal currentUser;
 
         private FrmMain main;
-        public FrmUserLogin(FrmMain main, UserManagementBLL view, UserPrincipal currentUser)
+        public FrmUserLogin(FrmMain main, UserManagementBLL view, UserManagementClassicBLL Oracleview, UserPrincipal currentUser)
         {
             this.main = main;
             this.view = view;
             this.currentUser = currentUser;
+            this.Oracleview = Oracleview;
             InitializeComponent();
         }
 
@@ -46,7 +48,8 @@ namespace iss_assignment
                 {
                     IEnumerable<USER_MANAGEMENT> userList = this.view.GetUserInfo(Username);
                     USER_MANAGEMENT user = userList.First();
-                    if (user.PASSWORD.Equals(Password))
+                    Boolean isLock = Oracleview.IsLock(Username);
+                    if (user.PASSWORD.Equals(Password) && !isLock)
                     {
 
                         this.currentUser.UserName = user.USERNAME;
@@ -65,7 +68,16 @@ namespace iss_assignment
                     }
                     else
                     {
-                        MessageBox.Show("Incorect username or password!");
+                        if (isLock)
+                        {
+                            MessageBox.Show("Account locked!");
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Incorect username or password!");
+
+                        }
                     }
                 }
                 catch (Exception)
