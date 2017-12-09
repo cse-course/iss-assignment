@@ -52,6 +52,14 @@ namespace DAL
         /// <param name="privilege"></param>
         /// <param name="isAdmin"></param>
         /// <returns></returns>
+        DataSet Grantee(String privilege);
+
+        /// <summary>
+        /// Get all grantee have privilege
+        /// </summary>
+        /// <param name="privilege"></param>
+        /// <param name="isAdmin"></param>
+        /// <returns></returns>
         DataSet Grantee(String privilege, String isAdmin);
 
         /// <summary>

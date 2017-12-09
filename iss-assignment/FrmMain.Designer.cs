@@ -48,6 +48,7 @@
             this.privilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemPrivilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grantRoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revokeSystemPrivilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.tssMain = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
@@ -198,7 +199,8 @@
             // 
             this.privilegeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemPrivilegeToolStripMenuItem,
-            this.grantRoleToolStripMenuItem});
+            this.grantRoleToolStripMenuItem,
+            this.revokeSystemPrivilegeToolStripMenuItem});
             this.privilegeToolStripMenuItem.Name = "privilegeToolStripMenuItem";
             this.privilegeToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.privilegeToolStripMenuItem.Text = "Privilege";
@@ -206,16 +208,23 @@
             // systemPrivilegeToolStripMenuItem
             // 
             this.systemPrivilegeToolStripMenuItem.Name = "systemPrivilegeToolStripMenuItem";
-            this.systemPrivilegeToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.systemPrivilegeToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.systemPrivilegeToolStripMenuItem.Text = "Grant System Privilege";
             this.systemPrivilegeToolStripMenuItem.Click += new System.EventHandler(this.SystemPrivilegeToolStripMenuItem_Click);
             // 
             // grantRoleToolStripMenuItem
             // 
             this.grantRoleToolStripMenuItem.Name = "grantRoleToolStripMenuItem";
-            this.grantRoleToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.grantRoleToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.grantRoleToolStripMenuItem.Text = "Grant Role";
             this.grantRoleToolStripMenuItem.Click += new System.EventHandler(this.GrantRoleToolStripMenuItem_Click);
+            // 
+            // revokeSystemPrivilegeToolStripMenuItem
+            // 
+            this.revokeSystemPrivilegeToolStripMenuItem.Name = "revokeSystemPrivilegeToolStripMenuItem";
+            this.revokeSystemPrivilegeToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.revokeSystemPrivilegeToolStripMenuItem.Text = "Revoke System Privilege";
+            this.revokeSystemPrivilegeToolStripMenuItem.Click += new System.EventHandler(this.RevokeSystemPrivilegeToolStripMenuItem_Click);
             // 
             // statusStripMain
             // 
@@ -280,6 +289,7 @@
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStripMain;
         private System.Windows.Forms.ToolStripStatusLabel tssMain;
+        private System.Windows.Forms.ToolStripMenuItem revokeSystemPrivilegeToolStripMenuItem;
     }
 }
 

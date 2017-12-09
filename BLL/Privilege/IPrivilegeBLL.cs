@@ -22,6 +22,8 @@ namespace BLL
 
         List<Privilege> SystemPrivileges();
 
+        List<Grantee> GranteeSystemPrivileges(String privilege);
+
         List<Grantee> GranteeSystemPrivileges(String privilege, Boolean isAdmin);
 
         #endregion System

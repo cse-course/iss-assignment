@@ -25,6 +25,23 @@ namespace BLL
             this.rolePrivilegeRepository = new RolePrivilegeRepository(this.context);
         }
 
+        public List<Grantee> GranteeSystemPrivileges(string privilege)
+        {
+            List<Grantee> result = new List<Grantee>();
+            DataSet dataSet = this.systemPrivilegeRepository.Grantee(privilege.ToUpper());
+            DataTable table = dataSet.Tables[0];
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                Grantee p = new Grantee
+                {
+                    Name = table.Rows[i]["GRANTEE"].ToString(),
+                    IsAdmin = BooleanUtils.FromString(table.Rows[i]["ADMIN_OPTION"].ToString())
+                };
+                result.Add(p);
+            }
+            return result;
+        }
+
         public List<Grantee> GranteeSystemPrivileges(string privilege, bool isAdmin)
         {
             List<Grantee> result = new List<Grantee>();
@@ -255,6 +272,8 @@ namespace BLL
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }
 

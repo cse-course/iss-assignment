@@ -72,17 +72,11 @@
     <Compile Include="Privilege\FrmGrantSystemPrivilege.Designer.cs">
       <DependentUpon>FrmGrantSystemPrivilege.cs</DependentUpon>
     </Compile>
-    <Compile Include="Privilege\FrmRevokeSystemPrivilegeFromRole.cs">
+    <Compile Include="Privilege\FrmRevokeSystemPrivilege.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Privilege\FrmRevokeSystemPrivilegeFromRole.Designer.cs">
-      <DependentUpon>FrmRevokeSystemPrivilegeFromRole.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Privilege\FrmRevokeSystemPrivilegeFromUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Privilege\FrmRevokeSystemPrivilegeFromUser.Designer.cs">
-      <DependentUpon>FrmRevokeSystemPrivilegeFromUser.cs</DependentUpon>
+    <Compile Include="Privilege\FrmRevokeSystemPrivilege.Designer.cs">
+      <DependentUpon>FrmRevokeSystemPrivilege.cs</DependentUpon>
     </Compile>
     <Compile Include="Role\FrmAddRole.cs">
       <SubType>Form</SubType>
@@ -188,11 +182,8 @@
     <EmbeddedResource Include="Privilege\FrmGrantSystemPrivilege.resx">
       <DependentUpon>FrmGrantSystemPrivilege.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Privilege\FrmRevokeSystemPrivilegeFromRole.resx">
-      <DependentUpon>FrmRevokeSystemPrivilegeFromRole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Privilege\FrmRevokeSystemPrivilegeFromUser.resx">
-      <DependentUpon>FrmRevokeSystemPrivilegeFromUser.cs</DependentUpon>
+    <EmbeddedResource Include="Privilege\FrmRevokeSystemPrivilege.resx">
+      <DependentUpon>FrmRevokeSystemPrivilege.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Role\FrmAddRole.resx">
       <DependentUpon>FrmAddRole.cs</DependentUpon>

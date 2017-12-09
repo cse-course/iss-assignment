@@ -68,6 +68,12 @@ namespace Domain
                 this.grantee.Build(),
                 isAdmin ? "WITH ADMIN OPTION" : ""
                 );
+            this.systemPrivilege.QueryRevoke = String.Join(" ",
+                "REVOKE",
+                string.Join(",", this.privilege),
+                "FROM",
+                this.grantee.Build()
+                );
             return this.systemPrivilege;
         }
 
@@ -119,6 +125,12 @@ namespace Domain
                 "TO",
                 this.grantee.Build(),
                 isAdmin ? "WITH ADMIN OPTION" : ""
+                );
+            this.rolePrivilege.QueryRevoke = String.Join(" ",
+                "REVOKE",
+                this.name,
+                "FROM",
+                this.grantee.Build()
                 );
             return this.rolePrivilege;
         }

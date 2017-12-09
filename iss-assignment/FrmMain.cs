@@ -249,6 +249,8 @@ namespace iss_assignment
 
             this.systemPrivilegeToolStripMenuItem.Enabled = status;
             this.grantRoleToolStripMenuItem.Enabled = status;
+
+            this.revokeSystemPrivilegeToolStripMenuItem.Enabled = status;
         }
 
         public void StatusAll(Boolean status)
@@ -266,6 +268,15 @@ namespace iss_assignment
         public void SetStatus(String status)
         {
             this.tssMain.Text = status;
+        }
+
+        private void RevokeSystemPrivilegeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRevokeSystemPrivilege role = new FrmRevokeSystemPrivilege(this.privilegeBLL, this.currentUser)
+            {
+                MdiParent = this
+            };
+            role.Show();
         }
     }
 }

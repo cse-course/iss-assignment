@@ -25,6 +25,16 @@ namespace DAL
             return this.GetDataSet(query, CommandType.Text, dictionary);
         }
 
+        public DataSet Grantee(string privilege)
+        {
+            String query = "SELECT * FROM SYS.DBA_ROLE_PRIVS WHERE GRANTED_ROLE = :privilege";
+            Dictionary<string, object> dictionary = new Dictionary<string, object>
+            {
+                {"privilege" , privilege}
+            };
+            return this.GetDataSet(query, CommandType.Text, dictionary);
+        }
+
         public DataSet Has(string grantee, string privilege)
         {
             String query = "SELECT * FROM SYS.DBA_ROLE_PRIVS WHERE GRANTED_ROLE = :privilege AND GRANTEE = :grantee";

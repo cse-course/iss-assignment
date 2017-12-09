@@ -13,13 +13,15 @@ using System.Windows.Forms;
 
 namespace iss_assignment
 {
-    public partial class FrmRevokeSystemPrivilegeFromUser : Form
+    public partial class FrmRevokeSystemPrivilege : Form
     {
+        private String currentPrivilege;
+
         private readonly IPrivilegeBLL privilegeBLL;
 
-        private USER_MANAGEMENT currentUser;
+        private UserPrincipal currentUser;
 
-        public FrmRevokeSystemPrivilegeFromUser(IPrivilegeBLL privilegeBLL, USER_MANAGEMENT currentUser)
+        public FrmRevokeSystemPrivilege(IPrivilegeBLL privilegeBLL, UserPrincipal currentUser)
         {
             this.privilegeBLL = privilegeBLL;
             this.currentUser = currentUser;
@@ -44,7 +46,10 @@ namespace iss_assignment
             var items = this.LvwSystemPrivilege.SelectedItems;
             if (items.Count >= 1)
             {
+                this.LvwUser.Enabled = false;
                 this.LoadUser(items[0].Text);
+                this.LvwUser.Enabled = true;
+                this.currentPrivilege = items[0].Text;
             }
         }
 
@@ -53,7 +58,7 @@ namespace iss_assignment
         /// </summary>
         private void LoadSystemPrivilege()
         {
-            List<Privilege> items = this.privilegeBLL.SystemPrivileges(currentUser.USERNAME, true);
+            List<Privilege> items = this.privilegeBLL.SystemPrivileges(currentUser.UserName, true);
 
             this.LvwSystemPrivilege.Items.Clear();
             this.LvwSystemPrivilege.Columns.Clear();
@@ -67,8 +72,7 @@ namespace iss_assignment
 
         private void LoadUser(String privilege)
         {
-            //SELECT * FROM SYS.DBA_SYS_PRIVS P INNER JOIN SYS.DBA_USERS U ON U.USERNAME = P.GRANTEE
-            var items = this.privilegeBLL.GranteeSystemPrivileges(privilege, true);
+            var items = this.privilegeBLL.GranteeSystemPrivileges(privilege);
             this.LvwUser.Items.Clear();
             this.LvwUser.Columns.Clear();
             this.LvwUser.Columns.Add("Users", 320, HorizontalAlignment.Center);
@@ -82,6 +86,21 @@ namespace iss_assignment
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
+            foreach (var item in this.LvwUser.CheckedItems)
+            {
+                this.Revoke(this.currentPrivilege, item.ToString());
+            }
+            MessageBox.Show(String.Join(" ", "Revoke ", this.currentPrivilege, "from ", this.LvwUser.CheckedItems.Count, "grantee sucessfull!"));
+        }
+        private void Revoke(String privilege, String user)
+        {
+            SystemPrivilegeBuilder builder = new SystemPrivilegeBuilder();
+            SystemPrivilege pri = builder.Grantee(new GranteeClauseBuilder().Grantee(user))
+                .Privilege(new List<string>
+                {
+                    privilege
+                }).Build();
+            this.privilegeBLL.RevokeSystemPrivilege(pri);
         }
     }
 }
