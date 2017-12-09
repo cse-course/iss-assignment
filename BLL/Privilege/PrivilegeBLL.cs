@@ -101,7 +101,7 @@ namespace BLL
 
         public bool HasRolePrivilege(string username, Privilege privilege)
         {
-            DataSet dataSet = this.rolePrivilegeRepository.Has(username.ToUpper(), privilege.Name);
+            DataSet dataSet = this.systemPrivilegeRepository.Has(username.ToUpper(), privilege.Name);
             DataTable table = dataSet.Tables[0];
             if (table.Rows.Count >= 1)
             {
