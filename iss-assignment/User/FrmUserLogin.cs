@@ -46,7 +46,16 @@ namespace iss_assignment
                     {
 
                         this.currentUser.UserName = user.USERNAME;
-                        this.currentUser.IsAdmin = user.ADMIN_OPTION.Equals('Y');
+                        if (user.ADMIN_OPTION != null && user.ADMIN_OPTION.Equals('Y'))
+                            {
+                            this.currentUser.IsAdmin = true;
+                        }
+                        else
+                        {
+                            this.currentUser.IsAdmin = false;
+
+                        }
+
                         Hide();
                     }
                     else
