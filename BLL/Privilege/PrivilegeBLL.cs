@@ -64,7 +64,7 @@ namespace BLL
 
         public bool GrantRolePrivilege(RolePrivilege privilege)
         {
-            throw new NotImplementedException();
+            return this.rolePrivilegeRepository.Execute(privilege.QueryGrant);
         }
 
         public bool GrantSystemPrivilege(SystemPrivilege privilege)
