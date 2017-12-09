@@ -60,12 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmRoleRevoke.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRoleRevoke.Designer.cs">
-      <DependentUpon>FrmRoleRevoke.cs</DependentUpon>
-    </Compile>
     <Compile Include="Privilege\FrmGrantRolePrivilege.cs">
       <SubType>Form</SubType>
     </Compile>

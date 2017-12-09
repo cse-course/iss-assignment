@@ -171,7 +171,7 @@
             this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
             this.addToolStripMenuItem1.Size = new System.Drawing.Size(146, 26);
             this.addToolStripMenuItem1.Text = "Add Role";
-            this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
+            this.addToolStripMenuItem1.Click += new System.EventHandler(this.AddToolStripMenuItem1_Click);
             // 
             // privilegeToolStripMenuItem
             // 

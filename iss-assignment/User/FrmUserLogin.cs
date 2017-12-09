@@ -11,15 +11,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Diagnostics;
+using Domain;
 
 namespace iss_assignment
 {
     public partial class FrmUserLogin : Form
     {
         private readonly UserManagementBLL view;
-        public FrmUserLogin(UserManagementBLL view)
+
+        private UserPrincipal currentUser;
+        public FrmUserLogin(UserManagementBLL view, UserPrincipal currentUser)
         {
             this.view = view;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
 
@@ -47,10 +51,9 @@ namespace iss_assignment
                     USER_MANAGEMENT user = userList.First();
                     if (user.PASSWORD.Equals(Password))
                     {
-                        FrmMain frm = new FrmMain
-                        {
-                            currentUser = user
-                        };
+
+                        this.currentUser.UserName = user.USERNAME;
+                        this.currentUser.IsAdmin = user.ADMIN_OPTION.Equals('Y');
                         Hide();
                     }
                     else

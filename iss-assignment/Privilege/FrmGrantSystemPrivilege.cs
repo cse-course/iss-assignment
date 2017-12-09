@@ -22,10 +22,10 @@ namespace iss_assignment
 
         private readonly UserManagementBLL userManagementBLL;
 
-        private readonly USER_MANAGEMENT currentUser;
+        private readonly UserPrincipal currentUser;
 
         public FrmGrantSystemPrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, 
-            UserManagementBLL userManagementBLL, USER_MANAGEMENT currentUser)
+            UserManagementBLL userManagementBLL, UserPrincipal currentUser)
         {
             this.privilegeBLL = privilegeBLL;
             this.roleBLL = roleBLL;
@@ -125,13 +125,13 @@ namespace iss_assignment
                 Name = "GRANT ANY PRIVILEGE"
             };
             List<Privilege> items;
-            if (this.privilegeBLL.HasSystemPrivilege(this.currentUser.USERNAME, privilege))
+            if (this.privilegeBLL.HasSystemPrivilege(this.currentUser.UserName, privilege))
             {
                 items = this.privilegeBLL.SystemPrivileges();
             } 
             else
             {
-                items  = this.privilegeBLL.SystemPrivileges(this.currentUser.USERNAME, true);
+                items  = this.privilegeBLL.SystemPrivileges(this.currentUser.UserName, true);
             }
             
             //Setup column

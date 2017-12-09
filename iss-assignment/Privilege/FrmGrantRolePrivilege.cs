@@ -21,10 +21,10 @@ namespace iss_assignment
 
         private readonly UserManagementBLL userManagementBLL;
 
-        private USER_MANAGEMENT currentUser;
+        private UserPrincipal currentUser;
 
         public FrmGrantRolePrivilege(IPrivilegeBLL privilegeBLL, IRoleBLL roleBLL, 
-            UserManagementBLL userManagementBLL, USER_MANAGEMENT currentUser)
+            UserManagementBLL userManagementBLL, UserPrincipal currentUser)
         {
             this.privilegeBLL = privilegeBLL;
             this.roleBLL = roleBLL;
@@ -140,13 +140,13 @@ namespace iss_assignment
                 Name = "GRANT ANY ROLE"
             };
 
-            if (this.privilegeBLL.HasRolePrivilege(this.currentUser.USERNAME, privilege))
+            if (this.privilegeBLL.HasRolePrivilege(this.currentUser.UserName, privilege))
             {
                 items = this.privilegeBLL.RolePrivileges();
             }
             else
             {
-                items = this.privilegeBLL.RolePrivileges(this.currentUser.USERNAME, true);
+                items = this.privilegeBLL.RolePrivileges(this.currentUser.UserName, true);
             }
 
             //Setup column

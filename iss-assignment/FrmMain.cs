@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Domain;
 using System;
 using System.Data.Entity;
 using System.Windows.Forms;
@@ -22,13 +23,15 @@ namespace iss_assignment
 
         private readonly IPrivilegeBLL privilegeBLL;
 
-        public USER_MANAGEMENT currentUser;
+        public UserPrincipal currentUser;
 
         public FrmMain()
         {
             InitializeComponent();
+            this.currentUser = new UserPrincipal();
 
             this.context = new IISEntities();
+
             this.sysViewBLL = new SysViewBLL(this.context);
 
             this.userManagementBLL = new UserManagementBLL(this.context);
@@ -37,6 +40,7 @@ namespace iss_assignment
             this.profileBLL = new ProfileBLL(this.context);
             this.roleBLL = new RoleBLL(this.context);
             this.privilegeBLL = new PrivilegeBLL(this.context);
+
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -44,7 +48,7 @@ namespace iss_assignment
             //full screen
             this.WindowState = FormWindowState.Maximized;
 
-            FrmUserLogin login = new FrmUserLogin(userManagementBLL)
+            FrmUserLogin login = new FrmUserLogin(userManagementBLL, this.currentUser)
             {
                 MdiParent = this
             };
@@ -54,110 +58,157 @@ namespace iss_assignment
 
         private void UserPrifilegeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmUserPrivilege user = new FrmUserPrivilege(this.sysViewBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            user.Show();
+                FrmUserPrivilege user = new FrmUserPrivilege(this.sysViewBLL)
+                {
+                    MdiParent = this
+                };
+                user.Show();
+            }
         }
 
         private void UserDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmUserDetail user = new FrmUserDetail(this.sysViewBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            user.Show();
+                FrmUserDetail user = new FrmUserDetail(this.sysViewBLL)
+                {
+                    MdiParent = this
+                };
+                user.Show();
+            }
+
         }
 
         private void ProfileResourceUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmProfileResourceUser user = new FrmProfileResourceUser(this.sysViewBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            user.Show();
+                FrmProfileResourceUser user = new FrmProfileResourceUser(this.sysViewBLL)
+                {
+                    MdiParent = this
+                };
+                user.Show();
+            }
+            
         }
 
         private void RolePrivilegeUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRolePrivilegeUser user = new FrmRolePrivilegeUser(this.sysViewBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            user.Show();
+                FrmRolePrivilegeUser user = new FrmRolePrivilegeUser(this.sysViewBLL)
+                {
+                    MdiParent = this
+                };
+                user.Show();
+            }
+            
         }
 
         private void ShowAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmUserManagerment user = new FrmUserManagerment(this.userManagementBLL, this.userManagementClassicBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            user.Show();
+                FrmUserManagerment user = new FrmUserManagerment(this.userManagementBLL, this.userManagementClassicBLL)
+                {
+                    MdiParent = this
+                };
+                user.Show();
+            }
+            
         }
 
         private void AddToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAddUser user = new FrmAddUser(this.userManagementBLL, this.userManagementClassicBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            user.Show();
+                FrmAddUser user = new FrmAddUser(this.userManagementBLL, this.userManagementClassicBLL)
+                {
+                    MdiParent = this
+                };
+                user.Show();
+            }
+            
         }
 
         private void ShowAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmProfile profile = new FrmProfile(this.profileBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            profile.Show();
+                FrmProfile profile = new FrmProfile(this.profileBLL)
+                {
+                    MdiParent = this
+                };
+                profile.Show();
+            }
+            
         }
 
         private void AddProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmProfileInfo profile = new FrmProfileInfo(this.profileBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            profile.Show();
+                FrmProfileInfo profile = new FrmProfileInfo(this.profileBLL)
+                {
+                    MdiParent = this
+                };
+                profile.Show();
+            }
+            
         }
 
         private void ShowAllToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            FrmRole profile = new FrmRole(this.roleBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            profile.Show();
+                FrmRole profile = new FrmRole(this.roleBLL)
+                {
+                    MdiParent = this
+                };
+                profile.Show();
+            }
+            
         }
 
-        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void AddToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmAddRole profile = new FrmAddRole(this.roleBLL)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            profile.Show();
+                FrmAddRole profile = new FrmAddRole(this.roleBLL)
+                {
+                    MdiParent = this
+                };
+                profile.Show();
+            }
+            
         }
 
         private void SystemPrivilegeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGrantSystemPrivilege frm = new FrmGrantSystemPrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            frm.Show();
+                FrmGrantSystemPrivilege frm = new FrmGrantSystemPrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
+                {
+                    MdiParent = this
+                };
+                frm.Show();
+            }
+            
         }
 
         private void GrantRoleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGrantRolePrivilege frm = new FrmGrantRolePrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
+            if (this.currentUser.IsLogin())
             {
-                MdiParent = this
-            };
-            frm.Show();
+                FrmGrantRolePrivilege frm = new FrmGrantRolePrivilege(this.privilegeBLL, this.roleBLL, this.userManagementBLL, this.currentUser)
+                {
+                    MdiParent = this
+                };
+                frm.Show();
+            }
+
         }
     }
 }
