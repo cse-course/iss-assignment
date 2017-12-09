@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userPrifilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileResourceUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolePrivilegeUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showAllUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.showAllProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showAllToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.showAllRoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.privilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemPrivilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grantRoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,21 @@
             this.menuStrip1.Size = new System.Drawing.Size(1165, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logoutToolStripMenuItem});
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.homeToolStripMenuItem.Text = "Home";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -110,71 +125,71 @@
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showAllToolStripMenuItem,
-            this.addToolStripMenuItem});
+            this.showAllUserToolStripMenuItem,
+            this.addUserToolStripMenuItem});
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.userToolStripMenuItem.Text = "User";
             // 
-            // showAllToolStripMenuItem
+            // showAllUserToolStripMenuItem
             // 
-            this.showAllToolStripMenuItem.Name = "showAllToolStripMenuItem";
-            this.showAllToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.showAllToolStripMenuItem.Text = "Show All";
-            this.showAllToolStripMenuItem.Click += new System.EventHandler(this.ShowAllToolStripMenuItem_Click);
+            this.showAllUserToolStripMenuItem.Name = "showAllUserToolStripMenuItem";
+            this.showAllUserToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.showAllUserToolStripMenuItem.Text = "Show All";
+            this.showAllUserToolStripMenuItem.Click += new System.EventHandler(this.ShowAllToolStripMenuItem_Click);
             // 
-            // addToolStripMenuItem
+            // addUserToolStripMenuItem
             // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.addToolStripMenuItem.Text = "Add";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem_Click);
+            this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
+            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.addUserToolStripMenuItem.Text = "Add User";
+            this.addUserToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem_Click);
             // 
             // profileToolStripMenuItem
             // 
             this.profileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showAllToolStripMenuItem1,
+            this.showAllProfileToolStripMenuItem,
             this.addProfileToolStripMenuItem});
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
             this.profileToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.profileToolStripMenuItem.Text = "Profile";
             // 
-            // showAllToolStripMenuItem1
+            // showAllProfileToolStripMenuItem
             // 
-            this.showAllToolStripMenuItem1.Name = "showAllToolStripMenuItem1";
-            this.showAllToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
-            this.showAllToolStripMenuItem1.Text = "Show All";
-            this.showAllToolStripMenuItem1.Click += new System.EventHandler(this.ShowAllToolStripMenuItem1_Click);
+            this.showAllProfileToolStripMenuItem.Name = "showAllProfileToolStripMenuItem";
+            this.showAllProfileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.showAllProfileToolStripMenuItem.Text = "Show All";
+            this.showAllProfileToolStripMenuItem.Click += new System.EventHandler(this.ShowAllToolStripMenuItem1_Click);
             // 
             // addProfileToolStripMenuItem
             // 
             this.addProfileToolStripMenuItem.Name = "addProfileToolStripMenuItem";
-            this.addProfileToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.addProfileToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.addProfileToolStripMenuItem.Text = "Add Profile";
             this.addProfileToolStripMenuItem.Click += new System.EventHandler(this.AddProfileToolStripMenuItem_Click);
             // 
             // roleToolStripMenuItem
             // 
             this.roleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showAllToolStripMenuItem2,
-            this.addToolStripMenuItem1});
+            this.showAllRoleToolStripMenuItem,
+            this.addRoleToolStripMenuItem});
             this.roleToolStripMenuItem.Name = "roleToolStripMenuItem";
             this.roleToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
             this.roleToolStripMenuItem.Text = "Role";
             // 
-            // showAllToolStripMenuItem2
+            // showAllRoleToolStripMenuItem
             // 
-            this.showAllToolStripMenuItem2.Name = "showAllToolStripMenuItem2";
-            this.showAllToolStripMenuItem2.Size = new System.Drawing.Size(146, 26);
-            this.showAllToolStripMenuItem2.Text = "Show All";
-            this.showAllToolStripMenuItem2.Click += new System.EventHandler(this.ShowAllToolStripMenuItem2_Click);
+            this.showAllRoleToolStripMenuItem.Name = "showAllRoleToolStripMenuItem";
+            this.showAllRoleToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.showAllRoleToolStripMenuItem.Text = "Show All";
+            this.showAllRoleToolStripMenuItem.Click += new System.EventHandler(this.ShowAllToolStripMenuItem2_Click);
             // 
-            // addToolStripMenuItem1
+            // addRoleToolStripMenuItem
             // 
-            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(146, 26);
-            this.addToolStripMenuItem1.Text = "Add Role";
-            this.addToolStripMenuItem1.Click += new System.EventHandler(this.AddToolStripMenuItem1_Click);
+            this.addRoleToolStripMenuItem.Name = "addRoleToolStripMenuItem";
+            this.addRoleToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.addRoleToolStripMenuItem.Text = "Add Role";
+            this.addRoleToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem1_Click);
             // 
             // privilegeToolStripMenuItem
             // 
@@ -198,21 +213,6 @@
             this.grantRoleToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.grantRoleToolStripMenuItem.Text = "Grant Role";
             this.grantRoleToolStripMenuItem.Click += new System.EventHandler(this.GrantRoleToolStripMenuItem_Click);
-            // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logoutToolStripMenuItem});
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
-            this.homeToolStripMenuItem.Text = "Home";
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -242,14 +242,14 @@
         private System.Windows.Forms.ToolStripMenuItem profileResourceUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolePrivilegeUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showAllUserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem showAllProfileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addProfileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showAllToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem showAllRoleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addRoleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem privilegeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemPrivilegeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem grantRoleToolStripMenuItem;

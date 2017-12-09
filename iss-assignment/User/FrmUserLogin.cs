@@ -14,8 +14,11 @@ namespace iss_assignment
         private readonly UserManagementBLL view;
 
         private UserPrincipal currentUser;
-        public FrmUserLogin(UserManagementBLL view, UserPrincipal currentUser)
+
+        private FrmMain main;
+        public FrmUserLogin(FrmMain main, UserManagementBLL view, UserPrincipal currentUser)
         {
+            this.main = main;
             this.view = view;
             this.currentUser = currentUser;
             InitializeComponent();
@@ -55,7 +58,7 @@ namespace iss_assignment
                             this.currentUser.IsAdmin = false;
 
                         }
-
+                        main.StatusAll(true);
                         Hide();
                     }
                     else

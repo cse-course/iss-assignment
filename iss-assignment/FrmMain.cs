@@ -52,11 +52,13 @@ namespace iss_assignment
 
         private void LoadLogin()
         {
-            FrmUserLogin login = new FrmUserLogin(userManagementBLL, this.currentUser)
+            this.StatusAll(false);
+            FrmUserLogin login = new FrmUserLogin(this, this.userManagementBLL, this.currentUser)
             {
                 MdiParent = this
             };
             login.Show();
+
         }
 
         private void UserPrifilegeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -216,11 +218,47 @@ namespace iss_assignment
 
         private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.StatusAll(false);
             if (this.currentUser.IsLogin())
             {
                 this.currentUser.UserName = "";
                 this.currentUser.IsAdmin = false;
                 this.LoadLogin();
+            }
+        }
+
+
+        private void Status(Boolean status)
+        {
+            this.logoutToolStripMenuItem.Enabled = status;
+
+            this.userPrifilegeToolStripMenuItem.Enabled = status;
+            this.userDetailToolStripMenuItem.Enabled = status;
+            this.profileResourceUserToolStripMenuItem.Enabled = status;
+            this.rolePrivilegeUserToolStripMenuItem.Enabled = status;
+
+            this.showAllUserToolStripMenuItem.Enabled = status;
+            this.addUserToolStripMenuItem.Enabled = status;
+
+            this.showAllProfileToolStripMenuItem.Enabled = status;
+            this.addProfileToolStripMenuItem.Enabled = status;
+
+            this.showAllRoleToolStripMenuItem.Enabled = status;
+            this.addRoleToolStripMenuItem.Enabled = status;
+
+            this.systemPrivilegeToolStripMenuItem.Enabled = status;
+            this.grantRoleToolStripMenuItem.Enabled = status;
+        }
+
+        public void StatusAll(Boolean status)
+        {
+            this.Status(status);
+
+            if (!this.currentUser.IsAdmin)
+            {
+                this.userPrifilegeToolStripMenuItem.Enabled = false;
+                this.profileResourceUserToolStripMenuItem.Enabled = false;
+                this.rolePrivilegeUserToolStripMenuItem.Enabled = false;
             }
         }
     }
