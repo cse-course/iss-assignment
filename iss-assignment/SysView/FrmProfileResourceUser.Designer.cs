@@ -53,7 +53,7 @@
             this.ClientSize = new System.Drawing.Size(772, 451);
             this.Controls.Add(this.DgvProfileResourceUser);
             this.Name = "FrmProfileResourceUser";
-            this.Text = "FrmProfileResourceUser";
+            this.Text = "Profile Resource User";
             this.Load += new System.EventHandler(this.FrmProfileResourceUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvProfileResourceUser)).EndInit();
             this.ResumeLayout(false);

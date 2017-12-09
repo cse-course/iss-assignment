@@ -40,23 +40,23 @@
             this.DgvRolePrivilegeUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvRolePrivilegeUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvRolePrivilegeUser.Location = new System.Drawing.Point(0, 0);
-            this.DgvRolePrivilegeUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DgvRolePrivilegeUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DgvRolePrivilegeUser.Name = "DgvRolePrivilegeUser";
             this.DgvRolePrivilegeUser.ReadOnly = true;
             this.DgvRolePrivilegeUser.RowTemplate.Height = 24;
-            this.DgvRolePrivilegeUser.Size = new System.Drawing.Size(671, 408);
+            this.DgvRolePrivilegeUser.Size = new System.Drawing.Size(895, 502);
             this.DgvRolePrivilegeUser.TabIndex = 0;
             this.DgvRolePrivilegeUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvRolePrivilegeUser_CellContentClick);
             // 
             // FrmRolePrivilegeUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 408);
+            this.ClientSize = new System.Drawing.Size(895, 502);
             this.Controls.Add(this.DgvRolePrivilegeUser);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmRolePrivilegeUser";
-            this.Text = "FrmRolePrivilegeUser";
+            this.Text = "Role Privilege User";
             this.Load += new System.EventHandler(this.FrmRolePrivilegeUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvRolePrivilegeUser)).EndInit();
             this.ResumeLayout(false);

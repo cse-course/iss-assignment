@@ -53,7 +53,7 @@
             this.ClientSize = new System.Drawing.Size(710, 457);
             this.Controls.Add(this.DgvUserDetail);
             this.Name = "FrmUserDetail";
-            this.Text = "FrmUserDetail";
+            this.Text = "User Detail";
             this.Load += new System.EventHandler(this.FrmUserDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvUserDetail)).EndInit();
             this.ResumeLayout(false);

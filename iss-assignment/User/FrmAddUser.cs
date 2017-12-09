@@ -303,15 +303,17 @@ namespace iss_assignment
                 it = LvwProfile.Items.Add(dr[0].ToString());
             }
         }
+
+        /// <summary>
+        /// Load only Role with admin option of user
+        /// </summary>
         private void LoadDataLvwRole()
         {
-            DataSet ds = OracleView.GetDistincRoleName();
-            DataTable dt = ds.Tables[0];
-            ListViewItem it;
-            foreach (DataRow dr in dt.Rows)
+            List<Privilege> privileges = this.privilegeBLL.RolePrivileges(this.currentUser.UserName, true);
+            foreach (var item in privileges)
             {
 
-                it = LvwRole.Items.Add(dr[0].ToString());
+               LvwRole.Items.Add(item.Name);
             }
 
         }

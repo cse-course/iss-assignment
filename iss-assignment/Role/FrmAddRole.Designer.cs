@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtPassword = new System.Windows.Forms.TextBox();
             this.BtnSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +50,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Role Information";
             // 
+            // TxtPassword
+            // 
+            this.TxtPassword.Location = new System.Drawing.Point(133, 54);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.Size = new System.Drawing.Size(257, 22);
+            this.TxtPassword.TabIndex = 2;
+            this.TxtPassword.Tag = "";
+            this.TxtPassword.UseSystemPasswordChar = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Password";
+            // 
             // TxtName
             // 
             this.TxtName.Location = new System.Drawing.Point(133, 26);
@@ -66,24 +84,6 @@
             this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Password";
-            // 
-            // TxtPassword
-            // 
-            this.TxtPassword.Location = new System.Drawing.Point(133, 54);
-            this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(257, 22);
-            this.TxtPassword.TabIndex = 2;
-            this.TxtPassword.Tag = "";
-            this.TxtPassword.UseSystemPasswordChar = true;
             // 
             // BtnSave
             // 
@@ -106,7 +106,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmAddRole";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAddRole";
+            this.Text = "Add Role";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

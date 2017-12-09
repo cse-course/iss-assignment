@@ -128,7 +128,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmRole";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmRole";
+            this.Text = "Role";
             this.Load += new System.EventHandler(this.FrmRole_Load);
             this.groupBox1.ResumeLayout(false);
             this.CmsRole.ResumeLayout(false);

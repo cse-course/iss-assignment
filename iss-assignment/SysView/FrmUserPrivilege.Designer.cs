@@ -53,7 +53,7 @@
             this.ClientSize = new System.Drawing.Size(941, 547);
             this.Controls.Add(this.DgvUserPrivilege);
             this.Name = "FrmUserPrivilege";
-            this.Text = "FrmUserPrivilege";
+            this.Text = "User Privilege";
             this.Load += new System.EventHandler(this.FrmUserPrivilege_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvUserPrivilege)).EndInit();
             this.ResumeLayout(false);

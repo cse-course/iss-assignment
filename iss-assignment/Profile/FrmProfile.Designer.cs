@@ -35,10 +35,10 @@
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnDeleteCascade = new System.Windows.Forms.Button();
             this.CmsProfile = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteCascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.CmsProfile.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +105,14 @@
             this.deleteToolStripMenuItem,
             this.deleteCascadeToolStripMenuItem});
             this.CmsProfile.Name = "CmsProfile";
-            this.CmsProfile.Size = new System.Drawing.Size(182, 128);
+            this.CmsProfile.Size = new System.Drawing.Size(182, 100);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -128,13 +135,6 @@
             this.deleteCascadeToolStripMenuItem.Text = "Delete Cascade";
             this.deleteCascadeToolStripMenuItem.Click += new System.EventHandler(this.DeleteCascadeToolStripMenuItem_Click);
             // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
-            // 
             // FrmProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -147,7 +147,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmProfile";
+            this.Text = "Profile";
             this.Load += new System.EventHandler(this.FrmProfile_Load);
             this.groupBox1.ResumeLayout(false);
             this.CmsProfile.ResumeLayout(false);
