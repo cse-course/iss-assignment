@@ -41,6 +41,8 @@ namespace BLL
         List<Privilege> RolePrivileges();
 
         List<Grantee> GranteeRolePrivileges(String privilege, Boolean isAdmin);
+
+        List<Grantee> GranteeRolePrivileges(String privilege);
         #endregion Role
 
         #region Table

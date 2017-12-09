@@ -51,6 +51,7 @@
             this.revokeSystemPrivilegeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripMain = new System.Windows.Forms.StatusStrip();
             this.tssMain = new System.Windows.Forms.ToolStripStatusLabel();
+            this.revokeRoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -200,7 +201,8 @@
             this.privilegeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemPrivilegeToolStripMenuItem,
             this.grantRoleToolStripMenuItem,
-            this.revokeSystemPrivilegeToolStripMenuItem});
+            this.revokeSystemPrivilegeToolStripMenuItem,
+            this.revokeRoleToolStripMenuItem});
             this.privilegeToolStripMenuItem.Name = "privilegeToolStripMenuItem";
             this.privilegeToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.privilegeToolStripMenuItem.Text = "Privilege";
@@ -242,6 +244,13 @@
             this.tssMain.Name = "tssMain";
             this.tssMain.Size = new System.Drawing.Size(42, 20);
             this.tssMain.Text = "Main";
+            // 
+            // revokeRoleToolStripMenuItem
+            // 
+            this.revokeRoleToolStripMenuItem.Name = "revokeRoleToolStripMenuItem";
+            this.revokeRoleToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.revokeRoleToolStripMenuItem.Text = "Revoke Role";
+            this.revokeRoleToolStripMenuItem.Click += new System.EventHandler(this.RevokeRoleToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -290,6 +299,7 @@
         private System.Windows.Forms.StatusStrip statusStripMain;
         private System.Windows.Forms.ToolStripStatusLabel tssMain;
         private System.Windows.Forms.ToolStripMenuItem revokeSystemPrivilegeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem revokeRoleToolStripMenuItem;
     }
 }
 
