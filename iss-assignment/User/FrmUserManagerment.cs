@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,16 @@ namespace iss_assignment
     {
         private readonly UserManagementBLL view;
         private readonly UserManagementClassicBLL OracleView;
-        public FrmUserManagerment(UserManagementBLL view, UserManagementClassicBLL OracleView)
+
+        private readonly IPrivilegeBLL privilegeBLL;
+        private readonly UserPrincipal currentUser;
+
+        public FrmUserManagerment(UserManagementBLL view, UserManagementClassicBLL OracleView, IPrivilegeBLL privilegeBLL, UserPrincipal currentUser)
         {
             this.view = view;
             this.OracleView = OracleView;
+            this.privilegeBLL = privilegeBLL;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
         private void AddColumnListviewUserManagement()
@@ -63,7 +70,7 @@ namespace iss_assignment
         private void LvwUserManagerment_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             String text = LvwUserManagerment.SelectedItems[0].Text;
-            frmUserInfo frm = new frmUserInfo(view, OracleView);
+            frmUserInfo frm = new frmUserInfo(view, OracleView, this.privilegeBLL, this.currentUser);
             frm.frmParamUsername = text;
             frm.FormClosed += new FormClosedEventHandler(frmUserInfo_FormClosed);
             frm.Show();

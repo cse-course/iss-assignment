@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,10 +13,15 @@ namespace iss_assignment
     {
         private readonly UserManagementBLL view;
         private readonly UserManagementClassicBLL OracleView;
-        public frmUserInfo(UserManagementBLL view, UserManagementClassicBLL OracleView)
+
+        private readonly IPrivilegeBLL privilegeBLL;
+        private readonly UserPrincipal currentUser;
+        public frmUserInfo(UserManagementBLL view, UserManagementClassicBLL OracleView, IPrivilegeBLL privilegeBLL, UserPrincipal currentUser)
         {
             this.view = view;
             this.OracleView = OracleView;
+            this.privilegeBLL = privilegeBLL;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
 
@@ -193,14 +199,14 @@ namespace iss_assignment
 
         private void frmUserInfo_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FrmUserManagerment owner = new FrmUserManagerment(view,  OracleView);
+            FrmUserManagerment owner = new FrmUserManagerment(view,  OracleView, this.privilegeBLL, this.currentUser);
             owner.LoadData();
         }
 
         private void BtnAddRole_Click(object sender, EventArgs e)
         {
             String Username = lblUsername.Text;
-            FrmAddRoleToUser FrmChild_AddRole = new FrmAddRoleToUser(OracleView);
+            FrmAddRoleToUser FrmChild_AddRole = new FrmAddRoleToUser(OracleView, this.privilegeBLL, this.currentUser);
             FrmChild_AddRole.frmParamUsername = Username;
             FrmChild_AddRole.FormClosed += new FormClosedEventHandler(FrmChild_FormClosed);
             FrmChild_AddRole.Show();

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,15 @@ namespace iss_assignment
     {
         public string frmParamUsername = "";
         private readonly UserManagementClassicBLL OracleView;
-        public FrmAddRoleToUser(UserManagementClassicBLL OracleView)
+
+        private readonly IPrivilegeBLL privilegeBLL;
+        private readonly UserPrincipal currentUser;
+
+        public FrmAddRoleToUser(UserManagementClassicBLL OracleView, IPrivilegeBLL privilegeBLL, UserPrincipal currentUser)
         {
             this.OracleView = OracleView;
+            this.privilegeBLL = privilegeBLL;
+            this.currentUser = currentUser;
             InitializeComponent();
         }
 
@@ -42,13 +49,10 @@ namespace iss_assignment
         {
 
             AddColumnLvwRole();
-            DataSet ds = OracleView.GetDistincRoleName();
-            DataTable dt = ds.Tables[0];
-            ListViewItem it;
-            foreach (DataRow dr in dt.Rows)
+            var items = this.privilegeBLL.RolePrivileges(this.currentUser.UserName, true);
+            foreach (var item in items)
             {
-
-                it = LvwRole.Items.Add(dr[0].ToString());
+                LvwRole.Items.Add(item.Name);
             }
         }
         private void AddRoleFromForm()
