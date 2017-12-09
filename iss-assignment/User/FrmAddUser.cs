@@ -216,10 +216,12 @@ namespace iss_assignment
                 else
                 {
                     String HashPassword = PasswordUtils.Get(Password);
+                    DateTime now = DateTime.Now;
                     USER_MANAGEMENT user = new USER_MANAGEMENT
                     {
                         USERNAME = Username,
-                        PASSWORD = HashPassword
+                        PASSWORD = HashPassword,
+                        CREATE_TIME = now
                     };
                     //Rat tiec khong them thi khomg save duoc
                     this.view.Add(user); //Khong dc them cai nay? vi dang save bang OracleView khong phai save view 
