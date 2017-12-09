@@ -31,6 +31,7 @@ namespace iss_assignment
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            main.SetStatus("Loging...");
             String Username = txtUsername.Text;
             String Password = TxtPassword.Text;
             if (Username == "" || Password == "")
@@ -58,6 +59,7 @@ namespace iss_assignment
                             this.currentUser.IsAdmin = false;
 
                         }
+                        main.SetStatus(String.Join(" ", "Hello,", currentUser.UserName));
                         main.StatusAll(true);
                         Hide();
                     }

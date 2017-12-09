@@ -53,6 +53,7 @@ namespace iss_assignment
         private void LoadLogin()
         {
             this.StatusAll(false);
+            this.SetStatus("Ready");
             FrmUserLogin login = new FrmUserLogin(this, this.userManagementBLL, this.currentUser)
             {
                 MdiParent = this
@@ -260,6 +261,11 @@ namespace iss_assignment
                 this.profileResourceUserToolStripMenuItem.Enabled = false;
                 this.rolePrivilegeUserToolStripMenuItem.Enabled = false;
             }
+        }
+
+        public void SetStatus(String status)
+        {
+            this.tssMain.Text = status;
         }
     }
 }
